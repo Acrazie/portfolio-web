@@ -1,22 +1,17 @@
 import { useEffect, useState } from 'react'
 import type { RefObject } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
-import { AdditiveBlending, BufferAttribute, BufferGeometry, ShaderMaterial, Vector2 } from 'three'
+import type { BufferGeometry, ShaderMaterial } from 'three'
 import type { MotionValue } from 'motion/react'
-import { createGlyphAtlas } from './create-glyph-atlas'
-import { createParticleData } from './execution-graph-model'
-import vertexShader from './shaders/glyph.vert.glsl?raw'
-import fragmentShader from './shaders/glyph.frag.glsl?raw'
+import { createGraphResources } from './graph-resources'
 export type SceneProps = { progress:MotionValue<number>; reduced:boolean; active:boolean; onFailure:()=>void; pointer:RefObject<{x:number;y:number}>; host:RefObject<HTMLDivElement|null> }
 export function GlyphParticles({progress,reduced,active,onFailure,pointer,host}:SceneProps) {
  const {invalidate,viewport,size,gl}=useThree()
  const [resources,setResources]=useState<{geometry:BufferGeometry;material:ShaderMaterial}|null>(null)
  useEffect(()=>{
-  const atlas=createGlyphAtlas(), data=createParticleData(240,42), geometry=new BufferGeometry()
-  for(const [name,array,width] of [['position',data.position,3],['aTarget',data.target,3],['aGlyph',data.glyph,1],['aPhase',data.phase,1],['aSize',data.size,1]] as const) geometry.setAttribute(name,new BufferAttribute(array,width))
-  const material=new ShaderMaterial({vertexShader,fragmentShader,transparent:true,depthWrite:false,blending:AdditiveBlending,uniforms:{uAtlas:{value:atlas},uMorph:{value:0},uPointer:{value:new Vector2(9999,9999)},uTime:{value:0},uGlyphSize:{value:16},uDevicePixelRatio:{value:1},uReducedMotion:{value:0},uMaxDisplacement:{value:10}}})
-  setResources({geometry,material}); invalidate()
-  return ()=>{geometry.dispose();material.dispose();atlas.dispose()}
+  const resources=createGraphResources()
+  setResources(resources); invalidate()
+  return ()=>resources.dispose()
  },[invalidate])
  useEffect(()=> {
   if(!active || reduced) return

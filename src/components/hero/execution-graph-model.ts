@@ -1,6 +1,6 @@
 export const stages = ['intent', 'model', 'AC', 'build', 'verify', 'ship'] as const
 const tree = [[.12,.28],[.3,.28],[.5,.5],[.7,.28],[.7,.72],[.88,.72]]
-const loop = [[.22,.28],[.5,.2],[.5,.5],[.78,.28],[.78,.72],[.22,.72]]
+const loop = [[.22,.28],[.5,.2],[.5,.5],[.78,.28],[.78,.5],[.22,.88]]
 export const edges = [[0,1],[1,2],[2,3],[2,4],[3,4],[4,5],[5,2]] as const
 export function createGraphFrame({width,height,progress}: {width:number;height:number;progress:number;seed:number}) {
  const t = Math.min(1,Math.max(0,progress))

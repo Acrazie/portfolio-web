@@ -8,6 +8,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'robots', content: 'noindex, nofollow' },
       { title: 'Acrazie — Software Engineer & AI Engineer' },
       { name: 'description', content: 'Portfolio foundation for Acrazie, Software Engineer and AI Engineer.' },
     ],
