@@ -1,0 +1,9 @@
+.git
+.hermes
+node_modules
+.output
+coverage
+playwright-report
+test-results
+.DS_Store
+.env*
