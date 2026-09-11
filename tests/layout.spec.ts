@@ -4,11 +4,14 @@ test('capability rules have visible thickness',async({page})=>{
  const rules=page.locator('#capabilities [data-slot=separator]')
  for(const rule of await rules.all()) expect((await rule.boundingBox())!.height).toBe(1)
 })
-test('graph labels follow the delivery-loop morph',async({page})=>{
+test('hero is an ample unframed surface with concise copy and no fabrication labels',async({page})=>{
  await page.goto('/')
- const graph=page.getByTestId('execution-graph-fallback'), intent=graph.getByText('intent',{exact:true})
- await graph.scrollIntoViewIfNeeded()
- const before=await intent.getAttribute('style')
- await page.evaluate(()=>window.scrollBy({top:180,behavior:'instant'}))
- await expect.poll(()=>intent.getAttribute('style')).not.toBe(before)
+ const hero=page.getByRole('region',{name:'Software. With a new perspective.'})
+ await expect(hero).not.toContainText(/Content pending|Demand render|Execution graph|constellation|Intent →/i)
+ const scene=page.getByTestId('logo-particles')
+ await expect(scene).toHaveAttribute('aria-hidden','true')
+ const style=await scene.evaluate(e=>({border:getComputedStyle(e).borderWidth,bg:getComputedStyle(e).backgroundColor}))
+ expect(style).toEqual({border:'0px',bg:'rgba(0, 0, 0, 0)'})
+ const viewport=page.viewportSize()!
+ expect((await scene.boundingBox())!.width).toBeGreaterThan(viewport.width*.5)
 })

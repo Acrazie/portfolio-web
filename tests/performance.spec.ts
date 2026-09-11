@@ -3,19 +3,19 @@ test('three simultaneous invalidations coalesce into one draw',async({page})=>{
  await page.goto('/')
  const graph=page.getByTestId('execution-graph-canvas')
  await graph.scrollIntoViewIfNeeded();await expect(graph).toHaveAttribute('data-ready','true')
- await page.waitForTimeout(500)
+ await expect(graph).toHaveAttribute('data-phase','settled',{timeout:12000});await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight/2,behavior:'instant'}));await expect(graph).toHaveAttribute('data-split','1');await page.waitForTimeout(200)
  const before=Number(await graph.getAttribute('data-draw-count'))
- await graph.evaluate(g=>{for(let i=0;i<3;i++)g.parentElement!.dispatchEvent(new Event('graphpointer'))})
+ await page.evaluate(()=>{for(let i=0;i<3;i++)window.dispatchEvent(new Event('scroll'))})
  await expect.poll(async()=>Number(await graph.getAttribute('data-draw-count'))).toBe(before+1)
- await page.waitForTimeout(500)
+ await expect(graph).toHaveAttribute('data-phase','settled',{timeout:12000});await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight/2,behavior:'instant'}));await expect(graph).toHaveAttribute('data-split','1');await page.waitForTimeout(200)
  expect(Number(await graph.getAttribute('data-draw-count'))).toBe(before+1)
 })
-test('narrow viewport has no overflow or graph label collision',async({page})=>{
+test('narrow viewport keeps the headline and sculpture without horizontal overflow',async({page})=>{
  await page.setViewportSize({width:320,height:568});await page.goto('/')
- const graph=page.getByTestId('execution-graph-fallback');await graph.scrollIntoViewIfNeeded()
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBe(0)
- const boxes=await graph.locator('li').evaluateAll(nodes=>nodes.map(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom}}))
- for(let a=0;a<boxes.length;a++)for(let b=a+1;b<boxes.length;b++){
-  const x=boxes[a],y=boxes[b];expect(x.left<y.right && x.right>y.left && x.top<y.bottom && x.bottom>y.top).toBe(false)
- }
+ await expect(page.getByRole('heading',{level:1})).toHaveClass('sr-only')
+ await expect(page.getByRole('link',{name:/Explore capabilities/})).toHaveCount(0)
+ const scene=page.getByTestId('logo-particles');await scene.scrollIntoViewIfNeeded()
+ await expect(page.getByTestId('execution-graph-canvas')).toHaveAttribute('data-ready','true')
+ expect((await scene.boundingBox())!.height).toBeGreaterThanOrEqual(300)
 })

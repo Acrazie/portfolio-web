@@ -1,40 +1,44 @@
-import { Component, lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { Component, lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
-import { useReducedMotion, useScroll, useMotionValueEvent } from 'motion/react'
-import { ExecutionGraphFallback } from './ExecutionGraphFallback'
+import type {LayoutRefs} from './use-particle-layout'
 const Scene=lazy(()=>import('./ExecutionGraphScene'))
-class SceneBoundary extends Component<{children:ReactNode},{failed:boolean}> {
+class SceneBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}> {
  state={failed:false}
  static getDerivedStateFromError(){return {failed:true}}
+ componentDidCatch(){this.props.onFailure()}
  render(){return this.state.failed?null:this.props.children}
 }
-export function ExecutionGraph() {
- const ref=useRef<HTMLDivElement>(null), pointer=useRef({x:9999,y:9999})
- const [mounted,setMounted]=useState(false),[active,setActive]=useState(false),[failed,setFailed]=useState(false)
- const reduced=!!useReducedMotion(), {scrollYProgress}=useScroll({target:ref,offset:['start end','end start']})
- const [morph,setMorph]=useState(0)
- useMotionValueEvent(scrollYProgress,'change',value=>{if(active && !reduced)setMorph(value)})
- useEffect(()=>{if(active && !reduced)setMorph(scrollYProgress.get())},[active,reduced,scrollYProgress])
+export function ExecutionGraph({refs}:{refs:LayoutRefs}) {
+ const ref=refs.host
+ const [mounted,setMounted]=useState(false),[active,setActive]=useState(false),[failed,setFailed]=useState(false),[paused,setPaused]=useState(false)
+ const [reduced,setReduced]=useState(false)
+
+ useEffect(()=>{
+  // Motion's current useReducedMotion snapshots only the initial preference.
+  const media=window.matchMedia('(prefers-reduced-motion: reduce)')
+  const update=()=>setReduced(media.matches)
+  update();media.addEventListener('change',update)
+  return ()=>media.removeEventListener('change',update)
+ },[])
  const onFailure=useCallback(()=>setFailed(true),[])
  useEffect(()=>{
-  if (!('IntersectionObserver' in window) || !('WebGLRenderingContext' in window)) return
+  if (!('WebGLRenderingContext' in window)) return
   setMounted(true)
-  let visible=false
-  const update=()=>setActive(visible && document.visibilityState==='visible')
-  const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;update()})
-  if(ref.current)observer.observe(ref.current)
-  document.addEventListener('visibilitychange',update)
-  return ()=>{observer.disconnect();document.removeEventListener('visibilitychange',update)}
+  const update=()=>setActive(document.visibilityState==='visible')
+  update();document.addEventListener('visibilitychange',update)
+  return ()=>document.removeEventListener('visibilitychange',update)
  },[])
- return <div ref={ref} onPointerMove={event=>{
-  if(reduced || !active)return
-  const rect=event.currentTarget.getBoundingClientRect()
-  pointer.current={x:((event.clientX-rect.left)/rect.width-.5)*800,y:(.5-(event.clientY-rect.top)/rect.height)*560}
-  event.currentTarget.dispatchEvent(new Event('graphpointer'))
- }} className="relative aspect-[4/3] w-full min-h-80 overflow-hidden border border-white/15 bg-[#191a24] text-white" aria-label="Execution graph: from intent to delivery">
-  <div className="absolute inset-x-5 top-5 z-10 flex justify-between gap-4 border-b border-white/15 pb-4 font-mono text-[9px] uppercase tracking-[.14em] text-[#c5c5d5]"><span>Portfolio / Execution graph</span><span>01—05</span></div>
-  <ExecutionGraphFallback progress={mounted && reduced?.5:morph} />
-  {mounted && !failed && <SceneBoundary><Suspense fallback={null}><Scene progress={scrollYProgress} reduced={reduced} active={active} onFailure={onFailure} pointer={pointer} host={ref}/></Suspense></SceneBoundary>}
-  <div className="absolute inset-x-5 bottom-5 z-10 flex justify-between gap-4 border-t border-white/15 pt-4 font-mono text-[9px] uppercase tracking-[.1em] text-[#c5c5d5]"><span>Intent → verified release</span><span>Demand render</span></div>
+ const enabled=active && !reduced && !paused && !failed
+ useEffect(()=>{
+  if(!enabled){
+   if(refs.page.current)refs.page.current.dataset.gpu='false'
+   if(refs.word.current)refs.word.current.style.opacity=''
+  }
+ },[enabled,refs])
+ return <>
+ <div ref={ref} className="fixed inset-0 z-10 pointer-events-none" style={{visibility:enabled?'visible':'hidden'}} aria-hidden="true" data-testid="logo-particles">
+  {mounted && !failed && <SceneBoundary onFailure={onFailure}><Suspense fallback={null}><Scene refs={refs} reduced={reduced} paused={paused} active={enabled} onFailure={onFailure}/></Suspense></SceneBoundary>}
  </div>
+ {mounted && !reduced && !failed && <button type="button" aria-pressed={paused} onClick={()=>setPaused(value=>!value)} className="fixed bottom-5 right-3 z-20 min-h-11 min-w-11 px-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground focus-visible:outline-2 sm:right-8" aria-label={paused?'Resume animation':'Pause animation'}>{paused?'Play':'Pause'}</button>}
+ </>
 }

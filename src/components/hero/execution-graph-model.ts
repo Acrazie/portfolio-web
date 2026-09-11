@@ -1,24 +1,21 @@
-export const stages = ['intent', 'model', 'AC', 'build', 'verify', 'ship'] as const
-const tree = [[.12,.28],[.3,.28],[.5,.5],[.7,.28],[.7,.72],[.88,.72]]
-const loop = [[.22,.28],[.5,.2],[.5,.5],[.78,.28],[.78,.5],[.22,.88]]
-export const edges = [[0,1],[1,2],[2,3],[2,4],[3,4],[4,5],[5,2]] as const
-export function createGraphFrame({width,height,progress}: {width:number;height:number;progress:number;seed:number}) {
- const t = Math.min(1,Math.max(0,progress))
- return { nodes: stages.map((label,i) => ({id:label,label,x:(tree[i][0]+(loop[i][0]-tree[i][0])*t)*width,y:(tree[i][1]+(loop[i][1]-tree[i][1])*t)*height})), edges }
-}
-export function createParticleData(count:number,seed:number) {
- let state = seed >>> 0
- const random = () => { state = (Math.imul(state,1664525)+1013904223)>>>0; return state/4294967296 }
- const position = new Float32Array(count*3), target = new Float32Array(count*3)
- const glyph = new Float32Array(count), phase = new Float32Array(count), size = new Float32Array(count)
- for(let i=0;i<count;i++) {
-  const [a,b] = edges[i%edges.length], t=random()
-  for(const [out,points] of [[position,tree],[target,loop]] as const) {
-   out[i*3]=(points[a][0]+(points[b][0]-points[a][0])*t-.5)*800
-   out[i*3+1]=(.5-points[a][1]-(points[b][1]-points[a][1])*t)*560
-   out[i*3+2]=0
-  }
-  glyph[i]=9+Math.floor(random()*9); phase[i]=random()*6.28; size[i]=.65+random()*.45
+export type LogoPixels={width:number;height:number;data:Uint8ClampedArray}
+// Targets and RGB come only from the supplied image; white/transparent holes stay empty.
+export function createParticleData(image:LogoPixels,seed:number) {
+ let state=seed>>>0
+ const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296}
+ const life:number[]=[]
+ const ink=(x:number,y:number)=>{if(x<0||y<0||x>=image.width||y>=image.height)return false;const i=(y*image.width+x)*4;return image.data[i+3]>=128 && Math.min(image.data[i],image.data[i+1],image.data[i+2])<=240}
+ const positions:number[]=[],targets:number[]=[],colors:number[]=[],glyphs:number[]=[],phases:number[]=[],sizes:number[]=[]
+ for(let y=0;y<image.height;y++)for(let x=0;x<image.width;x++){
+  const i=(y*image.width+x)*4, [r,g,b,a]=image.data.slice(i,i+4)
+  if(a<128 || Math.min(r,g,b)>240)continue
+  targets.push(((x+.5)/image.width-.5)*800,(.5-(y+.5)/image.height)*800,0)
+  positions.push((random()-.5)*1900,(random()-.5)*1500,(random()-.5)*700)
+  const edge=!ink(x-1,y)||!ink(x+1,y)||!ink(x,y-1)||!ink(x,y+1)
+  const scatter=edge && random()<.35 ? 14+random()*34 : 0
+  const length=Math.max(1,Math.hypot(x-image.width/2,image.height/2-y))
+  life.push((x-image.width/2)/length*scatter,(image.height/2-y)/length*scatter,scatter?1:0)
+  colors.push(r/255,g/255,b/255);glyphs.push(Math.floor(random()*18));phases.push(random()*Math.PI*2);sizes.push(.85+random()*.3)
  }
- return {position,target,glyph,phase,size}
+ return {life:new Float32Array(life),position:new Float32Array(positions),target:new Float32Array(targets),color:new Float32Array(colors),glyph:new Float32Array(glyphs),phase:new Float32Array(phases),size:new Float32Array(sizes)}
 }

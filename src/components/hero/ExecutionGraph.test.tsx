@@ -1,9 +1,11 @@
 import { renderToString } from 'react-dom/server'
 import { expect, it } from 'vitest'
-import { ExecutionGraph } from './ExecutionGraph'
-it('serves a meaningful graph without browser globals or loading Three', () => {
- const html=renderToString(<ExecutionGraph />)
+import { PortfolioPage } from '../PortfolioPage'
+it('serves an original logo and semantic word without browser globals or Three', () => {
+ const html=renderToString(<PortfolioPage />)
  expect(html).toContain('execution-graph-fallback')
- for(const label of ['intent','model','build','verify','ship','AC']) expect(html).toContain(label)
- expect(html).not.toContain('<canvas')
+ expect(html).toContain('/logo.png')
+ expect(html).toContain('MAYEUL')
+ expect(html).toContain('aria-hidden="true"')
+ expect(html).not.toMatch(/Execution flow|Demand render|Intent →|<ol|<canvas/)
 })

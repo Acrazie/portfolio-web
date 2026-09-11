@@ -1,6 +1,6 @@
 # Acrazie portfolio
 
-An English, server-rendered portfolio foundation built with React, TanStack Start, Tailwind CSS v4, source-owned shadcn/Base UI primitives, Motion, and Bun. The interactive execution graph uses React Three Fiber, GLSL `ShaderMaterial` points, and a generated glyph `CanvasTexture`.
+An English, server-rendered portfolio foundation built with React, TanStack Start, Tailwind CSS v4, source-owned shadcn/Base UI primitives, Motion, and Bun. The unframed folded-woven-surface hero uses React Three Fiber, GLSL `ShaderMaterial` points, and a generated glyph `CanvasTexture`.
 
 **This is a draft, not a completed professional profile.** Projects, capabilities, and contact details are explicitly marked `Content pending`. No fictional employers, results, contact links, or availability are supplied. Robots are disallowed and page metadata is `noindex, nofollow`; neither is access control. Do not publish the draft.
 
@@ -31,7 +31,7 @@ bun run test:e2e
 
 `check` runs TypeScript, Vitest, and a production build. **Use `bun run test`, not `bun test`:** the tests rely on Vitest and jsdom, not Bun's built-in test runner. Browser tests run Chromium desktop and Pixel 7 emulation against an isolated dev server on port 4173.
 
-Coverage includes truthful content, SSR visibility, graph determinism, atlas UVs, GPU resource disposal, semantic navigation, keyboard access, axe accessibility checks, narrow layouts, context loss, reduced motion, demand rendering, idle/off-screen suspension, and invalidation coalescing. Playwright HTML reports and traces are ignored by Git.
+Coverage includes truthful content, SSR visibility, surface determinism and depth, atlas UVs, GPU resource disposal, semantic navigation, keyboard access, axe accessibility checks, narrow layouts, context loss, reduced motion, demand rendering, idle/off-screen suspension, and invalidation coalescing. Playwright HTML reports and traces are ignored by Git.
 
 Optional WebKit checks on a supported OS:
 
@@ -91,12 +91,13 @@ Remove `Content pending` only for verified material, and update the honesty test
 
 ## Rendering and known limits
 
-- The meaningful DOM graph stays mounted for SSR, no JavaScript, unavailable WebGL, lazy-load failure, and context loss.
+- The decorative SVG woven surface stays mounted for SSR, no JavaScript, unavailable WebGL, lazy-load failure, and context loss.
+- A concise three-line headline sits beside an ample blue/lavender typographic textile on the cream hero. The scene has no frame, flowchart nodes, caption, or implementation labels; other sections retain their honest pending statuses.
 - Three/R3F is isolated behind a mounted, lazy scene boundary. It is not executed during SSR.
-- Rendering is demand-driven, capped at DPR 2 and 240 glyphs. Pointer displacement is bounded; reduced-motion mode fixes morph progress and disables input/time motion. Off-screen and hidden-document input subscriptions stop requesting frames.
+- Rendering is demand-driven, capped at DPR 2 and 12,000 glyphs. Pointer displacement is bounded; reduced-motion mode fixes morph progress and disables input/time motion. Off-screen and hidden-document input subscriptions stop requesting frames.
 - Geometry, material, and atlas texture are explicitly disposed. Motion reveals start with visible SSR content.
 - Component styling lives in Tailwind utilities. `src/styles/app.css` contains only the theme and global base rules. Only Button, Badge, and Separator are used from shadcn.
 - The accepted Three/R3F stack is substantial: the lazy hero is about **883 kB raw / 235 kB gzip**, above the plan's 650 KiB investigation threshold. Inspection found R3F's standard `Canvas` registers the entire Three namespace. Application imports are named and there are no Drei/add-on imports; avoiding that cost would require a separately reviewed custom R3F root.
-- The route chunk is about **134 kB raw / 48 kB gzip**; the shared React/TanStack bootstrap adds about **314 kB raw / 101 kB gzip**. Total eager JavaScript therefore exceeds a 250 KiB whole-page budget. These are not presented as a performance-budget pass.
+- The route chunk is about **133 kB raw / 48 kB gzip**; the shared React/TanStack bootstrap adds about **314 kB raw / 101 kB gzip**. Total eager JavaScript therefore exceeds a 250 KiB whole-page budget. These are not presented as a performance-budget pass.
 - Browser instrumentation found no long tasks during the sampled first interaction, but one desktop cold-load task exceeded 100 ms. Small measured layout shifts remain; do not treat the local checks as a full Lighthouse or real-device performance certification.
 - Development logs include R3F's upstream `THREE.Clock` deprecation warning. No full dependency/security audit has been claimed.
