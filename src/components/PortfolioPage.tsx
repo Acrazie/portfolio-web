@@ -1,4 +1,4 @@
-import {useMemo,useRef} from 'react'
+import {useMemo,useRef,useState} from 'react'
 import {ExecutionGraphFallback} from './hero/ExecutionGraphFallback'
 import { portfolio } from '@/content/portfolio'
 import { Badge } from './ui/badge'
@@ -11,10 +11,11 @@ const container = 'mx-auto max-w-[80rem] px-6 sm:px-10 lg:px-14'
 const anchor = 'inline-flex min-h-11 items-center px-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent'
 export function PortfolioPage() {
  const page=useRef<HTMLDivElement>(null),hero=useRef<HTMLElement>(null),word=useRef<HTMLSpanElement>(null),host=useRef<HTMLDivElement>(null)
+ const [staticLogo,setStaticLogo]=useState(false)
  const refs=useMemo(()=>({page,hero,word,host}),[])
  return <MotionProvider><div ref={page} className="relative isolate [&[data-gpu=true]_[data-hero-fallback]]:invisible">
   <a href="#main" className="fixed left-4 top-4 z-50 -translate-y-24 bg-foreground px-5 py-3 text-background focus:translate-y-0">Skip to content</a>
-  <ExecutionGraph refs={refs} />
+  <ExecutionGraph refs={refs} onFallbackChange={setStaticLogo} />
   <header className={`${container} absolute inset-x-0 top-0 z-30`}><div className="flex flex-wrap items-center justify-between gap-x-5 border-b py-5 sm:py-7">
    <span className="text-lg font-semibold tracking-[-.055em]">{portfolio.wordmark}<span className="ml-1 text-accent">.</span></span>
    <nav aria-label="Primary" className="flex gap-1 text-xs sm:gap-5 sm:text-sm">{[['Work','work'],['Capabilities','capabilities'],['Contact','contact']].map(([name,id])=><a key={id} className={anchor} href={`#${id}`}>{name}</a>)}</nav>
@@ -22,7 +23,7 @@ export function PortfolioPage() {
   <main id="main" tabIndex={-1}>
    <section ref={hero} aria-labelledby="intro-title" className="relative h-svh min-h-[480px] overflow-hidden">
     <h1 id="intro-title" className="sr-only">Software. With a new perspective.</h1>
-    <div data-hero-fallback className="absolute inset-0 scale-[1.12]"><ExecutionGraphFallback /></div>
+    {staticLogo && <div data-hero-fallback className="absolute inset-0 scale-[1.12]"><ExecutionGraphFallback /></div>}
     <a href="#capabilities" className={`${label} absolute bottom-5 left-1/2 z-20 inline-flex min-h-11 -translate-x-1/2 items-center gap-4 whitespace-nowrap px-4 focus-visible:outline-2`}>Scroll to explore <span aria-hidden="true">↓</span></a>
    </section>
    <section data-particle-content id="capabilities" aria-labelledby="capabilities-title" className={`${container} scroll-mt-8 pb-20 sm:pb-28`}><Reveal>

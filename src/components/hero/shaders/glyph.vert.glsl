@@ -38,5 +38,6 @@ void main() {
   gl_PointSize=clamp(uGlyphSize*aSize*uDevicePixelRatio*depth*(1.0+.12*agitation),1.0,42.0);
   vGlyph=aGlyph;vColor=aColor;
   float registration=1.0-.94*smoothstep(.78,1.0,uWord);
-  vAlpha=mix(.6,1.0,c)*mix(mix(1.0,.42,uSplit),registration,uWord);
+  float constellation=smoothstep(0.0,.12,uIntro);
+  vAlpha=constellation*mix(.6,1.0,c)*mix(mix(1.0,.42,uSplit),registration,uWord);
 }

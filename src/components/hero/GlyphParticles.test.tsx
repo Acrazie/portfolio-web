@@ -4,7 +4,7 @@ import fragment from './shaders/glyph.frag.glsl?raw'
 it('preserves physical hero motion, uses depth paths and clips content without click-burst uniforms',()=>{
  expect(vertex).toContain('aMotion')
  expect(vertex).toContain('700.0/max(200.0,700.0-p.z)')
- expect(vertex).toContain('mix(.6,1.0,c)')
+ expect(vertex).toContain('constellation*mix(.6,1.0,c)')
  expect(vertex).toContain('inv*inv*inv*p+3.0*inv*inv*t*first')
  expect(vertex).toContain('aWord.xy+uWordCenter')
  expect(vertex).not.toMatch(/uPulse|uBounds|uSegments/)
