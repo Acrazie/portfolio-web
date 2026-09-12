@@ -76,6 +76,12 @@ PORTFOLIO_PORT=4180 docker compose down
 
 `PLAYWRIGHT_BASE_URL` tests an already-running server instead of starting Vite. For a containerized reverse proxy, decide the shared Docker network before changing the host binding. Rebuild the image after source changes; `up` alone does not rebuild it.
 
+## Delivery
+
+Production changes reach `main` through pull requests. The `Portfolio CI` workflow runs TypeScript checks, unit tests, the production build, and a production-container build. GitHub branch rules must require its `Typecheck, tests and production build` check, reject direct pushes, and require the branch to be current before merge.
+
+After a protected merge, Dokploy Auto Deploy watches `main` and performs the deployment. GitHub Actions does not connect to Dokploy or deploy directly.
+
 ## Content handoff
 
 Edit [`src/content/portfolio.ts`](src/content/portfolio.ts) for draft positioning and case-study data. The editorial introduction and section framing are composed in [`src/components/PortfolioPage.tsx`](src/components/PortfolioPage.tsx).
