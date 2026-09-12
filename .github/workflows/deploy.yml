@@ -45,12 +45,15 @@ jobs:
           CLOUDFLARE_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
           CLOUDFLARE_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
         run: |
+          deploy_token="${DOKPLOY_DEPLOY_URL##*/}"
+          echo "::add-mask::$deploy_token"
+
           payload=$(jq -nc \
             --arg ref "$GITHUB_REF" \
             --arg sha "$GITHUB_SHA" \
             '{ref: $ref, head_commit: {id: $sha, message: "CI passed"}, commits: []}')
 
-          curl --fail-with-body --silent --show-error \
+          curl --fail --silent --show-error --output /dev/null \
             --request POST \
             --header "CF-Access-Client-Id: $CLOUDFLARE_ACCESS_CLIENT_ID" \
             --header "CF-Access-Client-Secret: $CLOUDFLARE_ACCESS_CLIENT_SECRET" \
