@@ -1,7 +1,9 @@
-name: Portfolio CI
+name: Portfolio CI/CD
 
 on:
   pull_request:
+    branches: [main]
+  push:
     branches: [main]
   workflow_dispatch:
 
@@ -28,3 +30,31 @@ jobs:
       - run: bun run check
       - name: Verify production container builds
         run: docker build --target runtime -t portfolio-ci .
+
+  deploy:
+    name: Deploy production through Dokploy
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: production
+    steps:
+      - name: Trigger Dokploy deployment
+        env:
+          DOKPLOY_DEPLOY_URL: ${{ secrets.DOKPLOY_DEPLOY_URL }}
+          CLOUDFLARE_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
+          CLOUDFLARE_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
+        run: |
+          payload=$(jq -nc \
+            --arg ref "$GITHUB_REF" \
+            --arg sha "$GITHUB_SHA" \
+            '{ref: $ref, head_commit: {id: $sha, message: "CI passed"}, commits: []}')
+
+          curl --fail-with-body --silent --show-error \
+            --request POST \
+            --header "CF-Access-Client-Id: $CLOUDFLARE_ACCESS_CLIENT_ID" \
+            --header "CF-Access-Client-Secret: $CLOUDFLARE_ACCESS_CLIENT_SECRET" \
+            --header "X-GitHub-Event: push" \
+            --header "Content-Type: application/json" \
+            --data "$payload" \
+            "$DOKPLOY_DEPLOY_URL"
