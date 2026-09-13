@@ -143,19 +143,16 @@
 
   .gradient-canvas-fallback {
     background:
-      radial-gradient(ellipse 20% 28% at 50% 7%, rgb(0 4 26 / 68%) 0%, transparent 100%),
-      radial-gradient(ellipse 15% 24% at 36% 55%, rgb(0 4 26 / 58%) 0%, transparent 100%),
-      radial-gradient(ellipse 15% 24% at 64% 55%, rgb(0 4 26 / 58%) 0%, transparent 100%),
-      radial-gradient(ellipse 28% 38% at 23% 19%, rgb(38 96 255 / 96%) 0%, transparent 100%),
-      radial-gradient(ellipse 28% 38% at 77% 19%, rgb(38 96 255 / 96%) 0%, transparent 100%),
-      radial-gradient(ellipse 24% 32% at 20% 43%, rgb(96 48 255 / 92%) 0%, transparent 100%),
-      radial-gradient(ellipse 24% 32% at 80% 43%, rgb(96 48 255 / 92%) 0%, transparent 100%),
-      radial-gradient(ellipse 18% 25% at 39% 27%, rgb(126 154 255 / 80%) 0%, transparent 100%),
-      radial-gradient(ellipse 18% 25% at 61% 27%, rgb(126 154 255 / 80%) 0%, transparent 100%),
-      radial-gradient(ellipse 23% 31% at 50% 46%, rgb(18 62 221 / 88%) 0%, transparent 100%),
-      radial-gradient(ellipse 26% 34% at 43% 67%, rgb(92 72 255 / 76%) 0%, transparent 100%),
-      radial-gradient(ellipse 26% 34% at 57% 67%, rgb(92 72 255 / 76%) 0%, transparent 100%),
-      linear-gradient(#020617 0%, #071a62 62%, #4338ca 100%);
+      radial-gradient(ellipse 20% 28% at 56% 8%, rgb(2 6 23 / 28%) 0%, transparent 100%),
+      radial-gradient(ellipse 13% 20% at 46% 58%, rgb(2 6 23 / 26%) 0%, transparent 100%),
+      radial-gradient(ellipse 32% 42% at 19% 18%, rgb(48 108 255 / 92%) 0%, transparent 100%),
+      radial-gradient(ellipse 28% 38% at 72% 24%, rgb(164 183 255 / 92%) 0%, transparent 100%),
+      radial-gradient(ellipse 25% 34% at 27% 46%, rgb(112 58 255 / 88%) 0%, transparent 100%),
+      radial-gradient(ellipse 21% 29% at 48% 34%, rgb(197 178 255 / 84%) 0%, transparent 100%),
+      radial-gradient(ellipse 29% 39% at 79% 50%, rgb(42 102 255 / 88%) 0%, transparent 100%),
+      radial-gradient(ellipse 30% 39% at 36% 69%, rgb(132 104 255 / 80%) 0%, transparent 100%),
+      radial-gradient(ellipse 23% 31% at 69% 68%, rgb(64 122 255 / 80%) 0%, transparent 100%),
+      linear-gradient(#050d2e 0%, #123081 58%, #5a52c9 100%);
   }
 
   .gradient-canvas-fade {
