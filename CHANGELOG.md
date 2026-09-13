@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/Acrazie/portfolio-web/compare/v0.1.1...v0.1.2) (2026-09-13)
+
+
+### Features
+
+* add PR automation workflow for auto-assigning and reviewer requests ([#14](https://github.com/Acrazie/portfolio-web/issues/14)) ([7093784](https://github.com/Acrazie/portfolio-web/commit/7093784e245b3af3da1ca41b6e092267d67d658a))
+* **ci:** add Betterleaks, Trivy, Dependabot, bundle summary, smoke test and Telegram notifications ([#16](https://github.com/Acrazie/portfolio-web/issues/16)) ([9d31022](https://github.com/Acrazie/portfolio-web/commit/9d3102234a646ba8ece6de0e0b724a2b88acb4f0))
+
 ## [0.1.1](https://github.com/Acrazie/portfolio-web/compare/v0.1.0...v0.1.1) (2026-09-13)
 
 
