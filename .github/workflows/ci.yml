@@ -8,18 +8,19 @@ on:
 
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
   group: portfolio-ci-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Lint & Typecheck
+  lint:
+    name: Lint (Biome)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
@@ -29,6 +30,20 @@ jobs:
         run: bun install --frozen-lockfile
       - name: Lint with Biome
         run: bun run lint
+
+  typecheck:
+    name: Typecheck (TypeScript)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: '1.3.14'
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
       - name: Typecheck with TypeScript
         run: bun run typecheck
 
@@ -37,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
@@ -53,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
@@ -64,7 +79,7 @@ jobs:
       - name: Compile internationalization messages
         run: bun run paraglide:compile
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -78,7 +93,7 @@ jobs:
       - name: Run Playwright tests
         run: bun run test:e2e
       - name: Upload Playwright report on failure
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: playwright-report
@@ -90,27 +105,38 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@v7
         with:
           persist-credentials: false
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@b5ca514318bd6ebac0fb2aedd5d36ec1b5c232a2 # v3
+        uses: docker/setup-buildx-action@v4
       - name: Verify production container builds
         run: docker build --target runtime -t portfolio-ci .
 
-  ci-success:
-    name: Typecheck, tests and production build
+  semantic-pr:
+    name: Conventional Commits PR Title
     runs-on: ubuntu-latest
-    needs: [quality, unit-tests, e2e-tests, docker]
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: amannn/action-semantic-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  ci-success:
+    name: CI Pipeline Status
+    runs-on: ubuntu-latest
+    needs: [lint, typecheck, unit-tests, e2e-tests, docker, semantic-pr]
     if: always()
     steps:
       - name: Evaluate pipeline results
         run: |
-          if [ "${{ needs.quality.result }}" != "success" ] || \
+          if [ "${{ needs.lint.result }}" != "success" ] || \
+             [ "${{ needs.typecheck.result }}" != "success" ] || \
              [ "${{ needs.unit-tests.result }}" != "success" ] || \
              [ "${{ needs.e2e-tests.result }}" != "success" ] || \
-             [ "${{ needs.docker.result }}" != "success" ]; then
-            echo "CI pipeline failed. One or more jobs did not succeed."
+             [ "${{ needs.docker.result }}" != "success" ] || \
+             ([ "${{ needs.semantic-pr.result }}" != "success" ] && [ "${{ needs.semantic-pr.result }}" != "skipped" ]); then
+            echo "CI pipeline failed. One or more required checks did not succeed."
             exit 1
           fi
           echo "All CI jobs passed successfully."
