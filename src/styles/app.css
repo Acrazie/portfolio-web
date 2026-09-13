@@ -143,20 +143,27 @@
 
   .gradient-canvas-fallback {
     background:
-      radial-gradient(circle at 22% 30%, rgb(41 93 255 / 92%), transparent 31%),
-      radial-gradient(circle at 78% 30%, rgb(41 93 255 / 92%), transparent 31%),
-      radial-gradient(circle at 33% 50%, rgb(98 43 255 / 78%), transparent 32%),
-      radial-gradient(circle at 67% 50%, rgb(98 43 255 / 78%), transparent 32%),
-      radial-gradient(circle at 50% 66%, rgb(88 72 255 / 66%), transparent 39%),
-      linear-gradient(#020617 0%, #071a62 52%, #4338ca 100%);
+      radial-gradient(ellipse 20% 28% at 50% 7%, rgb(0 4 26 / 68%) 0%, transparent 100%),
+      radial-gradient(ellipse 15% 24% at 36% 55%, rgb(0 4 26 / 58%) 0%, transparent 100%),
+      radial-gradient(ellipse 15% 24% at 64% 55%, rgb(0 4 26 / 58%) 0%, transparent 100%),
+      radial-gradient(ellipse 28% 38% at 23% 19%, rgb(38 96 255 / 96%) 0%, transparent 100%),
+      radial-gradient(ellipse 28% 38% at 77% 19%, rgb(38 96 255 / 96%) 0%, transparent 100%),
+      radial-gradient(ellipse 24% 32% at 20% 43%, rgb(96 48 255 / 92%) 0%, transparent 100%),
+      radial-gradient(ellipse 24% 32% at 80% 43%, rgb(96 48 255 / 92%) 0%, transparent 100%),
+      radial-gradient(ellipse 18% 25% at 39% 27%, rgb(126 154 255 / 80%) 0%, transparent 100%),
+      radial-gradient(ellipse 18% 25% at 61% 27%, rgb(126 154 255 / 80%) 0%, transparent 100%),
+      radial-gradient(ellipse 23% 31% at 50% 46%, rgb(18 62 221 / 88%) 0%, transparent 100%),
+      radial-gradient(ellipse 26% 34% at 43% 67%, rgb(92 72 255 / 76%) 0%, transparent 100%),
+      radial-gradient(ellipse 26% 34% at 57% 67%, rgb(92 72 255 / 76%) 0%, transparent 100%),
+      linear-gradient(#020617 0%, #071a62 62%, #4338ca 100%);
   }
 
   .gradient-canvas-fade {
     pointer-events: none;
     background:
-      radial-gradient(ellipse 68% 54% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%),
-      radial-gradient(ellipse 68% 54% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%),
-      linear-gradient(to bottom, transparent 50%, rgb(255 255 255 / 8%) 58%, rgb(255 255 255 / 58%) 80%, #fff 100%);
+      radial-gradient(ellipse 72% 26% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 78%),
+      radial-gradient(ellipse 72% 26% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 78%),
+      linear-gradient(to bottom, transparent 80%, rgb(255 255 255 / 10%) 84%, rgb(255 255 255 / 62%) 94%, #fff 100%);
   }
 
   .hero-title,
@@ -185,9 +192,9 @@
     .gradient-hero { min-height: max(45rem, 100svh); }
     .gradient-canvas-fade {
       background:
-        radial-gradient(ellipse 88% 52% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 82%),
-        radial-gradient(ellipse 88% 52% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 82%),
-        linear-gradient(to bottom, transparent 48%, rgb(255 255 255 / 10%) 58%, rgb(255 255 255 / 62%) 82%, #fff 100%);
+        radial-gradient(ellipse 88% 24% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 82%),
+        radial-gradient(ellipse 88% 24% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 34%, transparent 82%),
+        linear-gradient(to bottom, transparent 80%, rgb(255 255 255 / 10%) 84%, rgb(255 255 255 / 62%) 94%, #fff 100%);
     }
   }
 }

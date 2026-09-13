@@ -28,12 +28,13 @@ function paint(context: CanvasRenderingContext2D, width: number, height: number,
   const motion = elapsed / 9000
   const breathe = Math.sin(motion * Math.PI * 2)
   const drift = Math.cos(motion * Math.PI * 1.4)
+  const field = Math.sqrt(width * height)
 
   context.clearRect(0, 0, width, height)
 
   const base = context.createLinearGradient(0, 0, 0, height)
   base.addColorStop(0, '#020617')
-  base.addColorStop(0.5, '#071a62')
+  base.addColorStop(0.62, '#071a62')
   base.addColorStop(1, '#4338ca')
   context.fillStyle = base
   context.fillRect(0, 0, width, height)
@@ -49,15 +50,18 @@ function paint(context: CanvasRenderingContext2D, width: number, height: number,
     radial(context, width - x, y, radius, color)
   }
 
-  pair(width * (0.23 + drift * 0.018), height * (0.28 + breathe * 0.025), width * 0.34, 'rgba(38, 96, 255, .9)')
-  pair(width * (0.31 - breathe * 0.016), height * (0.48 + drift * 0.018), width * 0.3, 'rgba(96, 48, 255, .82)')
-  pair(width * (0.41 + breathe * 0.012), height * (0.21 - drift * 0.02), width * 0.22, 'rgba(126, 154, 255, .68)')
-  radial(context, width * 0.5, height * (0.44 + breathe * 0.025), width * 0.3, 'rgba(18, 62, 221, .78)')
-  radial(context, width * 0.5, height * (0.72 + drift * 0.012), width * 0.42, 'rgba(92, 72, 255, .62)')
+  pair(width * (0.23 + drift * 0.018), height * (0.19 + breathe * 0.025), field * 0.28, 'rgba(38, 96, 255, .96)')
+  pair(width * (0.2 - breathe * 0.016), height * (0.43 + drift * 0.018), field * 0.24, 'rgba(96, 48, 255, .92)')
+  pair(width * (0.39 + breathe * 0.012), height * (0.27 - drift * 0.02), field * 0.18, 'rgba(126, 154, 255, .8)')
+  radial(context, width * 0.5, height * (0.46 + breathe * 0.025), field * 0.23, 'rgba(18, 62, 221, .88)')
+  pair(width * (0.43 + drift * 0.01), height * (0.67 + breathe * 0.014), field * 0.26, 'rgba(92, 72, 255, .76)')
 
   context.globalCompositeOperation = 'source-over'
+  radial(context, width * 0.5, height * (0.07 + drift * 0.01), field * 0.22, 'rgba(0, 4, 26, .68)')
+  pair(width * (0.36 - breathe * 0.01), height * (0.55 + drift * 0.012), field * 0.15, 'rgba(0, 4, 26, .58)')
+
   const topShade = context.createLinearGradient(0, 0, 0, height * 0.58)
-  topShade.addColorStop(0, 'rgba(0, 4, 26, .68)')
+  topShade.addColorStop(0, 'rgba(0, 4, 26, .52)')
   topShade.addColorStop(1, 'rgba(0, 4, 26, 0)')
   context.fillStyle = topShade
   context.fillRect(0, 0, width, height * 0.62)

@@ -1,4 +1,81 @@
-export type Locale = 'fr' | 'en'
+import type { Locale } from '@/paraglide/runtime'
+import * as m from '@/paraglide/messages'
+
+export type { Locale }
+
+function createCopy(locale: Locale) {
+  const opt = { locale }
+  return {
+    navigationLabel: m.navigation_label({}, opt),
+    nav: {
+      home: m.nav_home({}, opt),
+      projects: m.nav_projects({}, opt),
+      about: m.nav_about({}, opt),
+      education: m.nav_education({}, opt),
+      contact: m.nav_contact({}, opt),
+    },
+    menu: {
+      open: m.menu_open({}, opt),
+      close: m.menu_close({}, opt),
+    },
+    language: {
+      label: m.language_label({}, opt),
+      short: m.language_short({}, opt),
+      other: m.language_other({}, opt),
+    },
+    skip: m.skip({}, opt),
+    home: {
+      title: m.home_title({}, opt),
+      statement: m.home_statement({}, opt),
+      projectsAction: m.home_projects_action({}, opt),
+      featuredTitle: m.home_featured_title({}, opt),
+      featuredIntro: m.home_featured_intro({}, opt),
+    },
+    projects: {
+      title: m.projects_title({}, opt),
+      intro: m.projects_intro({}, opt),
+      open: m.projects_open({}, opt),
+      repository: m.projects_repository({}, opt),
+      stack: m.projects_stack({}, opt),
+      facts: m.projects_facts({}, opt),
+    },
+    about: {
+      title: m.about_title({}, opt),
+      lead: m.about_lead({}, opt),
+      body: m.about_body({}, opt),
+      capabilitiesTitle: m.about_capabilities_title({}, opt),
+      capabilities: [
+        { title: m.about_capability_systems_title({}, opt), body: m.about_capability_systems_body({}, opt) },
+        { title: m.about_capability_ai_title({}, opt), body: m.about_capability_ai_body({}, opt) },
+        { title: m.about_capability_delivery_title({}, opt), body: m.about_capability_delivery_body({}, opt) },
+      ],
+      toolsTitle: m.about_tools_title({}, opt),
+      toolsBody: m.about_tools_body({}, opt),
+      profilesTitle: m.about_profiles_title({}, opt),
+    },
+    education: {
+      title: m.education_title({}, opt),
+      intro: m.education_intro({}, opt),
+    },
+    contact: {
+      title: m.contact_title({}, opt),
+      body: m.contact_body({}, opt),
+      action: m.contact_action({}, opt),
+    },
+    motion: {
+      pause: m.motion_pause({}, opt),
+      resume: m.motion_resume({}, opt),
+      pauseShort: m.motion_pause_short({}, opt),
+      playShort: m.motion_play_short({}, opt),
+    },
+    footer: m.footer({}, opt),
+    notFound: {
+      title: m.not_found_title({}, opt),
+      body: m.not_found_body({}, opt),
+      action: m.not_found_action({}, opt),
+    },
+  }
+}
 
 export const portfolio = {
   contentStatus: 'draft',
@@ -17,24 +94,24 @@ export const portfolio = {
       id: 'marcq-institution',
       institution: 'Marcq Institution',
       copy: {
-        fr: { program: 'Collège et lycée' },
-        en: { program: 'Middle school and high school' },
+        fr: { program: m.education_marcq_program({}, { locale: 'fr' }) },
+        en: { program: m.education_marcq_program({}, { locale: 'en' }) },
       },
     },
     {
       id: 'isg',
       institution: 'ISG',
       copy: {
-        fr: { program: 'Bachelor — École de commerce' },
-        en: { program: 'Bachelor — Business school' },
+        fr: { program: m.education_isg_program({}, { locale: 'fr' }) },
+        en: { program: m.education_isg_program({}, { locale: 'en' }) },
       },
     },
     {
       id: 'epitech',
       institution: 'Epitech',
       copy: {
-        fr: { program: 'Master Software Engineer' },
-        en: { program: 'Master Software Engineer' },
+        fr: { program: m.education_epitech_program({}, { locale: 'fr' }) },
+        en: { program: m.education_epitech_program({}, { locale: 'en' }) },
       },
     },
   ],
@@ -45,117 +122,33 @@ export const portfolio = {
       stack: ['React', 'TanStack Start', 'Canvas', 'TypeScript', 'Tailwind CSS', 'Bun'],
       copy: {
         fr: {
-          title: 'Portfolio vivant',
-          summary: 'Un portfolio personnel pensé comme un projet logiciel, en constante évolution.',
-          detail: 'Une expérience web multi-page, rendue côté serveur et enrichie par un canvas animé qui reste décoratif. Le contenu demeure accessible sans JavaScript et lorsque les animations sont réduites.',
-          facts: ['Rendu SSR', 'Fallback statique', 'Animation à la demande', 'Interface bilingue'],
+          title: m.project_portfolio_web_title({}, { locale: 'fr' }),
+          summary: m.project_portfolio_web_summary({}, { locale: 'fr' }),
+          detail: m.project_portfolio_web_detail({}, { locale: 'fr' }),
+          facts: [
+            m.project_portfolio_web_fact_0({}, { locale: 'fr' }),
+            m.project_portfolio_web_fact_1({}, { locale: 'fr' }),
+            m.project_portfolio_web_fact_2({}, { locale: 'fr' }),
+            m.project_portfolio_web_fact_3({}, { locale: 'fr' }),
+          ],
         },
         en: {
-          title: 'Living portfolio',
-          summary: 'A personal portfolio treated as an evolving software project.',
-          detail: 'A multi-page web experience rendered on the server and enhanced by a decorative animated canvas. Content stays accessible without JavaScript and when motion is reduced.',
-          facts: ['SSR rendering', 'Static fallback', 'On-demand animation', 'Bilingual interface'],
+          title: m.project_portfolio_web_title({}, { locale: 'en' }),
+          summary: m.project_portfolio_web_summary({}, { locale: 'en' }),
+          detail: m.project_portfolio_web_detail({}, { locale: 'en' }),
+          facts: [
+            m.project_portfolio_web_fact_0({}, { locale: 'en' }),
+            m.project_portfolio_web_fact_1({}, { locale: 'en' }),
+            m.project_portfolio_web_fact_2({}, { locale: 'en' }),
+            m.project_portfolio_web_fact_3({}, { locale: 'en' }),
+          ],
         },
       },
     },
   ],
   copy: {
-    fr: {
-      navigationLabel: 'Navigation principale',
-      nav: { home: 'Accueil', projects: 'Projects', about: 'About', education: 'Education', contact: 'Contact' },
-      menu: { open: 'Ouvrir le menu', close: 'Fermer le menu' },
-      language: { label: 'Langue : français. Passer en anglais', short: 'FR', other: 'EN' },
-      skip: 'Aller au contenu',
-      home: {
-        title: 'Mayeul — Software Engineer et AI Engineer',
-        statement: 'Des logiciels fiables. Une IA réellement utile.',
-        projectsAction: 'Voir Projects',
-        featuredTitle: 'Travail sélectionné',
-        featuredIntro: 'Une première preuve vérifiable, construite comme un produit logiciel.',
-      },
-      projects: {
-        title: 'Projects',
-        intro: 'Des projets présentés une seule fois, dans un index conçu pour grandir sans répéter la page.',
-        open: 'Voir le projet',
-        repository: 'Voir le dépôt GitHub',
-        stack: 'Technologies',
-        facts: 'Propriétés vérifiées',
-      },
-      about: {
-        title: 'About',
-        lead: 'Ingénierie logicielle, augmentée avec discernement.',
-        body: 'J’utilise Codex, Claude et Gemini dans plusieurs environnements agentiques. Je suis les modèles, techniques de compression, plugins et skills pour choisir ce qui améliore réellement le travail logiciel.',
-        capabilitiesTitle: 'Expertise',
-        capabilities: [
-          { title: 'Systèmes logiciels', body: 'Architecture, implémentation, tests et décisions techniques.' },
-          { title: 'IA appliquée', body: 'Agents, modèles, compression de contexte, plugins et skills intégrés à des workflows utiles.' },
-          { title: 'Livraison', body: 'Du prototype à une version construite, testée et déployable.' },
-        ],
-        toolsTitle: 'Outils quotidiens',
-        toolsBody: 'Une pratique multi-modèle, choisie selon le contexte plutôt qu’un seul fournisseur.',
-        profilesTitle: 'Profils vérifiés',
-      },
-      education: {
-        title: 'Education',
-        intro: 'Mon parcours de formation. Les dates restent volontairement absentes tant qu’elles ne sont pas fournies.',
-      },
-      contact: {
-        title: 'Parlons de votre projet.',
-        body: 'Un contact direct, sans formulaire intermédiaire.',
-        action: 'Envoyer un email',
-      },
-      motion: { pause: 'Mettre l’animation en pause', resume: 'Reprendre l’animation', pauseShort: 'Pause', playShort: 'Lecture' },
-      footer: 'Software Engineering · Applied AI',
-      notFound: { title: 'Page introuvable', body: 'Cette page n’existe pas ou a été déplacée.', action: 'Retour à l’accueil' },
-    },
-    en: {
-      navigationLabel: 'Primary navigation',
-      nav: { home: 'Home', projects: 'Projects', about: 'About', education: 'Education', contact: 'Contact' },
-      menu: { open: 'Open menu', close: 'Close menu' },
-      language: { label: 'Language: English. Switch to French', short: 'EN', other: 'FR' },
-      skip: 'Skip to content',
-      home: {
-        title: 'Mayeul — Software Engineer and AI Engineer',
-        statement: 'Dependable software. AI that proves useful.',
-        projectsAction: 'View Projects',
-        featuredTitle: 'Selected work',
-        featuredIntro: 'One verifiable proof, built as a software product.',
-      },
-      projects: {
-        title: 'Projects',
-        intro: 'Projects presented once, in an index designed to grow without repeating the page.',
-        open: 'View project',
-        repository: 'View GitHub repository',
-        stack: 'Technologies',
-        facts: 'Verified properties',
-      },
-      about: {
-        title: 'About',
-        lead: 'Software engineering, augmented with judgment.',
-        body: 'I use Codex, Claude, and Gemini across several agent harnesses. I track models, compression techniques, plugins, and skills to choose what genuinely improves software work.',
-        capabilitiesTitle: 'Expertise',
-        capabilities: [
-          { title: 'Software systems', body: 'Architecture, implementation, testing, and technical decisions.' },
-          { title: 'Applied AI', body: 'Agents, models, context compression, plugins, and skills integrated into useful workflows.' },
-          { title: 'Delivery', body: 'From prototype to a built, tested, deployable release.' },
-        ],
-        toolsTitle: 'Daily tools',
-        toolsBody: 'A multi-model practice chosen for the context rather than one provider.',
-        profilesTitle: 'Verified profiles',
-      },
-      education: {
-        title: 'Education',
-        intro: 'My education record. Dates remain deliberately absent until they are supplied.',
-      },
-      contact: {
-        title: 'Let’s discuss your project.',
-        body: 'Direct contact without an intermediary form.',
-        action: 'Send an email',
-      },
-      motion: { pause: 'Pause animation', resume: 'Resume animation', pauseShort: 'Pause', playShort: 'Play' },
-      footer: 'Software Engineering · Applied AI',
-      notFound: { title: 'Page not found', body: 'This page does not exist or has moved.', action: 'Back to home' },
-    },
+    fr: createCopy('fr'),
+    en: createCopy('en'),
   },
 } as const
 

@@ -16,7 +16,7 @@ export function HomePage() {
       <a href="#main" className="skip-link">{copy.skip}</a>
       <SiteHeader active="home" home />
       <main id="main" tabIndex={-1}>
-        <section aria-labelledby="hero-title" className="gradient-hero relative min-h-[760px] overflow-hidden text-white">
+        <section aria-labelledby="hero-title" className="gradient-hero relative overflow-hidden text-white">
           <GradientCanvas className="absolute inset-0" />
           <div className="site-container hero-inner pointer-events-none relative z-20 flex items-center pb-[24vh] pt-28 sm:pb-[20vh]">
             <div className="pointer-events-auto max-w-[58rem]">

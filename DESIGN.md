@@ -15,7 +15,7 @@ colors:
   hero-lavender: "rgb(126 154 255 / 68%)"
   hero-cobalt: "rgb(18 62 221 / 78%)"
   hero-indigo-bloom: "rgb(92 72 255 / 62%)"
-  hero-top-shade: "rgb(0 4 26 / 68%)"
+  hero-top-shade: "rgb(0 4 26 / 52%)"
 typography:
   hero-name:
     fontFamily: '"Hanken Grotesk Variable", "Hanken Grotesk", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'

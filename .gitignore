@@ -2,6 +2,7 @@ node_modules/
 .output/
 dist/
 coverage/
+/src/paraglide/
 playwright-report/
 test-results/
 .DS_Store
