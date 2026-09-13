@@ -1,0 +1,38 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "test/**/*.ts",
+      "test/**/*.tsx",
+      "tests/**/*.ts",
+      "*.ts",
+      "!src/paraglide",
+      "!src/routeTree.gen.ts",
+      "!.output",
+      "!playwright-report",
+      "!test-results"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "style": {
+        "noNonNullAssertion": "off"
+      },
+      "a11y": {
+        "noAriaHiddenOnFocusable": "off"
+      },
+      "correctness": {
+        "useExhaustiveDependencies": "warn"
+      }
+    }
+  }
+}
