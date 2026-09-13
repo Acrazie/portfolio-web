@@ -15,7 +15,7 @@
     "typecheck": "bun run paraglide:compile && tsc --noEmit",
     "bundle:summary": "bun scripts/bundle-summary.mjs",
     "check": "bun run lint && bun run typecheck && bun run test && bun run build",
-    "postinstall": "lefthook install"
+    "postinstall": "test -d .git && which git > /dev/null 2>&1 && lefthook install || true"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
