@@ -39,6 +39,41 @@ export function HomePage() {
           </div>
         </section>
 
+        <section aria-labelledby="orientation-title" className="bg-white py-24 sm:py-32">
+          <div className="site-container">
+            <div className="grid gap-12 lg:grid-cols-[minmax(14rem,.6fr)_minmax(0,1.4fr)] lg:gap-24">
+              <h2
+                id="orientation-title"
+                className="section-title max-w-[9ch] text-balance text-[clamp(2.5rem,5vw,5rem)] font-medium leading-[.96] tracking-[-.04em]"
+              >
+                {copy.home.orientationTitle}
+              </h2>
+              <div>
+                <p className="max-w-[34ch] text-balance text-[clamp(1.5rem,3vw,2.5rem)] leading-[1.18]">
+                  {copy.home.orientationIntro}
+                </p>
+                <dl className="mt-14 border-t border-black/20">
+                  {copy.home.orientationItems.map(item => (
+                    <div
+                      key={item.title}
+                      className="grid gap-3 border-b border-black/20 py-7 sm:grid-cols-[minmax(10rem,.45fr)_minmax(0,1fr)] sm:gap-10 sm:py-8"
+                    >
+                      <dt className="text-lg font-semibold tracking-[-.02em]">{item.title}</dt>
+                      <dd className="max-w-[54ch] text-base leading-7 text-black/64">{item.body}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <Link
+                  to="/about"
+                  className="focus-ring mt-8 inline-flex min-h-11 items-center border-b border-black pb-1 text-sm font-medium"
+                >
+                  {copy.home.orientationAction}
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section aria-labelledby="featured-title" className="bg-white py-24 sm:py-32">
           <div className="site-container">
             <div className="grid gap-10 lg:grid-cols-[minmax(14rem,.6fr)_minmax(0,1.4fr)] lg:gap-24">
