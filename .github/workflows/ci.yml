@@ -131,7 +131,7 @@ jobs:
       - name: Build container image
         run: docker build --target runtime -t portfolio-ci .
       - name: Scan container with Trivy
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: 'portfolio-ci'
           format: 'table'
