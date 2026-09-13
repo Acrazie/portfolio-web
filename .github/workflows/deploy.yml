@@ -53,10 +53,13 @@ jobs:
             "$DOKPLOY_DEPLOY_URL"
 
       - name: Post-deployment HTTP Smoke Test
-        if: env.PRODUCTION_URL != ''
         env:
           PRODUCTION_URL: ${{ secrets.PRODUCTION_URL }}
         run: |
+          if [ -z "$PRODUCTION_URL" ]; then
+            echo "PRODUCTION_URL secret is not set. Skipping post-deploy smoke test."
+            exit 0
+          fi
           echo "Waiting 30 seconds for Dokploy to build and swap container in production..."
           sleep 30
           echo "Performing HTTP health check on $PRODUCTION_URL..."
@@ -64,12 +67,17 @@ jobs:
           echo "Health check passed: Production site is responding with HTTP 200 OK!"
 
       - name: Send Telegram Notification
-        if: always() && env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != ''
+        if: always()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           JOB_STATUS: ${{ job.status }}
         run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not configured. Skipping notification."
+            exit 0
+          fi
+
           if [ "$JOB_STATUS" = "success" ]; then
             EMOJI="🚀"
             STATUS_TEXT="Déploiement en production réussi !"
@@ -80,7 +88,7 @@ jobs:
 
           COMMIT_REF="${{ github.event.workflow_run.head_branch || github.ref_name }}"
           COMMIT_SHA="${{ github.event.workflow_run.head_sha || github.sha }}"
-          COMMIT_MSG="${{ github.event.workflow_run.head_commit.message || 'Déploiement manuel' }}"
+          COMMIT_MSG="${{ github.event.workflow_run.head_commit.message || 'Déploiement production' }}"
 
           MESSAGE="$EMOJI *Portfolio - $STATUS_TEXT*
 
