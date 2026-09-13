@@ -1,109 +1,90 @@
-# Acrazie portfolio
+<div align="center">
 
-An English, server-rendered portfolio foundation built with React, TanStack Start, Tailwind CSS v4, source-owned shadcn/Base UI primitives, Motion, and Bun. The unframed folded-woven-surface hero uses React Three Fiber, GLSL `ShaderMaterial` points, and a generated glyph `CanvasTexture`.
+  <img src="public/logo.png" alt="Mayeul logo" width="100" height="auto" />
 
-**This is a draft, not a completed professional profile.** Projects, capabilities, and contact details are explicitly marked `Content pending`. No fictional employers, results, contact links, or availability are supplied. Robots are disallowed and page metadata is `noindex, nofollow`; neither is access control. Do not publish the draft.
+  <h1>Mayeul</h1>
 
-## Development
+  <p>
+    <strong>Software Engineer · AI Engineer</strong>
+  </p>
 
-Use Bun **1.3.14** and the committed `bun.lock`:
+  <p>
+    A minimalist, kinetic, and editorial web portfolio built with TanStack Start, React 19, Nitro on Bun, and Tailwind CSS v4.
+  </p>
+
+  <p>
+    <a href="https://github.com/Acrazie/portfolio-web/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Acrazie/portfolio-web/ci.yml?branch=main&label=CI&style=flat" alt="CI Status" /></a>
+    <a href="https://github.com/Acrazie/portfolio-web/releases"><img src="https://img.shields.io/github/v/release/Acrazie/portfolio-web?style=flat&color=blue" alt="Latest Release" /></a>
+    <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun%20v1.3-fbf0df?style=flat&logo=bun&logoColor=black" alt="Bun Runtime" /></a>
+    <a href="https://react.dev"><img src="https://img.shields.io/badge/react-v19-61dafb?style=flat&logo=react&logoColor=black" alt="React 19" /></a>
+    <a href="https://tanstack.com/start"><img src="https://img.shields.io/badge/framework-TanStack%20Start-ff4154?style=flat" alt="TanStack Start" /></a>
+    <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/tailwind-v4-38bdf8?style=flat&logo=tailwindcss" alt="Tailwind CSS v4" /></a>
+    <a href="https://biomejs.dev"><img src="https://img.shields.io/badge/linter-biome-60a5fa?style=flat&logo=biome" alt="Biome Linter" /></a>
+    <a href="https://inlang.com/m/gerre34r/library-inlang-paraglideJs"><img src="https://img.shields.io/badge/i18n-paraglide-orange?style=flat" alt="Paraglide i18n" /></a>
+  </p>
+
+  <p>
+    <a href="#quick-start">Quick Start</a>
+    <span> · </span>
+    <a href="#tech-stack">Tech Stack</a>
+    <span> · </span>
+    <a href="#documentation">Documentation</a>
+  </p>
+
+  <br />
+
+  <img src="public/preview.gif" alt="Mayeul Portfolio Preview" width="850" />
+
+</div>
+
+<br />
+
+---
+
+## Quick Start
+
+### Prerequisites
+
+- [Bun](https://bun.sh) (v1.3.14+)
+
+### Run Locally
 
 ```bash
+# 1. Clone the repository
+git clone git@github.com:Acrazie/portfolio-web.git
+cd portfolio-web
+
+# 2. Install dependencies
 bun install --frozen-lockfile
-bun run dev --host 127.0.0.1
+
+# 3. Start local development server
+bun run dev
 ```
 
-Open <http://127.0.0.1:3000>. If that port is occupied, Vite prints the alternative port. To choose one explicitly:
+Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser.
 
-```bash
-bun run dev --host 127.0.0.1 --port 3001 --strictPort
-```
+---
 
-Fonts use the system sans/mono stacks. The site makes no analytics or external font requests. No database, CMS, credentials, or environment file is required.
+## Tech Stack
 
-## Quality gate
+| Domain | Technologies |
+| :--- | :--- |
+| **Framework & SSR** | [TanStack Start](https://tanstack.com/start) with [React 19](https://react.dev) |
+| **Runtime & Server** | [Bun](https://bun.sh) with [Nitro](https://nitro.build) (bun preset) |
+| **Styling & Tokens** | [Tailwind CSS v4](https://tailwindcss.com) with custom editorial design tokens |
+| **Internationalization** | [Paraglide JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs) (bilingual French & English, French default) |
+| **Linting & Code Quality** | [Biome](https://biomejs.dev) & TypeScript strict mode |
+| **Testing** | [Vitest](https://vitest.dev) (Unit tests) & [Playwright](https://playwright.dev) (E2E browser tests) |
+| **Git Hooks & Releases** | [Lefthook](https://github.com/evilmartians/lefthook), [Release Please](https://github.com/googleapis/release-please), [git-cliff](https://git-cliff.org) |
+| **Delivery & Hosting** | Docker, [Dokploy](https://dokploy.com) CD on VPS, Cloudflare Tunnel, Telegram alerts |
 
-```bash
-bun run check
-bunx playwright install chromium
-bun run test:e2e
-```
+---
 
-`check` runs TypeScript, Vitest, and a production build. **Use `bun run test`, not `bun test`:** the tests rely on Vitest and jsdom, not Bun's built-in test runner. Browser tests run Chromium desktop and Pixel 7 emulation against an isolated dev server on port 4173.
+## Documentation
 
-Coverage includes truthful content, SSR visibility, surface determinism and depth, atlas UVs, GPU resource disposal, semantic navigation, keyboard access, axe accessibility checks, narrow layouts, context loss, reduced motion, demand rendering, idle/off-screen suspension, and invalidation coalescing. Playwright HTML reports and traces are ignored by Git.
+Detailed specifications and architectural guides are available in the repository:
 
-Optional WebKit checks on a supported OS:
-
-```bash
-bunx playwright install webkit
-TEST_WEBKIT=1 bun run test:e2e --project=webkit
-```
-
-The local macOS 14 frozen WebKit build fails before page creation with `Unknown setting: PushAPIEnabled`. WebKit is **not verified** here; run this gate on a current supported OS before public release.
-
-## Production with Bun
-
-The Vite configuration uses Nitro's **Bun preset**, following [TanStack Start's hosting guide](https://tanstack.com/start/latest/docs/framework/react/guide/hosting#bun). It emits a self-contained `.output/` directory, including `.output/server/index.mjs` and `.output/public/`.
-
-```bash
-bun run build
-HOST=127.0.0.1 PORT=4180 bun run start
-```
-
-Keep the entire `.output/` directory together. Running Vite's bare `dist/server/server.js` is not the production launch path. Nitro is currently a beta dependency; upgrades require rerunning the full build and runtime checks.
-
-## Production container
-
-Docker Engine and Docker Compose v2 are required:
-
-```bash
-docker compose build
-docker compose up -d --wait
-docker compose ps
-curl -fsS http://127.0.0.1:3000/robots.txt
-```
-
-The container runs as the non-root `bun` user with a read-only root filesystem. The service binds to **127.0.0.1:3000** on the host, intended for an existing host-based TLS reverse proxy. No VPS, DNS, proxy configuration, or public deployment is included.
-
-If host port 3000 is occupied, use an explicit alternate port consistently:
-
-```bash
-PORTFOLIO_PORT=4180 docker compose up -d --wait
-PLAYWRIGHT_BASE_URL=http://127.0.0.1:4180 bun run test:e2e
-PORTFOLIO_PORT=4180 docker compose down
-```
-
-`PLAYWRIGHT_BASE_URL` tests an already-running server instead of starting Vite. For a containerized reverse proxy, decide the shared Docker network before changing the host binding. Rebuild the image after source changes; `up` alone does not rebuild it.
-
-## Delivery
-
-Production changes reach `main` through pull requests. The `Portfolio CI` workflow runs code quality (Biome lint), TypeScript checks, unit tests (Vitest), end-to-end tests (Playwright), and a production-container build in parallel, with a unified `CI Pipeline Status` check. GitHub branch rules should require its `CI Pipeline Status` check.
-
-Once all CI checks succeed on `main`, the `Portfolio CD` workflow triggers the Dokploy deployment webhook securely through Cloudflare Access (with manual `workflow_dispatch` trigger available).
-
-## Content handoff
-
-Edit [`src/content/portfolio.ts`](src/content/portfolio.ts) for draft positioning and case-study data. The editorial introduction and section framing are composed in [`src/components/PortfolioPage.tsx`](src/components/PortfolioPage.tsx).
-
-Before publication, supply and verify:
-
-- Biography, professional positioning, work history, and dates.
-- Three to five real projects: context, personal contribution, technical decisions, and evidenced outcomes.
-- Contact details, profile URLs, CV PDF, and any availability statement.
-- Final domain, approved media, licensed fonts, and social preview art.
-
-Remove `Content pending` only for verified material, and update the honesty tests to reflect that verified schema. Replace reserved case-study titles rather than presenting them as actual projects. Update metadata in `src/routes/__root.tsx` and the robots policy in `public/robots.txt` only when publication is approved. There is no logo or favicon: `ACRAZIE` is a text wordmark.
-
-## Rendering and known limits
-
-- The decorative SVG woven surface stays mounted for SSR, no JavaScript, unavailable WebGL, lazy-load failure, and context loss.
-- A concise three-line headline sits beside an ample blue/lavender typographic textile on the cream hero. The scene has no frame, flowchart nodes, caption, or implementation labels; other sections retain their honest pending statuses.
-- Three/R3F is isolated behind a mounted, lazy scene boundary. It is not executed during SSR.
-- Rendering is demand-driven, capped at DPR 2 and 12,000 glyphs. Pointer displacement is bounded; reduced-motion mode fixes morph progress and disables input/time motion. Off-screen and hidden-document input subscriptions stop requesting frames.
-- Geometry, material, and atlas texture are explicitly disposed. Motion reveals start with visible SSR content.
-- Component styling lives in Tailwind utilities. `src/styles/app.css` contains only the theme and global base rules. Only Button, Badge, and Separator are used from shadcn.
-- The accepted Three/R3F stack is substantial: the lazy hero is about **883 kB raw / 235 kB gzip**, above the plan's 650 KiB investigation threshold. Inspection found R3F's standard `Canvas` registers the entire Three namespace. Application imports are named and there are no Drei/add-on imports; avoiding that cost would require a separately reviewed custom R3F root.
-- The route chunk is about **133 kB raw / 48 kB gzip**; the shared React/TanStack bootstrap adds about **314 kB raw / 101 kB gzip**. Total eager JavaScript therefore exceeds a 250 KiB whole-page budget. These are not presented as a performance-budget pass.
-- Browser instrumentation found no long tasks during the sampled first interaction, but one desktop cold-load task exceeded 100 ms. Small measured layout shifts remain; do not treat the local checks as a full Lighthouse or real-device performance certification.
-- Development logs include R3F's upstream `THREE.Clock` deprecation warning. No full dependency/security audit has been claimed.
+- [`AGENTS.md`](./AGENTS.md) — Authoritative development rules, package manager standards, and Git conventions for AI agents.
+- [`DESIGN.md`](./DESIGN.md) — Complete design system tokens, typography scales, and editorial layout standards.
+- [`PRODUCT.md`](./PRODUCT.md) — Ground truth on product scope, positioning, confirmed background facts, and external profiles.
+- [`CHANGELOG.md`](./CHANGELOG.md) — Automated changelog generated by Release Please and git-cliff.
