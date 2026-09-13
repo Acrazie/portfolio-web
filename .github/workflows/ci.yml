@@ -61,8 +61,10 @@ jobs:
           bun-version: '1.3.14'
       - name: Install dependencies
         run: bun install --frozen-lockfile
+      - name: Compile internationalization messages
+        run: bun run paraglide:compile
       - name: Cache Playwright browsers
-        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772115f6ec1 # v4
+        uses: actions/cache@v4
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
@@ -76,7 +78,7 @@ jobs:
       - name: Run Playwright tests
         run: bun run test:e2e
       - name: Upload Playwright report on failure
-        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb99ba841c # v4
+        uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: playwright-report

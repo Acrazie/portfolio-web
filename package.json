@@ -8,7 +8,7 @@
     "build": "vite build",
     "start": "bun .output/server/index.mjs",
     "paraglide:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/paraglide --emit-ts-declarations",
-    "test": "vitest run",
+    "test": "bun run paraglide:compile && vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "lint": "biome lint .",
