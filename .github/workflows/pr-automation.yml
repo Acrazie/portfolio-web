@@ -1,0 +1,61 @@
+name: PR Automation
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  auto-assign-review:
+    name: Auto-assign and Request Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Assign Author and Request Bot PR Review
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const author = pr.user.login;
+            const isBot = pr.user.type === 'Bot' || author.endsWith('[bot]');
+            const owner = context.repo.owner;
+
+            if (isBot) {
+              console.log(`PR #${pr.number} opened by bot ${author}. Requesting review from and assigning ${owner}.`);
+              try {
+                await github.rest.pulls.requestReviewers({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: pr.number,
+                  reviewers: [owner],
+                });
+              } catch (error) {
+                console.warn(`Could not request review from ${owner}:`, error.message);
+              }
+
+              try {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  assignees: [owner],
+                });
+              } catch (error) {
+                console.warn(`Could not assign ${owner}:`, error.message);
+              }
+            } else {
+              console.log(`PR #${pr.number} opened by ${author}. Auto-assigning author.`);
+              try {
+                await github.rest.issues.addAssignees({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  assignees: [author],
+                });
+              } catch (error) {
+                console.warn(`Could not assign ${author}:`, error.message);
+              }
+            }
