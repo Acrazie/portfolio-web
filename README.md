@@ -13,43 +13,27 @@
   </p>
 
   <p>
-    <a href="https://github.com/Acrazie/portfolio-web/actions/workflows/ci.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/Acrazie/portfolio-web/ci.yml?branch=main&label=CI&style=flat-square" alt="CI Status" />
-    </a>
-    <a href="https://github.com/Acrazie/portfolio-web/releases">
-      <img src="https://img.shields.io/github/v/release/Acrazie/portfolio-web?style=flat-square&color=blue" alt="Latest Release" />
-    </a>
-    <a href="https://bun.sh">
-      <img src="https://img.shields.io/badge/runtime-bun%20v1.3-fbf0df?style=flat-square&logo=bun&logoColor=black" alt="Bun Runtime" />
-    </a>
-    <a href="https://react.dev">
-      <img src="https://img.shields.io/badge/react-v19-61dafb?style=flat-square&logo=react&logoColor=black" alt="React 19" />
-    </a>
-    <a href="https://tanstack.com/start">
-      <img src="https://img.shields.io/badge/framework-TanStack%20Start-ff4154?style=flat-square" alt="TanStack Start" />
-    </a>
-    <a href="https://tailwindcss.com">
-      <img src="https://img.shields.io/badge/tailwind-v4-38bdf8?style=flat-square&logo=tailwindcss" alt="Tailwind CSS v4" />
-    </a>
-    <a href="https://biomejs.dev">
-      <img src="https://img.shields.io/badge/linter-biome-60a5fa?style=flat-square&logo=biome" alt="Biome Linter" />
-    </a>
-    <a href="https://inlang.com/m/gerre34r/library-inlang-paraglideJs">
-      <img src="https://img.shields.io/badge/i18n-paraglide-orange?style=flat-square" alt="Paraglide i18n" />
-    </a>
+    <a href="https://github.com/Acrazie/portfolio-web/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Acrazie/portfolio-web/ci.yml?branch=main&label=CI&style=flat" alt="CI Status" /></a>
+    <a href="https://github.com/Acrazie/portfolio-web/releases"><img src="https://img.shields.io/github/v/release/Acrazie/portfolio-web?style=flat&color=blue" alt="Latest Release" /></a>
+    <a href="https://bun.sh"><img src="https://img.shields.io/badge/runtime-bun%20v1.3-fbf0df?style=flat&logo=bun&logoColor=black" alt="Bun Runtime" /></a>
+    <a href="https://react.dev"><img src="https://img.shields.io/badge/react-v19-61dafb?style=flat&logo=react&logoColor=black" alt="React 19" /></a>
+    <a href="https://tanstack.com/start"><img src="https://img.shields.io/badge/framework-TanStack%20Start-ff4154?style=flat" alt="TanStack Start" /></a>
+    <a href="https://tailwindcss.com"><img src="https://img.shields.io/badge/tailwind-v4-38bdf8?style=flat&logo=tailwindcss" alt="Tailwind CSS v4" /></a>
+    <a href="https://biomejs.dev"><img src="https://img.shields.io/badge/linter-biome-60a5fa?style=flat&logo=biome" alt="Biome Linter" /></a>
+    <a href="https://inlang.com/m/gerre34r/library-inlang-paraglideJs"><img src="https://img.shields.io/badge/i18n-paraglide-orange?style=flat" alt="Paraglide i18n" /></a>
   </p>
 
   <p>
-    <a href="#-quick-start">Quick Start</a>
+    <a href="#quick-start">Quick Start</a>
     <span> · </span>
-    <a href="#️-tech-stack">Tech Stack</a>
+    <a href="#tech-stack">Tech Stack</a>
     <span> · </span>
-    <a href="#-documentation">Documentation</a>
+    <a href="#documentation">Documentation</a>
   </p>
 
   <br />
 
-  <img src="public/preview.png" alt="Mayeul Portfolio Preview" width="850" />
+  <img src="public/preview.gif" alt="Mayeul Portfolio Preview" width="850" />
 
 </div>
 
@@ -57,7 +41,7 @@
 
 ---
 
-## ⚡ Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -81,7 +65,7 @@ Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Domain | Technologies |
 | :--- | :--- |
@@ -96,7 +80,7 @@ Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your browser.
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 Detailed specifications and architectural guides are available in the repository:
 
