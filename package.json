@@ -14,7 +14,8 @@
     "lint": "biome lint .",
     "typecheck": "bun run paraglide:compile && tsc --noEmit",
     "bundle:summary": "bun scripts/bundle-summary.mjs",
-    "check": "bun run lint && bun run typecheck && bun run test && bun run build"
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build",
+    "postinstall": "test -d .git && which git > /dev/null 2>&1 && lefthook install || true"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -46,6 +47,7 @@
     "nitro": "^3.0.260903-beta",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.0",
+    "lefthook": "^1.11.0"
   }
 }

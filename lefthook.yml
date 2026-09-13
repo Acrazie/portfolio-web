@@ -1,0 +1,20 @@
+# Lefthook configuration
+# Refer to: https://github.com/evilmartians/lefthook
+
+pre-commit:
+  parallel: true
+  commands:
+    biome-check:
+      glob: "*.{js,ts,jsx,tsx,json,jsonc,css}"
+      run: bunx @biomejs/biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    validate-commit:
+      run: bun scripts/validate-commit-msg.mjs {1}
+
+pre-push:
+  commands:
+    typecheck-and-test:
+      run: bun run typecheck && bun run test
