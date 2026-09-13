@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/Acrazie/portfolio-web/compare/v0.1.2...v0.1.3) (2026-09-13)
+
+
+### Features
+
+* **ci:** add lefthook git hooks and git-cliff commit convention ([#17](https://github.com/Acrazie/portfolio-web/issues/17)) ([5e3a749](https://github.com/Acrazie/portfolio-web/commit/5e3a7490327219b54a0939ad91c37cafa381053e))
+
 ## [0.1.2](https://github.com/Acrazie/portfolio-web/compare/v0.1.1...v0.1.2) (2026-09-13)
 
 
