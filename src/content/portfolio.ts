@@ -28,6 +28,7 @@ function createCopy(locale: Locale) {
       title: m.home_title({}, opt),
       statement: m.home_statement({}, opt),
       projectsAction: m.home_projects_action({}, opt),
+      welcome: m.home_welcome({}, opt),
       orientationTitle: m.home_orientation_title({}, opt),
       orientationIntro: m.home_orientation_intro({}, opt),
       orientationItems: [
