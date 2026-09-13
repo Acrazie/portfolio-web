@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 import type { ReactNode } from 'react'
 import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { LocaleProvider } from '@/components/site/LocaleProvider'
+import { NotFoundPage } from '@/components/pages/NotFoundPage'
 import appCss from '../styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -15,10 +17,11 @@ export const Route = createRootRoute({
     links: [{ rel: 'stylesheet', href: appCss }],
   }),
   component: RootComponent,
+  notFoundComponent: NotFoundPage,
 })
 
 function RootComponent() {
-  return <RootDocument><Outlet /></RootDocument>
+  return <RootDocument><LocaleProvider><Outlet /></LocaleProvider></RootDocument>
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {

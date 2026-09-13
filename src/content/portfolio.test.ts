@@ -1,17 +1,25 @@
 import { expect, it } from 'vitest'
-import { portfolio } from './portfolio'
+import { getProject, portfolio } from './portfolio'
 
-it('keeps draft status, bilingual copy, and only verified public destinations', () => {
- expect(portfolio.contentStatus).toBe('draft')
- expect(portfolio.displayName).toBe('Mayeul')
- expect(portfolio.githubHandle).toBe('acrazie')
- expect(Object.keys(portfolio.copy)).toEqual(['fr','en'])
- expect(portfolio.links.map(link=>link.href)).toEqual([
-  'https://github.com/acrazie',
-  'https://www.linkedin.com/in/mayeuld/',
-  'https://www.skills.sh/acrazie',
-  'mailto:mayeul.desbazeille@gmail.com',
- ])
- expect(portfolio.copy.fr.experience.status).toBe('Données en préparation')
- expect(portfolio.copy.fr.education.status).toBe('Données en préparation')
+it('keeps bilingual copy and only verified public facts', () => {
+  expect(portfolio.contentStatus).toBe('draft')
+  expect(portfolio.displayName).toBe('Mayeul')
+  expect(portfolio.email).toBe('mayeul.desbazeille@gmail.com')
+  expect(Object.keys(portfolio.copy)).toEqual(['fr', 'en'])
+  expect(portfolio.links.map(link => link.href)).toEqual([
+    'https://github.com/acrazie',
+    'https://www.linkedin.com/in/mayeuld/',
+    'https://www.skills.sh/acrazie',
+  ])
+  expect(portfolio.education.map(item => item.institution)).toEqual([
+    'Marcq Institution',
+    'ISG',
+    'Epitech',
+  ])
+})
+
+it('supports a scalable project index and slug lookup', () => {
+  expect(portfolio.projects).toHaveLength(1)
+  expect(getProject('portfolio-web')).toBe(portfolio.projects[0])
+  expect(getProject('missing')).toBeUndefined()
 })
