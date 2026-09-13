@@ -29,13 +29,21 @@ jobs:
           DOKPLOY_DEPLOY_URL: ${{ secrets.DOKPLOY_DEPLOY_URL }}
           CLOUDFLARE_ACCESS_CLIENT_ID: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_ID }}
           CLOUDFLARE_ACCESS_CLIENT_SECRET: ${{ secrets.CLOUDFLARE_ACCESS_CLIENT_SECRET }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          REF: ${{ github.ref }}
+          COMMIT_MESSAGE: ${{ github.event.workflow_run.head_commit.message || 'Deploying main' }}
         run: |
           deploy_token="${DOKPLOY_DEPLOY_URL##*/}"
           echo "::add-mask::$deploy_token"
 
-          commit_sha="${{ github.event.workflow_run.head_sha || github.sha }}"
-          commit_ref="${{ github.event.workflow_run.head_branch && format('refs/heads/{0}', github.event.workflow_run.head_branch) || github.ref }}"
-          commit_msg="${{ github.event.workflow_run.head_commit.message || 'Deploying main' }}"
+          commit_sha="$HEAD_SHA"
+          if [ -n "$HEAD_BRANCH" ]; then
+            commit_ref="refs/heads/$HEAD_BRANCH"
+          else
+            commit_ref="$REF"
+          fi
+          commit_msg="$COMMIT_MESSAGE"
 
           payload=$(jq -nc \
             --arg ref "$commit_ref" \
@@ -72,6 +80,10 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           JOB_STATUS: ${{ job.status }}
+          ACTOR: ${{ github.actor }}
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch || github.ref_name }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+          COMMIT_MSG: ${{ github.event.workflow_run.head_commit.message || 'Déploiement production' }}
         run: |
           if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
             echo "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID is not configured. Skipping notification."
@@ -86,16 +98,10 @@ jobs:
             STATUS_TEXT="Échec du déploiement en production !"
           fi
 
-          COMMIT_REF="${{ github.event.workflow_run.head_branch || github.ref_name }}"
-          COMMIT_SHA="${{ github.event.workflow_run.head_sha || github.sha }}"
-          COMMIT_MSG="${{ github.event.workflow_run.head_commit.message || 'Déploiement production' }}"
+          SHORT_SHA="${HEAD_SHA:0:7}"
 
-          MESSAGE="$EMOJI *Portfolio - $STATUS_TEXT*
-
-*Branche :* \`$COMMIT_REF\`
-*Commit :* \`${COMMIT_SHA:0:7}\`
-*Message :* $COMMIT_MSG
-*Déclenché par :* ${{ github.actor }}"
+          MESSAGE=$(printf "%s *Portfolio - %s*\n\n*Branche :* \`%s\`\n*Commit :* \`%s\`\n*Message :* %s\n*Déclenché par :* %s" \
+            "$EMOJI" "$STATUS_TEXT" "$HEAD_BRANCH" "$SHORT_SHA" "$COMMIT_MSG" "$ACTOR")
 
           curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             -d chat_id="${TELEGRAM_CHAT_ID}" \
