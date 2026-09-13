@@ -1,7 +1,9 @@
 name: Portfolio CD
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Portfolio CI"]
+    types: [completed]
     branches: [main]
   workflow_dispatch:
 
@@ -18,6 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     environment: production
+    if: >-
+      (github.event_name == 'workflow_dispatch') ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     steps:
       - name: Trigger Dokploy deployment
         env:
@@ -28,10 +33,15 @@ jobs:
           deploy_token="${DOKPLOY_DEPLOY_URL##*/}"
           echo "::add-mask::$deploy_token"
 
+          commit_sha="${{ github.event.workflow_run.head_sha || github.sha }}"
+          commit_ref="${{ github.event.workflow_run.head_branch && format('refs/heads/{0}', github.event.workflow_run.head_branch) || github.ref }}"
+          commit_msg="${{ github.event.workflow_run.head_commit.message || 'Deploying main' }}"
+
           payload=$(jq -nc \
-            --arg ref "$GITHUB_REF" \
-            --arg sha "$GITHUB_SHA" \
-            '{ref: $ref, head_commit: {id: $sha, message: "Deploying main"}, commits: []}')
+            --arg ref "$commit_ref" \
+            --arg sha "$commit_sha" \
+            --arg msg "$commit_msg" \
+            '{ref: $ref, head_commit: {id: $sha, message: $msg}, commits: []}')
 
           curl --fail --silent --show-error --output /dev/null \
             --request POST \

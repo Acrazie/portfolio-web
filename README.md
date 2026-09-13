@@ -78,9 +78,9 @@ PORTFOLIO_PORT=4180 docker compose down
 
 ## Delivery
 
-Production changes reach `main` through pull requests. The `Portfolio CI` workflow runs TypeScript checks, unit tests, the production build, and a production-container build. GitHub branch rules must require its `Typecheck, tests and production build` check, reject direct pushes, and require the branch to be current before merge.
+Production changes reach `main` through pull requests. The `Portfolio CI` workflow runs code quality (Biome lint), TypeScript checks, unit tests (Vitest), end-to-end tests (Playwright), and a production-container build in parallel, with a unified `CI Pipeline Status` check. GitHub branch rules should require its `CI Pipeline Status` check.
 
-After a protected merge, Dokploy Auto Deploy watches `main` and performs the deployment. GitHub Actions does not connect to Dokploy or deploy directly.
+Once all CI checks succeed on `main`, the `Portfolio CD` workflow triggers the Dokploy deployment webhook securely through Cloudflare Access (with manual `workflow_dispatch` trigger available).
 
 ## Content handoff
 
