@@ -1,16 +1,20 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
-import { portfolio, type Locale } from '@/content/portfolio'
+import { getLocale, setLocale as setParaglideLocale, type Locale } from '@/paraglide/runtime'
+import * as m from '@/paraglide/messages'
+import { portfolio } from '@/content/portfolio'
 
 type LocaleValue = {
   locale: Locale
   copy: (typeof portfolio.copy)[Locale]
+  m: typeof m
   toggleLocale: () => void
+  setLocale: (locale: Locale) => void
 }
 
 const LocaleContext = createContext<LocaleValue | null>(null)
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('fr')
+  const [locale, setLocaleState] = useState<Locale>(() => getLocale())
 
   useEffect(() => {
     document.documentElement.dataset.hydrated = 'true'
@@ -21,10 +25,22 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = locale
   }, [locale])
 
+  const setLocale = (next: Locale) => {
+    setParaglideLocale(next, { reload: false })
+    setLocaleState(next)
+  }
+
+  const toggleLocale = () => {
+    const next: Locale = locale === 'fr' ? 'en' : 'fr'
+    setLocale(next)
+  }
+
   const value = useMemo<LocaleValue>(() => ({
     locale,
     copy: portfolio.copy[locale],
-    toggleLocale: () => setLocale(current => current === 'fr' ? 'en' : 'fr'),
+    m,
+    toggleLocale,
+    setLocale,
   }), [locale])
 
   return <LocaleContext.Provider value={value}>{children}</LocaleContext.Provider>
