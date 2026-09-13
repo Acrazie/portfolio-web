@@ -1,27 +1,46 @@
+@import "@fontsource-variable/hanken-grotesk";
 @import "tailwindcss" source("../");
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.96 0.012 85);
-  --foreground: oklch(0.16 0.01 270);
-  --card: oklch(0.985 0.006 85);
-  --card-foreground: oklch(0.16 0.01 270);
-  --popover: oklch(0.985 0.006 85);
-  --popover-foreground: oklch(0.16 0.01 270);
-  --primary: oklch(0.16 0.01 270);
-  --primary-foreground: oklch(0.98 0.004 85);
-  --secondary: oklch(0.91 0.018 85);
-  --secondary-foreground: oklch(0.2 0.01 270);
-  --muted: oklch(0.91 0.012 85);
-  --muted-foreground: oklch(0.48 0.012 270);
-  --accent: oklch(0.58 0.21 275);
-  --accent-foreground: oklch(0.98 0.004 85);
+  color-scheme: light;
+  --background: oklch(0.972 0.014 260);
+  --foreground: oklch(0.205 0.035 270);
+  --card: oklch(0.992 0.008 255);
+  --card-foreground: oklch(0.205 0.035 270);
+  --popover: oklch(0.992 0.008 255);
+  --popover-foreground: oklch(0.205 0.035 270);
+  --primary: oklch(0.205 0.035 270);
+  --primary-foreground: oklch(0.982 0.01 255);
+  --secondary: oklch(0.925 0.03 254);
+  --secondary-foreground: oklch(0.23 0.04 270);
+  --muted: oklch(0.925 0.024 255);
+  --muted-foreground: oklch(0.45 0.035 270);
+  --accent: oklch(0.62 0.19 281);
+  --accent-foreground: oklch(0.99 0.006 255);
   --destructive: oklch(0.58 0.22 28);
-  --border: oklch(0.16 0.01 270 / 14%);
-  --input: oklch(0.16 0.01 270 / 18%);
-  --ring: oklch(0.58 0.21 275);
-  --radius: 0.75rem;
+  --border: oklch(0.25 0.035 270 / 14%);
+  --input: oklch(0.25 0.035 270 / 18%);
+  --ring: oklch(0.57 0.22 281);
+  --mist-field: oklch(0.936 0.028 254);
+  --night-field: oklch(0.17 0.043 270);
+  --night-foreground: oklch(0.965 0.017 255);
+  --night-muted: oklch(0.79 0.036 259);
+  --optical-paper: oklch(0.985 0.01 250);
+  --optical-field: oklch(0.94 0.035 268);
+  --optical-blue: oklch(0.9 0.085 244);
+  --optical-violet: oklch(0.88 0.09 280);
+  --optical-violet-mobile: oklch(0.87 0.09 274);
+  --contact-blue: oklch(0.95 0.035 248);
+  --contact-violet: oklch(0.83 0.11 286);
+  --contact-field: oklch(0.92 0.055 278);
+  --mobile-field: oklch(0.935 0.04 260);
+  --lens-surface: oklch(0.99 0.009 255);
+  --lens-line: oklch(0.3 0.05 270);
+  --lens-shadow: oklch(0.31 0.09 275);
+  --optical-white: oklch(1 0 0);
+  --radius: 0.875rem;
 }
 
 @theme inline {
@@ -43,17 +62,114 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Hanken Grotesk Variable", "Hanken Grotesk", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 8px);
 }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
-  html { @apply scroll-smooth; }
-  body { @apply min-w-80 bg-background text-foreground antialiased; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  html {
+    @apply scroll-smooth;
+    background: var(--background);
+    scrollbar-color: color-mix(in oklch, var(--foreground) 34%, transparent) var(--background);
+  }
+
+  body {
+    @apply min-w-80 bg-background font-sans text-foreground antialiased;
+    caret-color: var(--accent);
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--accent) 24%, transparent);
+    color: var(--foreground);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer components {
+  .optical-hero {
+    background:
+      radial-gradient(circle at 67% 25%, color-mix(in oklch, var(--optical-violet) 60%, transparent), transparent 31%),
+      radial-gradient(circle at 36% 36%, color-mix(in oklch, var(--optical-blue) 76%, transparent), transparent 35%),
+      linear-gradient(135deg, var(--optical-paper), var(--optical-field));
+  }
+
+  .optical-bloom {
+    background:
+      radial-gradient(ellipse at 50% 42%, transparent 0 25%, color-mix(in oklch, var(--optical-white) 38%, transparent) 51%, transparent 72%),
+      linear-gradient(105deg, transparent 18%, color-mix(in oklch, var(--optical-white) 38%, transparent) 45%, transparent 63%);
+    mix-blend-mode: screen;
+    opacity: 0.85;
+  }
+
+  .optical-panel {
+    border: 1px solid color-mix(in oklch, var(--optical-white) 64%, transparent);
+    background: color-mix(in oklch, var(--lens-surface) 62%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 75%, transparent), 0 22px 60px color-mix(in oklch, var(--lens-shadow) 10%, transparent);
+    backdrop-filter: blur(20px) saturate(118%);
+  }
+
+  .optical-control {
+    border: 1px solid color-mix(in oklch, var(--lens-line) 16%, transparent);
+    border-radius: 999px;
+    background: color-mix(in oklch, var(--lens-surface) 64%, transparent);
+    box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 80%, transparent);
+    backdrop-filter: blur(14px);
+    transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+  }
+
+  .optical-control:hover {
+    border-color: color-mix(in oklch, var(--ring) 42%, transparent);
+    background: color-mix(in oklch, var(--optical-white) 82%, transparent);
+  }
+
+  .optical-control:active { transform: translateY(1px); }
+
+  .optical-contact {
+    background:
+      radial-gradient(circle at 82% 28%, color-mix(in oklch, var(--contact-violet) 52%, transparent), transparent 34%),
+      linear-gradient(132deg, var(--contact-blue), var(--contact-field));
+  }
+
+  .particle-fallback {
+    opacity: 0.76;
+    filter: hue-rotate(132deg) saturate(0.82) brightness(1.04) contrast(0.94);
+  }
+
+  @media (max-width: 639px) {
+    .optical-hero {
+      background:
+        radial-gradient(circle at 50% 28%, color-mix(in oklch, var(--optical-violet-mobile) 62%, transparent), transparent 35%),
+        linear-gradient(155deg, var(--optical-paper), var(--mobile-field));
+    }
+
+    .optical-panel { backdrop-filter: blur(14px) saturate(112%); }
+
+    .hero-copy-block {
+      isolation: isolate;
+    }
+
+    .hero-copy-block::before {
+      position: absolute;
+      z-index: -1;
+      inset: -1rem -1.25rem -1.35rem;
+      content: "";
+      background: linear-gradient(90deg, color-mix(in oklch, var(--background) 94%, transparent) 0 74%, transparent 100%);
+      filter: blur(8px);
+    }
+  }
 }

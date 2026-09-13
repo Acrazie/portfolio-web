@@ -2,13 +2,14 @@ import { Component, lazy, Suspense, useCallback, useEffect, useState } from 'rea
 import type { ReactNode } from 'react'
 import type {LayoutRefs} from './use-particle-layout'
 const Scene=lazy(()=>import('./ExecutionGraphScene'))
+type PauseLabels={pause:string;resume:string;pauseShort:string;playShort:string}
 class SceneBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}> {
  state={failed:false}
  static getDerivedStateFromError(){return {failed:true}}
  componentDidCatch(){this.props.onFailure()}
  render(){return this.state.failed?null:this.props.children}
 }
-export function ExecutionGraph({refs,onFallbackChange}:{refs:LayoutRefs;onFallbackChange:(visible:boolean)=>void}) {
+export function ExecutionGraph({refs,onFallbackChange,labels}:{refs:LayoutRefs;onFallbackChange:(visible:boolean)=>void;labels:PauseLabels}) {
  const ref=refs.host
  const [supported,setSupported]=useState<boolean|null>(null),[active,setActive]=useState(false),[failed,setFailed]=useState(false),[paused,setPaused]=useState(false)
  const [reduced,setReduced]=useState(false)
@@ -41,6 +42,6 @@ export function ExecutionGraph({refs,onFallbackChange}:{refs:LayoutRefs;onFallba
  <div ref={ref} className="fixed inset-0 z-10 pointer-events-none" style={{visibility:renderable?'visible':'hidden'}} aria-hidden="true" data-testid="logo-particles">
   {renderable && <SceneBoundary onFailure={onFailure}><Suspense fallback={null}><Scene refs={refs} reduced={reduced} paused={paused} active={active} onFailure={onFailure}/></Suspense></SceneBoundary>}
  </div>
- {renderable && <button type="button" aria-pressed={paused} onClick={()=>setPaused(value=>!value)} className="fixed bottom-5 right-3 z-20 min-h-11 min-w-11 px-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground focus-visible:outline-2 sm:right-8" aria-label={paused?'Resume animation':'Pause animation'}>{paused?'Play':'Pause'}</button>}
+ {renderable && <button type="button" aria-pressed={paused} onClick={()=>setPaused(value=>!value)} className="optical-control fixed bottom-5 right-3 z-40 min-h-11 min-w-11 px-4 font-mono text-[10px] uppercase tracking-[.16em] text-foreground/70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent sm:right-8" aria-label={paused?labels.resume:labels.pause}>{paused?labels.playShort:labels.pauseShort}</button>}
  </>
 }

@@ -53,7 +53,7 @@ test('actual section boundaries drive different spatial states in both scroll di
  await page.goto('/');const graph=page.getByTestId('execution-graph-canvas')
  await expect(graph).toHaveAttribute('data-ready','true')
  const states:number[]=[]
- for(const selector of ['#capabilities','#work','#contact','#work','#capabilities']){
+ for(const selector of ['#work','#capabilities','#contact','#capabilities','#work']){
   await page.locator(selector).evaluate(el=>scrollTo({top:el.getBoundingClientRect().top+scrollY-innerHeight*.4,behavior:'instant'}))
   await expect.poll(()=>graph.getAttribute('data-turn').then(Number)).toBeGreaterThan(.5)
   await page.waitForTimeout(100)

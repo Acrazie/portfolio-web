@@ -9,8 +9,8 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'robots', content: 'noindex, nofollow' },
-      { title: 'Acrazie — Software Engineer & AI Engineer' },
-      { name: 'description', content: 'Portfolio foundation for Acrazie, Software Engineer and AI Engineer.' },
+      { title: 'Mayeul — Software Engineer · AI Engineer' },
+      { name: 'description', content: 'Portfolio de Mayeul, Software Engineer et AI Engineer. Logiciels fiables, IA appliquée et systèmes agentiques.' },
     ],
     links: [{ rel: 'stylesheet', href: appCss }],
   }),
@@ -22,5 +22,5 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="en"><head><HeadContent /></head><body>{children}<Scripts /></body></html>
+  return <html lang="fr"><head><HeadContent /></head><body>{children}<Scripts /></body></html>
 }

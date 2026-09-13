@@ -1,5 +1,10 @@
 export type LogoPixels={width:number;height:number;data:Uint8ClampedArray}
-// Targets and RGB come only from the supplied image; white/transparent holes stay empty.
+const blue=[.29,.53,.96] as const,violet=[.54,.38,.96] as const
+function opticalColor(r:number,g:number,b:number){
+ const mix=Math.max(0,Math.min(1,(r-b+255)/510)),energy=.82+.18*(r+g+b)/(255*3)
+ return blue.map((channel,index)=>(channel+(violet[index]-channel)*mix)*energy)
+}
+// Targets come from supplied ink; its tone maps into the optical blue-violet spectrum.
 export function createParticleData(image:LogoPixels,seed:number) {
  let state=seed>>>0
  const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296}
@@ -15,7 +20,7 @@ export function createParticleData(image:LogoPixels,seed:number) {
   const scatter=edge && random()<.35 ? 14+random()*34 : 0
   const length=Math.max(1,Math.hypot(x-image.width/2,image.height/2-y))
   life.push((x-image.width/2)/length*scatter,(image.height/2-y)/length*scatter,scatter?1:0)
-  colors.push(r/255,g/255,b/255);glyphs.push(Math.floor(random()*18));phases.push(random()*Math.PI*2);sizes.push(.85+random()*.3)
+  colors.push(...opticalColor(r,g,b));glyphs.push(Math.floor(random()*18));phases.push(random()*Math.PI*2);sizes.push(.85+random()*.3)
  }
  return {life:new Float32Array(life),position:new Float32Array(positions),target:new Float32Array(targets),color:new Float32Array(colors),glyph:new Float32Array(glyphs),phase:new Float32Array(phases),size:new Float32Array(sizes)}
 }

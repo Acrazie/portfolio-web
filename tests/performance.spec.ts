@@ -13,8 +13,8 @@ test('three simultaneous invalidations coalesce into one draw',async({page})=>{
 test('narrow viewport keeps the headline and sculpture without horizontal overflow',async({page})=>{
  await page.setViewportSize({width:320,height:568});await page.goto('/')
  expect(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)).toBe(0)
- await expect(page.getByRole('heading',{level:1})).toHaveClass('sr-only')
- await expect(page.getByRole('link',{name:/Explore capabilities/})).toHaveCount(0)
+ await expect(page.getByRole('heading',{level:1})).toContainText('Mayeul')
+ await expect(page.getByRole('link',{name:'Entrer dans le portfolio'})).toBeVisible()
  const scene=page.getByTestId('logo-particles');await scene.scrollIntoViewIfNeeded()
  await expect(page.getByTestId('execution-graph-canvas')).toHaveAttribute('data-ready','true')
  expect((await scene.boundingBox())!.height).toBeGreaterThanOrEqual(300)

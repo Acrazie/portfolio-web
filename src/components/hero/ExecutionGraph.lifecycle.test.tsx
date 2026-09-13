@@ -7,7 +7,7 @@ it('a thrown lazy scene restores both static fallbacks and removes animation con
  const error=vi.spyOn(console,'error').mockImplementation(()=>{})
  const page=render(<PortfolioPage />)
  await waitFor(()=>expect(error).toHaveBeenCalled())
- await waitFor(()=>expect(screen.queryByRole('button',{name:'Pause animation'})).toBeNull())
+ await waitFor(()=>expect(screen.queryByRole('button',{name:'Mettre l’animation en pause'})).toBeNull())
  expect(screen.getByTestId('logo-particles')).toHaveStyle({visibility:'hidden'})
  expect(screen.getByTestId('execution-graph-fallback')).toBeVisible()
  expect(screen.getByTestId('particle-word')).toBeVisible()
