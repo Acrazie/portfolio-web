@@ -140,3 +140,11 @@ jobs:
             exit 1
           fi
           echo "All CI jobs passed successfully."
+
+  branch-rule-compat:
+    name: Typecheck, tests and production build
+    runs-on: ubuntu-latest
+    needs: [ci-success]
+    steps:
+      - name: Confirm pipeline success
+        run: echo "Branch protection rule compatibility check passed."
