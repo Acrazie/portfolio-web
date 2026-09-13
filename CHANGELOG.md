@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/Acrazie/portfolio-web/compare/v0.1.3...v0.1.4) (2026-09-13)
+
+
+### Bug Fixes
+
+* **ci:** fix YAML syntax and indentation in deploy workflow ([#21](https://github.com/Acrazie/portfolio-web/issues/21)) ([02fef29](https://github.com/Acrazie/portfolio-web/commit/02fef299dfc253c478c03ee26058835feec1b13d))
+
 ## [0.1.3](https://github.com/Acrazie/portfolio-web/compare/v0.1.2...v0.1.3) (2026-09-13)
 
 
