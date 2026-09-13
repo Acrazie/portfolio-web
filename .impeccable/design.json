@@ -1,812 +1,464 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-13T07:41:22Z",
+  "generatedAt": "2026-09-13T13:12:41Z",
   "title": "Design System: Mayeul Portfolio",
   "extensions": {
     "colorMeta": {
-      "background": {
+      "paper": {
         "role": "neutral",
-        "displayName": "Brume d’air froide",
-        "canonical": "oklch(0.972 0.014 260)",
+        "displayName": "Papier net",
+        "canonical": "#ffffff",
         "tonalRamp": [
-          "oklch(0.15 0.014 260)",
-          "oklch(0.27 0.014 260)",
-          "oklch(0.39 0.014 260)",
-          "oklch(0.51 0.014 260)",
-          "oklch(0.63 0.014 260)",
-          "oklch(0.75 0.014 260)",
-          "oklch(0.87 0.014 260)",
-          "oklch(0.95 0.014 260)"
+          "oklch(0.15 0.0000 0.00)",
+          "oklch(0.27 0.0000 0.00)",
+          "oklch(0.39 0.0000 0.00)",
+          "oklch(0.51 0.0000 0.00)",
+          "oklch(0.63 0.0000 0.00)",
+          "oklch(0.75 0.0000 0.00)",
+          "oklch(0.87 0.0000 0.00)",
+          "oklch(0.95 0.0000 0.00)"
         ]
       },
-      "foreground": {
-        "role": "neutral",
-        "displayName": "Encre marine",
-        "canonical": "oklch(0.205 0.035 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.035 270)",
-          "oklch(0.27 0.035 270)",
-          "oklch(0.39 0.035 270)",
-          "oklch(0.51 0.035 270)",
-          "oklch(0.63 0.035 270)",
-          "oklch(0.75 0.035 270)",
-          "oklch(0.87 0.035 270)",
-          "oklch(0.95 0.035 270)"
-        ]
-      },
-      "card": {
-        "role": "neutral",
-        "displayName": "Verre blanc",
-        "canonical": "oklch(0.992 0.008 255)",
-        "tonalRamp": [
-          "oklch(0.15 0.008 255)",
-          "oklch(0.27 0.008 255)",
-          "oklch(0.39 0.008 255)",
-          "oklch(0.51 0.008 255)",
-          "oklch(0.63 0.008 255)",
-          "oklch(0.75 0.008 255)",
-          "oklch(0.87 0.008 255)",
-          "oklch(0.95 0.008 255)"
-        ]
-      },
-      "card-foreground": {
-        "role": "neutral",
-        "displayName": "Encre sur verre",
-        "canonical": "oklch(0.205 0.035 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.035 270)",
-          "oklch(0.27 0.035 270)",
-          "oklch(0.39 0.035 270)",
-          "oklch(0.51 0.035 270)",
-          "oklch(0.63 0.035 270)",
-          "oklch(0.75 0.035 270)",
-          "oklch(0.87 0.035 270)",
-          "oklch(0.95 0.035 270)"
-        ]
-      },
-      "popover": {
-        "role": "neutral",
-        "displayName": "Verre flottant",
-        "canonical": "oklch(0.992 0.008 255)",
-        "tonalRamp": [
-          "oklch(0.15 0.008 255)",
-          "oklch(0.27 0.008 255)",
-          "oklch(0.39 0.008 255)",
-          "oklch(0.51 0.008 255)",
-          "oklch(0.63 0.008 255)",
-          "oklch(0.75 0.008 255)",
-          "oklch(0.87 0.008 255)",
-          "oklch(0.95 0.008 255)"
-        ]
-      },
-      "popover-foreground": {
-        "role": "neutral",
-        "displayName": "Encre flottante",
-        "canonical": "oklch(0.205 0.035 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.035 270)",
-          "oklch(0.27 0.035 270)",
-          "oklch(0.39 0.035 270)",
-          "oklch(0.51 0.035 270)",
-          "oklch(0.63 0.035 270)",
-          "oklch(0.75 0.035 270)",
-          "oklch(0.87 0.035 270)",
-          "oklch(0.95 0.035 270)"
-        ]
-      },
-      "primary": {
-        "role": "neutral",
-        "displayName": "Marine d’action",
-        "canonical": "oklch(0.205 0.035 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.035 270)",
-          "oklch(0.27 0.035 270)",
-          "oklch(0.39 0.035 270)",
-          "oklch(0.51 0.035 270)",
-          "oklch(0.63 0.035 270)",
-          "oklch(0.75 0.035 270)",
-          "oklch(0.87 0.035 270)",
-          "oklch(0.95 0.035 270)"
-        ]
-      },
-      "primary-foreground": {
-        "role": "neutral",
-        "displayName": "Blanc d’action",
-        "canonical": "oklch(0.982 0.01 255)",
-        "tonalRamp": [
-          "oklch(0.15 0.01 255)",
-          "oklch(0.27 0.01 255)",
-          "oklch(0.39 0.01 255)",
-          "oklch(0.51 0.01 255)",
-          "oklch(0.63 0.01 255)",
-          "oklch(0.75 0.01 255)",
-          "oklch(0.87 0.01 255)",
-          "oklch(0.95 0.01 255)"
-        ]
-      },
-      "secondary": {
-        "role": "secondary",
-        "displayName": "Brume bleue",
-        "canonical": "oklch(0.925 0.03 254)",
-        "tonalRamp": [
-          "oklch(0.15 0.03 254)",
-          "oklch(0.27 0.03 254)",
-          "oklch(0.39 0.03 254)",
-          "oklch(0.51 0.03 254)",
-          "oklch(0.63 0.03 254)",
-          "oklch(0.75 0.03 254)",
-          "oklch(0.87 0.03 254)",
-          "oklch(0.95 0.03 254)"
-        ]
-      },
-      "secondary-foreground": {
-        "role": "neutral",
-        "displayName": "Marine secondaire",
-        "canonical": "oklch(0.23 0.04 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.04 270)",
-          "oklch(0.27 0.04 270)",
-          "oklch(0.39 0.04 270)",
-          "oklch(0.51 0.04 270)",
-          "oklch(0.63 0.04 270)",
-          "oklch(0.75 0.04 270)",
-          "oklch(0.87 0.04 270)",
-          "oklch(0.95 0.04 270)"
-        ]
-      },
-      "muted": {
-        "role": "neutral",
-        "displayName": "Voile brumeux",
-        "canonical": "oklch(0.925 0.024 255)",
-        "tonalRamp": [
-          "oklch(0.15 0.024 255)",
-          "oklch(0.27 0.024 255)",
-          "oklch(0.39 0.024 255)",
-          "oklch(0.51 0.024 255)",
-          "oklch(0.63 0.024 255)",
-          "oklch(0.75 0.024 255)",
-          "oklch(0.87 0.024 255)",
-          "oklch(0.95 0.024 255)"
-        ]
-      },
-      "muted-foreground": {
-        "role": "neutral",
-        "displayName": "Encre assourdie",
-        "canonical": "oklch(0.45 0.035 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.035 270)",
-          "oklch(0.27 0.035 270)",
-          "oklch(0.39 0.035 270)",
-          "oklch(0.51 0.035 270)",
-          "oklch(0.63 0.035 270)",
-          "oklch(0.75 0.035 270)",
-          "oklch(0.87 0.035 270)",
-          "oklch(0.95 0.035 270)"
-        ]
-      },
-      "accent": {
+      "ink": {
         "role": "primary",
-        "displayName": "Violet spectral",
-        "canonical": "oklch(0.62 0.19 281)",
+        "displayName": "Encre franche",
+        "canonical": "#000000",
         "tonalRamp": [
-          "oklch(0.15 0.19 281)",
-          "oklch(0.27 0.19 281)",
-          "oklch(0.39 0.19 281)",
-          "oklch(0.51 0.19 281)",
-          "oklch(0.63 0.19 281)",
-          "oklch(0.75 0.19 281)",
-          "oklch(0.87 0.19 281)",
-          "oklch(0.95 0.19 281)"
+          "oklch(0.15 0.0000 0.00)",
+          "oklch(0.27 0.0000 0.00)",
+          "oklch(0.39 0.0000 0.00)",
+          "oklch(0.51 0.0000 0.00)",
+          "oklch(0.63 0.0000 0.00)",
+          "oklch(0.75 0.0000 0.00)",
+          "oklch(0.87 0.0000 0.00)",
+          "oklch(0.95 0.0000 0.00)"
         ]
       },
-      "accent-foreground": {
+      "ink-muted": {
         "role": "neutral",
-        "displayName": "Blanc spectral",
-        "canonical": "oklch(0.99 0.006 255)",
+        "displayName": "Encre secondaire",
+        "canonical": "rgb(0 0 0 / 62%)",
         "tonalRamp": [
-          "oklch(0.15 0.006 255)",
-          "oklch(0.27 0.006 255)",
-          "oklch(0.39 0.006 255)",
-          "oklch(0.51 0.006 255)",
-          "oklch(0.63 0.006 255)",
-          "oklch(0.75 0.006 255)",
-          "oklch(0.87 0.006 255)",
-          "oklch(0.95 0.006 255)"
+          "oklch(0.15 0.0000 0.00 / 62%)",
+          "oklch(0.27 0.0000 0.00 / 62%)",
+          "oklch(0.39 0.0000 0.00 / 62%)",
+          "oklch(0.51 0.0000 0.00 / 62%)",
+          "oklch(0.63 0.0000 0.00 / 62%)",
+          "oklch(0.75 0.0000 0.00 / 62%)",
+          "oklch(0.87 0.0000 0.00 / 62%)",
+          "oklch(0.95 0.0000 0.00 / 62%)"
         ]
       },
-      "destructive": {
-        "role": "tertiary",
-        "displayName": "Rouge défaut",
-        "canonical": "oklch(0.58 0.22 28)",
-        "tonalRamp": [
-          "oklch(0.15 0.22 28)",
-          "oklch(0.27 0.22 28)",
-          "oklch(0.39 0.22 28)",
-          "oklch(0.51 0.22 28)",
-          "oklch(0.63 0.22 28)",
-          "oklch(0.75 0.22 28)",
-          "oklch(0.87 0.22 28)",
-          "oklch(0.95 0.22 28)"
-        ]
-      },
-      "border": {
+      "rule": {
         "role": "neutral",
-        "displayName": "Trait gravé",
-        "canonical": "oklch(0.25 0.035 270 / 14%)",
+        "displayName": "Règle éditoriale",
+        "canonical": "rgb(0 0 0 / 18%)",
         "tonalRamp": [
-          "oklch(0.15 0.035 270 / 14%)",
-          "oklch(0.27 0.035 270 / 14%)",
-          "oklch(0.39 0.035 270 / 14%)",
-          "oklch(0.51 0.035 270 / 14%)",
-          "oklch(0.63 0.035 270 / 14%)",
-          "oklch(0.75 0.035 270 / 14%)",
-          "oklch(0.87 0.035 270 / 14%)",
-          "oklch(0.95 0.035 270 / 14%)"
+          "oklch(0.15 0.0000 0.00 / 18%)",
+          "oklch(0.27 0.0000 0.00 / 18%)",
+          "oklch(0.39 0.0000 0.00 / 18%)",
+          "oklch(0.51 0.0000 0.00 / 18%)",
+          "oklch(0.63 0.0000 0.00 / 18%)",
+          "oklch(0.75 0.0000 0.00 / 18%)",
+          "oklch(0.87 0.0000 0.00 / 18%)",
+          "oklch(0.95 0.0000 0.00 / 18%)"
         ]
       },
-      "input": {
+      "input-rule": {
         "role": "neutral",
-        "displayName": "Champ gravé",
-        "canonical": "oklch(0.25 0.035 270 / 18%)",
+        "displayName": "Règle de champ",
+        "canonical": "rgb(0 0 0 / 24%)",
         "tonalRamp": [
-          "oklch(0.15 0.035 270 / 18%)",
-          "oklch(0.27 0.035 270 / 18%)",
-          "oklch(0.39 0.035 270 / 18%)",
-          "oklch(0.51 0.035 270 / 18%)",
-          "oklch(0.63 0.035 270 / 18%)",
-          "oklch(0.75 0.035 270 / 18%)",
-          "oklch(0.87 0.035 270 / 18%)",
-          "oklch(0.95 0.035 270 / 18%)"
+          "oklch(0.15 0.0000 0.00 / 24%)",
+          "oklch(0.27 0.0000 0.00 / 24%)",
+          "oklch(0.39 0.0000 0.00 / 24%)",
+          "oklch(0.51 0.0000 0.00 / 24%)",
+          "oklch(0.63 0.0000 0.00 / 24%)",
+          "oklch(0.75 0.0000 0.00 / 24%)",
+          "oklch(0.87 0.0000 0.00 / 24%)",
+          "oklch(0.95 0.0000 0.00 / 24%)"
         ]
       },
-      "ring": {
-        "role": "primary",
-        "displayName": "Anneau spectral",
-        "canonical": "oklch(0.57 0.22 281)",
-        "tonalRamp": [
-          "oklch(0.15 0.22 281)",
-          "oklch(0.27 0.22 281)",
-          "oklch(0.39 0.22 281)",
-          "oklch(0.51 0.22 281)",
-          "oklch(0.63 0.22 281)",
-          "oklch(0.75 0.22 281)",
-          "oklch(0.87 0.22 281)",
-          "oklch(0.95 0.22 281)"
-        ]
-      },
-      "mist-field": {
+      "hero-midnight": {
         "role": "secondary",
-        "displayName": "Champ de brume",
-        "canonical": "oklch(0.936 0.028 254)",
+        "displayName": "Nuit profonde",
+        "canonical": "#020617",
         "tonalRamp": [
-          "oklch(0.15 0.028 254)",
-          "oklch(0.27 0.028 254)",
-          "oklch(0.39 0.028 254)",
-          "oklch(0.51 0.028 254)",
-          "oklch(0.63 0.028 254)",
-          "oklch(0.75 0.028 254)",
-          "oklch(0.87 0.028 254)",
-          "oklch(0.95 0.028 254)"
+          "oklch(0.15 0.0406 264.70)",
+          "oklch(0.27 0.0406 264.70)",
+          "oklch(0.39 0.0406 264.70)",
+          "oklch(0.51 0.0406 264.70)",
+          "oklch(0.63 0.0406 264.70)",
+          "oklch(0.75 0.0406 264.70)",
+          "oklch(0.87 0.0406 264.70)",
+          "oklch(0.95 0.0406 264.70)"
         ]
       },
-      "night-field": {
-        "role": "neutral",
-        "displayName": "Chambre marine",
-        "canonical": "oklch(0.17 0.043 270)",
-        "tonalRamp": [
-          "oklch(0.15 0.043 270)",
-          "oklch(0.27 0.043 270)",
-          "oklch(0.39 0.043 270)",
-          "oklch(0.51 0.043 270)",
-          "oklch(0.63 0.043 270)",
-          "oklch(0.75 0.043 270)",
-          "oklch(0.87 0.043 270)",
-          "oklch(0.95 0.043 270)"
-        ]
-      },
-      "night-foreground": {
-        "role": "neutral",
-        "displayName": "Blanc nocturne",
-        "canonical": "oklch(0.965 0.017 255)",
-        "tonalRamp": [
-          "oklch(0.15 0.017 255)",
-          "oklch(0.27 0.017 255)",
-          "oklch(0.39 0.017 255)",
-          "oklch(0.51 0.017 255)",
-          "oklch(0.63 0.017 255)",
-          "oklch(0.75 0.017 255)",
-          "oklch(0.87 0.017 255)",
-          "oklch(0.95 0.017 255)"
-        ]
-      },
-      "night-muted": {
-        "role": "neutral",
-        "displayName": "Lavande de preuve",
-        "canonical": "oklch(0.79 0.036 259)",
-        "tonalRamp": [
-          "oklch(0.15 0.036 259)",
-          "oklch(0.27 0.036 259)",
-          "oklch(0.39 0.036 259)",
-          "oklch(0.51 0.036 259)",
-          "oklch(0.63 0.036 259)",
-          "oklch(0.75 0.036 259)",
-          "oklch(0.87 0.036 259)",
-          "oklch(0.95 0.036 259)"
-        ]
-      },
-      "optical-paper": {
-        "role": "neutral",
-        "displayName": "Papier optique",
-        "canonical": "oklch(0.985 0.01 250)",
-        "tonalRamp": [
-          "oklch(0.15 0.01 250)",
-          "oklch(0.27 0.01 250)",
-          "oklch(0.39 0.01 250)",
-          "oklch(0.51 0.01 250)",
-          "oklch(0.63 0.01 250)",
-          "oklch(0.75 0.01 250)",
-          "oklch(0.87 0.01 250)",
-          "oklch(0.95 0.01 250)"
-        ]
-      },
-      "optical-field": {
+      "hero-navy": {
         "role": "secondary",
-        "displayName": "Champ optique",
-        "canonical": "oklch(0.94 0.035 268)",
+        "displayName": "Nuit cobalt",
+        "canonical": "#071a62",
         "tonalRamp": [
-          "oklch(0.15 0.035 268)",
-          "oklch(0.27 0.035 268)",
-          "oklch(0.39 0.035 268)",
-          "oklch(0.51 0.035 268)",
-          "oklch(0.63 0.035 268)",
-          "oklch(0.75 0.035 268)",
-          "oklch(0.87 0.035 268)",
-          "oklch(0.95 0.035 268)"
+          "oklch(0.15 0.1283 265.50)",
+          "oklch(0.27 0.1283 265.50)",
+          "oklch(0.39 0.1283 265.50)",
+          "oklch(0.51 0.1283 265.50)",
+          "oklch(0.63 0.1283 265.50)",
+          "oklch(0.75 0.1283 265.50)",
+          "oklch(0.87 0.1283 265.50)",
+          "oklch(0.95 0.1283 265.50)"
         ]
       },
-      "optical-blue": {
+      "hero-indigo": {
         "role": "secondary",
-        "displayName": "Halo cyan froid",
-        "canonical": "oklch(0.9 0.085 244)",
+        "displayName": "Indigo de fond",
+        "canonical": "#4338ca",
         "tonalRamp": [
-          "oklch(0.15 0.085 244)",
-          "oklch(0.27 0.085 244)",
-          "oklch(0.39 0.085 244)",
-          "oklch(0.51 0.085 244)",
-          "oklch(0.63 0.085 244)",
-          "oklch(0.75 0.085 244)",
-          "oklch(0.87 0.085 244)",
-          "oklch(0.95 0.085 244)"
+          "oklch(0.15 0.2146 277.02)",
+          "oklch(0.27 0.2146 277.02)",
+          "oklch(0.39 0.2146 277.02)",
+          "oklch(0.51 0.2146 277.02)",
+          "oklch(0.63 0.2146 277.02)",
+          "oklch(0.75 0.2146 277.02)",
+          "oklch(0.87 0.2146 277.02)",
+          "oklch(0.95 0.2146 277.02)"
         ]
       },
-      "optical-violet": {
-        "role": "primary",
-        "displayName": "Halo violet",
-        "canonical": "oklch(0.88 0.09 280)",
-        "tonalRamp": [
-          "oklch(0.15 0.09 280)",
-          "oklch(0.27 0.09 280)",
-          "oklch(0.39 0.09 280)",
-          "oklch(0.51 0.09 280)",
-          "oklch(0.63 0.09 280)",
-          "oklch(0.75 0.09 280)",
-          "oklch(0.87 0.09 280)",
-          "oklch(0.95 0.09 280)"
-        ]
-      },
-      "optical-violet-mobile": {
-        "role": "primary",
-        "displayName": "Halo violet mobile",
-        "canonical": "oklch(0.87 0.09 274)",
-        "tonalRamp": [
-          "oklch(0.15 0.09 274)",
-          "oklch(0.27 0.09 274)",
-          "oklch(0.39 0.09 274)",
-          "oklch(0.51 0.09 274)",
-          "oklch(0.63 0.09 274)",
-          "oklch(0.75 0.09 274)",
-          "oklch(0.87 0.09 274)",
-          "oklch(0.95 0.09 274)"
-        ]
-      },
-      "contact-blue": {
+      "hero-blue": {
         "role": "secondary",
-        "displayName": "Bleu de contact",
-        "canonical": "oklch(0.95 0.035 248)",
+        "displayName": "Bleu vivant",
+        "canonical": "rgb(38 96 255 / 90%)",
         "tonalRamp": [
-          "oklch(0.15 0.035 248)",
-          "oklch(0.27 0.035 248)",
-          "oklch(0.39 0.035 248)",
-          "oklch(0.51 0.035 248)",
-          "oklch(0.63 0.035 248)",
-          "oklch(0.75 0.035 248)",
-          "oklch(0.87 0.035 248)",
-          "oklch(0.95 0.035 248)"
+          "oklch(0.15 0.2432 264.29 / 90%)",
+          "oklch(0.27 0.2432 264.29 / 90%)",
+          "oklch(0.39 0.2432 264.29 / 90%)",
+          "oklch(0.51 0.2432 264.29 / 90%)",
+          "oklch(0.63 0.2432 264.29 / 90%)",
+          "oklch(0.75 0.2432 264.29 / 90%)",
+          "oklch(0.87 0.2432 264.29 / 90%)",
+          "oklch(0.95 0.2432 264.29 / 90%)"
         ]
       },
-      "contact-violet": {
-        "role": "primary",
-        "displayName": "Violet de contact",
-        "canonical": "oklch(0.83 0.11 286)",
-        "tonalRamp": [
-          "oklch(0.15 0.11 286)",
-          "oklch(0.27 0.11 286)",
-          "oklch(0.39 0.11 286)",
-          "oklch(0.51 0.11 286)",
-          "oklch(0.63 0.11 286)",
-          "oklch(0.75 0.11 286)",
-          "oklch(0.87 0.11 286)",
-          "oklch(0.95 0.11 286)"
-        ]
-      },
-      "contact-field": {
+      "hero-violet": {
         "role": "secondary",
-        "displayName": "Champ de contact",
-        "canonical": "oklch(0.92 0.055 278)",
+        "displayName": "Violet vivant",
+        "canonical": "rgb(96 48 255 / 82%)",
         "tonalRamp": [
-          "oklch(0.15 0.055 278)",
-          "oklch(0.27 0.055 278)",
-          "oklch(0.39 0.055 278)",
-          "oklch(0.51 0.055 278)",
-          "oklch(0.63 0.055 278)",
-          "oklch(0.75 0.055 278)",
-          "oklch(0.87 0.055 278)",
-          "oklch(0.95 0.055 278)"
+          "oklch(0.15 0.2752 281.83 / 82%)",
+          "oklch(0.27 0.2752 281.83 / 82%)",
+          "oklch(0.39 0.2752 281.83 / 82%)",
+          "oklch(0.51 0.2752 281.83 / 82%)",
+          "oklch(0.63 0.2752 281.83 / 82%)",
+          "oklch(0.75 0.2752 281.83 / 82%)",
+          "oklch(0.87 0.2752 281.83 / 82%)",
+          "oklch(0.95 0.2752 281.83 / 82%)"
         ]
       },
-      "mobile-field": {
+      "hero-lavender": {
         "role": "secondary",
-        "displayName": "Champ mobile",
-        "canonical": "oklch(0.935 0.04 260)",
+        "displayName": "Lavande de respiration",
+        "canonical": "rgb(126 154 255 / 68%)",
         "tonalRamp": [
-          "oklch(0.15 0.04 260)",
-          "oklch(0.27 0.04 260)",
-          "oklch(0.39 0.04 260)",
-          "oklch(0.51 0.04 260)",
-          "oklch(0.63 0.04 260)",
-          "oklch(0.75 0.04 260)",
-          "oklch(0.87 0.04 260)",
-          "oklch(0.95 0.04 260)"
+          "oklch(0.15 0.1510 270.49 / 68%)",
+          "oklch(0.27 0.1510 270.49 / 68%)",
+          "oklch(0.39 0.1510 270.49 / 68%)",
+          "oklch(0.51 0.1510 270.49 / 68%)",
+          "oklch(0.63 0.1510 270.49 / 68%)",
+          "oklch(0.75 0.1510 270.49 / 68%)",
+          "oklch(0.87 0.1510 270.49 / 68%)",
+          "oklch(0.95 0.1510 270.49 / 68%)"
         ]
       },
-      "lens-surface": {
-        "role": "neutral",
-        "displayName": "Verre de lentille",
-        "canonical": "oklch(0.99 0.009 255)",
+      "hero-cobalt": {
+        "role": "secondary",
+        "displayName": "Bleu cobalt",
+        "canonical": "rgb(18 62 221 / 78%)",
         "tonalRamp": [
-          "oklch(0.15 0.009 255)",
-          "oklch(0.27 0.009 255)",
-          "oklch(0.39 0.009 255)",
-          "oklch(0.51 0.009 255)",
-          "oklch(0.63 0.009 255)",
-          "oklch(0.75 0.009 255)",
-          "oklch(0.87 0.009 255)",
-          "oklch(0.95 0.009 255)"
+          "oklch(0.15 0.2421 264.78 / 78%)",
+          "oklch(0.27 0.2421 264.78 / 78%)",
+          "oklch(0.39 0.2421 264.78 / 78%)",
+          "oklch(0.51 0.2421 264.78 / 78%)",
+          "oklch(0.63 0.2421 264.78 / 78%)",
+          "oklch(0.75 0.2421 264.78 / 78%)",
+          "oklch(0.87 0.2421 264.78 / 78%)",
+          "oklch(0.95 0.2421 264.78 / 78%)"
         ]
       },
-      "lens-line": {
-        "role": "neutral",
-        "displayName": "Ligne de lentille",
-        "canonical": "oklch(0.3 0.05 270)",
+      "hero-indigo-bloom": {
+        "role": "secondary",
+        "displayName": "Floraison indigo",
+        "canonical": "rgb(92 72 255 / 62%)",
         "tonalRamp": [
-          "oklch(0.15 0.05 270)",
-          "oklch(0.27 0.05 270)",
-          "oklch(0.39 0.05 270)",
-          "oklch(0.51 0.05 270)",
-          "oklch(0.63 0.05 270)",
-          "oklch(0.75 0.05 270)",
-          "oklch(0.87 0.05 270)",
-          "oklch(0.95 0.05 270)"
+          "oklch(0.15 0.2559 278.63 / 62%)",
+          "oklch(0.27 0.2559 278.63 / 62%)",
+          "oklch(0.39 0.2559 278.63 / 62%)",
+          "oklch(0.51 0.2559 278.63 / 62%)",
+          "oklch(0.63 0.2559 278.63 / 62%)",
+          "oklch(0.75 0.2559 278.63 / 62%)",
+          "oklch(0.87 0.2559 278.63 / 62%)",
+          "oklch(0.95 0.2559 278.63 / 62%)"
         ]
       },
-      "lens-shadow": {
-        "role": "neutral",
-        "displayName": "Profondeur de lentille",
-        "canonical": "oklch(0.31 0.09 275)",
+      "hero-top-shade": {
+        "role": "secondary",
+        "displayName": "Voile supérieur",
+        "canonical": "rgb(0 4 26 / 68%)",
         "tonalRamp": [
-          "oklch(0.15 0.09 275)",
-          "oklch(0.27 0.09 275)",
-          "oklch(0.39 0.09 275)",
-          "oklch(0.51 0.09 275)",
-          "oklch(0.63 0.09 275)",
-          "oklch(0.75 0.09 275)",
-          "oklch(0.87 0.09 275)",
-          "oklch(0.95 0.09 275)"
-        ]
-      },
-      "optical-white": {
-        "role": "neutral",
-        "displayName": "Blanc optique",
-        "canonical": "oklch(1 0 0)",
-        "tonalRamp": [
-          "oklch(0.15 0 0)",
-          "oklch(0.27 0 0)",
-          "oklch(0.39 0 0)",
-          "oklch(0.51 0 0)",
-          "oklch(0.63 0 0)",
-          "oklch(0.75 0 0)",
-          "oklch(0.87 0 0)",
-          "oklch(0.95 0 0)"
+          "oklch(0.15 0.0539 261.54 / 68%)",
+          "oklch(0.27 0.0539 261.54 / 68%)",
+          "oklch(0.39 0.0539 261.54 / 68%)",
+          "oklch(0.51 0.0539 261.54 / 68%)",
+          "oklch(0.63 0.0539 261.54 / 68%)",
+          "oklch(0.75 0.0539 261.54 / 68%)",
+          "oklch(0.87 0.0539 261.54 / 68%)",
+          "oklch(0.95 0.0539 261.54 / 68%)"
         ]
       }
     },
     "typographyMeta": {
-      "hero": {
-        "displayName": "Hero",
-        "purpose": "Nom principal dans le premier viewport."
+      "hero-name": {
+        "displayName": "Hero Name",
+        "purpose": "MAYEUL dans le premier viewport; autorité par l’échelle, jamais par la couleur du texte."
       },
-      "display": {
-        "displayName": "Display",
-        "purpose": "Grandes destinations de champs."
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "Titre principal des routes intérieures."
       },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Titres de champs secondaires."
+      "section-title": {
+        "displayName": "Section Title",
+        "purpose": "Ouverture de section et grand titre de projet."
       },
-      "title": {
-        "displayName": "Title",
-        "purpose": "Projet ou preuve principale."
+      "editorial-lead": {
+        "displayName": "Editorial Lead",
+        "purpose": "Phrase d’ouverture d’About uniquement."
       },
-      "statement": {
-        "displayName": "Statement",
-        "purpose": "Thèse courte du héros."
+      "editorial-heading": {
+        "displayName": "Editorial Heading",
+        "purpose": "Intertitres à 600 du typeset shadcn et intitulés Education."
+      },
+      "editorial-body": {
+        "displayName": "Editorial Body",
+        "purpose": "Lecture longue dans une colonne de 68–70ch."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Lecture principale limitée à 58–65ch."
-      },
-      "body-compact": {
-        "displayName": "Body Compact",
-        "purpose": "Notes, détails et preuves avec ligne explicite de 24px."
-      },
-      "navigation": {
-        "displayName": "Navigation",
-        "purpose": "Liens du bandeau avec cible de 44px."
+        "purpose": "Résumés, descriptions et métadonnées."
       },
       "control": {
         "displayName": "Control",
-        "purpose": "Actions principales de 44–48px."
-      },
-      "status": {
-        "displayName": "Status",
-        "purpose": "États et technologies en pilule."
-      },
-      "instrument": {
-        "displayName": "Instrument",
-        "purpose": "Graduations, états et commandes très courtes."
-      },
-      "signature": {
-        "displayName": "Signature",
-        "purpose": "Enregistrement final MAYEUL."
+        "purpose": "Boutons, navigation et actions textuelles compactes."
       }
     },
-    "shadows": [
-      {
-        "name": "lens-panel-ambient",
-        "value": "inset 0 1px 0 color-mix(in oklch, var(--optical-white) 75%, transparent), 0 22px 60px color-mix(in oklch, var(--lens-shadow) 10%, transparent)",
-        "purpose": "Profondeur diffuse des panneaux optiques."
-      },
-      {
-        "name": "lens-control-highlight",
-        "value": "inset 0 1px 0 color-mix(in oklch, var(--optical-white) 80%, transparent)",
-        "purpose": "Reflet intérieur tactile des contrôles."
-      },
-      {
-        "name": "signal-glow-large",
-        "value": "0 0 18px var(--accent)",
-        "purpose": "Point spectral du bandeau."
-      },
-      {
-        "name": "signal-glow-compact",
-        "value": "0 0 14px var(--accent)",
-        "purpose": "État actif dans le panneau instrument."
-      }
-    ],
+    "shadows": [],
     "motion": [
       {
-        "name": "optical-control-state",
-        "value": "border-color 180ms ease, background-color 180ms ease, transform 180ms ease",
-        "purpose": "Retour tactile des contrôles translucides."
+        "name": "canvas-cycle",
+        "value": "9000ms",
+        "purpose": "Base temporelle lente des respirations du gradient."
       },
       {
-        "name": "action-lift",
-        "value": "translateY(-2px), 150ms cubic-bezier(0.4, 0, 0.2, 1)",
-        "purpose": "Survol bref des actions principales."
+        "name": "canvas-frame-cap",
+        "value": "30fps",
+        "purpose": "Plafond du rendu Canvas 2D via un intervalle de 1000/30ms."
       },
       {
-        "name": "track-shift",
-        "value": "translateX(8px), 300ms",
-        "purpose": "Lecture active des lignes d’outils."
+        "name": "canvas-dpr-max",
+        "value": "1.5",
+        "purpose": "Plafond de densité de pixels du Canvas."
       },
       {
-        "name": "particle-demand",
-        "value": "frameloop=demand when visible; frameloop=never when hidden; invalidate on input, scroll, resize, intro, settling, or registration",
-        "purpose": "Animer le symbole uniquement lorsqu’une image utile doit être produite."
+        "name": "control-transition",
+        "value": "200ms ease-out",
+        "purpose": "Réponse de fond, couleur et translation des boutons."
       },
       {
-        "name": "particle-pause",
-        "value": "active && !reduced && !paused; reset push, dynamics, and parallax while stopped",
-        "purpose": "Fournir un arrêt explicite et une reprise propre."
+        "name": "skip-link-transition",
+        "value": "160ms ease-out",
+        "purpose": "Entrée du lien d’évitement au focus."
       },
       {
         "name": "reduced-motion",
-        "value": "scroll-behavior=auto; transition-duration=0.01ms; animation-duration=0.01ms; animation-iteration-count=1; WebGL replaced by static fallback",
-        "purpose": "Respecter la préférence système sans perdre contenu ni identité."
+        "value": "0.01ms, 1 iteration",
+        "purpose": "Neutralise transitions et animations; le Canvas reste sur une peinture statique."
       }
     ],
     "breakpoints": [
       {
-        "name": "particle-compact",
-        "value": "600px"
-      },
-      {
         "name": "sm",
-        "value": "640px"
+        "value": "40rem"
       },
       {
         "name": "md",
-        "value": "768px"
+        "value": "48rem"
       },
       {
         "name": "lg",
-        "value": "1024px"
+        "value": "64rem"
       }
     ]
   },
   "components": [
     {
-      "name": "Primary Action Pill",
+      "name": "Primary Button",
       "kind": "button",
-      "refersTo": "primary-action",
-      "description": "Action principale marine sur champ clair, douce et immédiatement lisible.",
-      "html": "<a class=\"ds-primary-action\" href=\"#work\">Voir le projet <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a>",
-      "css": ".ds-primary-action { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 0 20px; border-radius: 999px; background: var(--foreground); color: var(--background); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-primary-action svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; } .ds-primary-action:hover { transform: translateY(-2px); } .ds-primary-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+      "refersTo": "button-primary",
+      "description": "Action principale noire sur surface blanche, avec réponse verticale courte.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Voir les projets</button>",
+      "css": ".ds-btn-primary { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid transparent; border-radius: 16px; background: var(--foreground, #000); color: var(--background, #fff); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-primary:hover { background: rgb(0 0 0 / 82%); transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--foreground, #000); outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:disabled { pointer-events: none; opacity: .5; }"
     },
     {
-      "name": "Inverse Action Pill",
+      "name": "Inverse Large Button",
       "kind": "button",
-      "refersTo": "inverse-action",
-      "description": "Action claire réservée à la chambre marine.",
-      "html": "<span class=\"ds-night-context\"><a class=\"ds-inverse-action\" href=\"#contact\">Écrire <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a></span>",
-      "css": ".ds-night-context { display: inline-flex; padding: 24px; background: var(--night-field); } .ds-inverse-action { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 0 20px; border-radius: 999px; background: var(--night-foreground); color: var(--night-field); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-inverse-action svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; } .ds-inverse-action:hover { transform: translateY(-2px); } .ds-inverse-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+      "refersTo": "button-inverse-large",
+      "description": "Action blanche de 48px réservée aux fonds noirs et au héros.",
+      "html": "<span class=\"ds-inverse-context\"><button class=\"ds-btn-inverse\" type=\"button\">Projets</button></span>",
+      "css": ".ds-inverse-context { display: inline-flex; padding: 24px; background: #000; } .ds-btn-inverse { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: 16px; background: var(--background, #fff); color: var(--foreground, #000); font: 500 16px/24px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, transform 200ms ease-out; } .ds-btn-inverse:hover { background: rgb(255 255 255 / 86%); transform: translateY(-2px); } .ds-btn-inverse:focus-visible { outline: 2px solid #fff; outline-offset: 2px; } .ds-btn-inverse:active { transform: translateY(1px); }"
     },
     {
-      "name": "Optical Control",
+      "name": "Outline Button",
       "kind": "button",
-      "refersTo": "optical-control",
-      "description": "Commande instrumentale translucide pour langue ou pause.",
-      "html": "<button class=\"ds-optical-control\" type=\"button\">FR <span>/</span> EN</button>",
-      "css": ".ds-optical-control { min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid color-mix(in oklch, var(--lens-line) 16%, transparent); border-radius: 999px; background: color-mix(in oklch, var(--lens-surface) 64%, transparent); color: color-mix(in oklch, var(--foreground) 70%, transparent); box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 80%, transparent); backdrop-filter: blur(14px); font: 400 10px/15px 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; letter-spacing: .16em; text-transform: uppercase; transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease; } .ds-optical-control span { color: color-mix(in oklch, var(--foreground) 25%, transparent); } .ds-optical-control:hover { border-color: color-mix(in oklch, var(--ring) 42%, transparent); background: color-mix(in oklch, var(--optical-white) 82%, transparent); } .ds-optical-control:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } .ds-optical-control:active { transform: translateY(1px); }"
+      "refersTo": "button-outline",
+      "description": "Alternative blanche opaque à contour noir; jamais panneau translucide.",
+      "html": "<button class=\"ds-btn-outline\" type=\"button\">En savoir plus</button>",
+      "css": ".ds-btn-outline { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid #000; border-radius: 16px; background: #fff; color: #000; font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-outline:hover { background: #000; color: #fff; transform: translateY(-2px); } .ds-btn-outline:focus-visible { outline: 2px solid #000; outline-offset: 2px; } .ds-btn-outline:active { transform: translateY(1px); }"
     },
     {
-      "name": "Primary Navigation",
+      "name": "Header Navigation",
       "kind": "nav",
-      "refersTo": "navigation-link",
-      "description": "Liens en pilules invisibles au repos sur une règle gravée.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Principale\"><a href=\"#about\">À propos</a><a href=\"#work\">Travail</a><a href=\"#contact\">Contact</a></nav>",
-      "css": ".ds-nav { min-height: 80px; display: flex; align-items: center; gap: 4px; border-bottom: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent); font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; color: color-mix(in oklch, var(--foreground) 70%, transparent); text-decoration: none; transition: color 150ms cubic-bezier(.4,0,.2,1), background-color 150ms cubic-bezier(.4,0,.2,1); } .ds-nav a:hover { background: rgb(255 255 255 / 45%); color: var(--foreground); } .ds-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+      "refersTo": "header-navigation",
+      "description": "Navigation noire, alignée à droite, active par une règle blanche.",
+      "html": "<nav class=\"ds-header-nav\" aria-label=\"Principale\"><a href=\"#\">Accueil</a><a class=\"ds-active\" href=\"#\">Projets</a><a href=\"#\">À propos</a><a href=\"#\">Formation</a></nav>",
+      "css": ".ds-header-nav { min-height: 80px; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 0 32px; background: #000; color: #fff; font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-header-nav a { min-height: 44px; display: inline-flex; align-items: center; border-bottom: 1px solid transparent; color: rgb(255 255 255 / 78%); text-decoration: none; transition: color 200ms ease-out, border-color 200ms ease-out; } .ds-header-nav a:hover, .ds-header-nav .ds-active { border-color: #fff; color: #fff; } .ds-header-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }"
     },
     {
-      "name": "Status Chip",
-      "kind": "chip",
-      "refersTo": "status-chip",
-      "description": "État informatif discret, bordé et non interactif.",
-      "html": "<span class=\"ds-status-chip\">Données en préparation</span>",
-      "css": ".ds-status-chip { display: inline-flex; align-items: center; padding: 8px 12px; border: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); border-radius: 999px; background: transparent; color: color-mix(in oklch, var(--foreground) 60%, transparent); font: 500 12px/16px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; white-space: nowrap; }"
+      "name": "Mobile Menu Controls",
+      "kind": "button",
+      "refersTo": "menu-control",
+      "description": "Contrôles opaques de 44px; seuls Menu et X utilisent des pictogrammes Tabler.",
+      "html": "<span class=\"ds-menu-sample\"><button class=\"ds-menu-open\" type=\"button\" aria-label=\"Ouvrir le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg></button><button class=\"ds-menu-close\" type=\"button\" aria-label=\"Fermer le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg></button></span>",
+      "css": ".ds-menu-sample { display: inline-flex; gap: 12px; padding: 16px; background: #000; } .ds-menu-open, .ds-menu-close { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 16px; } .ds-menu-open { background: #000; color: #fff; border: 1px solid rgb(255 255 255 / 18%); } .ds-menu-close { background: #fff; color: #000; } .ds-menu-open svg, .ds-menu-close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; } .ds-menu-open:hover { background: rgb(255 255 255 / 12%); } .ds-menu-close:hover { background: rgb(255 255 255 / 86%); } .ds-menu-open:focus-visible, .ds-menu-close:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
     },
     {
-      "name": "Optical Lens Panel",
-      "kind": "card",
-      "refersTo": "optical-panel",
-      "description": "Lentille translucide pour un regroupement utile, jamais carte décorative répétée.",
-      "html": "<aside class=\"ds-optical-panel\"><p class=\"ds-optical-label\">CHAMP ACTIF</p><strong>Signal stable</strong><p>Une lentille concentre contrôle, statut et prochaine action.</p></aside>",
-      "css": ".ds-optical-panel { width: min(100%, 320px); padding: 24px; border: 1px solid color-mix(in oklch, var(--optical-white) 64%, transparent); border-radius: 16px; background: color-mix(in oklch, var(--lens-surface) 62%, transparent); color: var(--foreground); box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 75%, transparent), 0 22px 60px color-mix(in oklch, var(--lens-shadow) 10%, transparent); backdrop-filter: blur(20px) saturate(118%); font: 400 14px/24px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-optical-panel strong { display: block; margin-top: 24px; font-size: 18px; font-weight: 500; } .ds-optical-panel p { margin: 12px 0 0; color: color-mix(in oklch, var(--foreground) 55%, transparent); } .ds-optical-panel .ds-optical-label { margin: 0; font: 400 10px/15px 'SFMono-Regular', Consolas, monospace; letter-spacing: .16em; text-transform: uppercase; }"
-    },
-    {
-      "name": "Evidence Track",
-      "kind": "card",
-      "refersTo": "evidence-track",
-      "description": "Preuve ouverte dans la chambre marine, structurée par une règle plutôt qu’un cadre.",
-      "html": "<article class=\"ds-evidence-track\"><p class=\"ds-evidence-kicker\">PROJET VÉRIFIÉ</p><h3>Portfolio particulaire vivant</h3><p>Un système WebGL à contenu sémantique visible et repli statique robuste.</p><span>React</span><span>WebGL</span></article>",
-      "css": ".ds-evidence-track { width: 100%; padding: 32px 0; border-top: 1px solid rgb(255 255 255 / 18%); border-radius: 0; background: var(--night-field); color: var(--night-foreground); font: 400 16px/28px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-evidence-track h3 { max-width: 18ch; margin: 20px 0 0; font-size: clamp(35px, 4vw, 74px); line-height: .98; font-weight: 500; letter-spacing: -.035em; } .ds-evidence-track p:not(.ds-evidence-kicker) { max-width: 65ch; margin: 24px 0; color: var(--night-muted); } .ds-evidence-kicker { margin: 0; color: var(--night-muted); font: 400 10px/15px 'SFMono-Regular', Consolas, monospace; letter-spacing: .16em; } .ds-evidence-track span { display: inline-flex; margin-right: 8px; padding: 8px 12px; border-radius: 999px; background: rgb(255 255 255 / 8%); color: var(--night-foreground); font-size: 12px; line-height: 16px; }"
-    },
-    {
-      "name": "Outbound Link Row",
+      "name": "Editorial Action",
       "kind": "nav",
-      "refersTo": "outbound-row",
-      "description": "Sortie externe pleine largeur, alignée sur les pistes de contact.",
-      "html": "<a class=\"ds-outbound-row\" href=\"#\"><span><strong>GitHub</strong><small>@acrazie</small></span><svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a>",
-      "css": ".ds-outbound-row { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 16px; border-top: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); border-bottom: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); color: var(--foreground); font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: background-color 150ms cubic-bezier(.4,0,.2,1); } .ds-outbound-row strong, .ds-outbound-row small { display: block; } .ds-outbound-row strong { font-weight: 500; } .ds-outbound-row small { margin-top: 4px; color: color-mix(in oklch, var(--foreground) 45%, transparent); font-size: 12px; } .ds-outbound-row svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-outbound-row:hover { background: rgb(255 255 255 / 35%); } .ds-outbound-row:hover svg { transform: translate(2px, -2px); } .ds-outbound-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+      "refersTo": "editorial-action",
+      "description": "Action secondaire textuelle, structurée par un soulignement plutôt qu’une capsule.",
+      "html": "<a class=\"ds-editorial-action\" href=\"#\">Ouvrir le projet</a>",
+      "css": ".ds-editorial-action { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0 4px; border-bottom: 1px solid #000; color: #000; font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: none; } .ds-editorial-action:hover { border-bottom-width: 2px; } .ds-editorial-action:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }"
+    },
+    {
+      "name": "Editorial Project Row",
+      "kind": "custom",
+      "refersTo": "editorial-row",
+      "description": "Preuve ouverte entre deux règles, sans rayon, ombre, chip ou carte.",
+      "html": "<article class=\"ds-project-row\"><div><h3>Portfolio web</h3><p>Logiciel fiable et systèmes d’IA pratiques.</p></div><div><p class=\"ds-stack\">React · TypeScript · Canvas 2D</p><a href=\"#\">Ouvrir le projet</a></div></article>",
+      "css": ".ds-project-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .65fr); gap: 80px; padding: 40px 0; border-top: 1px solid rgb(0 0 0 / 20%); border-bottom: 1px solid rgb(0 0 0 / 20%); background: #fff; color: #000; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-project-row h3 { max-width: 18ch; margin: 0; font-size: clamp(36px, 5vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -.035em; } .ds-project-row p { max-width: 62ch; margin: 20px 0 0; color: rgb(0 0 0 / 62%); font-size: 16px; line-height: 28px; } .ds-project-row .ds-stack { margin-top: 0; font-size: 14px; } .ds-project-row a { min-height: 44px; display: inline-flex; align-items: center; margin-top: 32px; padding-bottom: 4px; border-bottom: 1px solid #000; color: #000; font-size: 14px; font-weight: 500; text-decoration: none; } .ds-project-row a:hover { border-bottom-width: 2px; } .ds-project-row a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (max-width: 64rem) { .ds-project-row { grid-template-columns: 1fr; gap: 32px; } }"
+    },
+    {
+      "name": "Gradient Hero Fallback",
+      "kind": "custom",
+      "refersTo": "gradient-hero",
+      "description": "Repli statique du seul champ chromatique; le Canvas 2D vivant se superpose au même monde.",
+      "html": "<section class=\"ds-gradient-hero\"><div class=\"ds-gradient-fade\"></div><div class=\"ds-hero-copy\"><h1>MAYEUL<span>Software Engineer · AI Engineer</span></h1><p>Des logiciels fiables et des systèmes d’IA pratiques.</p><a href=\"#\">Projets</a></div></section>",
+      "css": ".ds-gradient-hero { position: relative; min-height: 760px; overflow: hidden; background: radial-gradient(circle at 22% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 78% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 33% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 67% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 50% 66%, rgb(88 72 255 / 66%), transparent 39%), linear-gradient(#020617 0%, #071a62 52%, #4338ca 100%); color: #fff; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-gradient-fade { position: absolute; inset: 0; background: radial-gradient(ellipse 68% 54% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), radial-gradient(ellipse 68% 54% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), linear-gradient(to bottom, transparent 50%, rgb(255 255 255 / 8%) 58%, rgb(255 255 255 / 58%) 80%, #fff 100%); pointer-events: none; } .ds-hero-copy { position: absolute; left: 5%; bottom: 25%; z-index: 1; max-width: 58rem; } .ds-hero-copy h1 { margin: 0; font-size: clamp(64px, 10vw, 96px); font-weight: 500; line-height: .9; letter-spacing: -.04em; } .ds-hero-copy h1 span { display: block; max-width: 24ch; margin-top: 20px; font-size: clamp(26px, 4vw, 48px); line-height: 1.02; letter-spacing: -.035em; } .ds-hero-copy p { max-width: 34ch; margin: 24px 0 0; color: rgb(255 255 255 / 76%); font-size: clamp(18px, 2.4vw, 26px); line-height: 1.28; } .ds-hero-copy a { min-height: 48px; display: inline-flex; align-items: center; margin-top: 36px; padding: 12px 24px; border-radius: 16px; background: #fff; color: #000; font-size: 16px; font-weight: 500; text-decoration: none; } .ds-hero-copy a:hover { background: rgb(255 255 255 / 86%); transform: translateY(-2px); } .ds-hero-copy a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }"
     }
   ],
   "narrative": {
-    "northStar": "Salle d’optique computationnelle",
-    "overview": "La Salle d’optique computationnelle transforme le portfolio en instrument calme: une lumière bleu-violet traverse des champs ouverts, une chambre marine concentre les preuves, et Hanken Grotesk donne à l’ensemble une clarté technique souple. Le système reste tactile sans devenir décoratif: lentilles translucides, règles gravées, aplats froids et profondeur diffuse remplacent les conventions de carte SaaS ou de terminal gamer.\n\nLe contenu progresse par surfaces continues et pistes de preuve plutôt que par empilement de cartes. Les détails monospace jouent le rôle de graduations; les grands titres restent humains, directs et respirants. Les halos servent la lisibilité des champs et la séparation des plans, jamais un spectacle autonome.\n\nLe symbole particulaire est l’unique mouvement signature. Il réfracte le pointeur dans le héros, se déploie en pistes latérales au défilement, puis se réenregistre dans le mot MAYEUL. Tout contenu sémantique reste disponible sans WebGL; pause, réduction de mouvement, perte de contexte et inactivité suspendent ou remplacent proprement le rendu.",
+    "northStar": "La table de revue",
+    "overview": "La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.\n\nUn seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.\n\nLe système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.",
     "keyCharacteristics": [
-      "Palette optique froide: blanc bleuté, brume cyan, violet spectral et marine profond.",
-      "Hanken Grotesk variable pour la voix; mono système uniquement pour l’instrumentation.",
-      "Champs ouverts, règles fines et pistes de preuve plutôt que collections de cartes.",
-      "Lentilles translucides douces avec relief intérieur et ombre ambiante diffuse.",
-      "Grands écarts d’échelle, colonnes courtes et respiration verticale généreuse.",
-      "Symbole particulaire comme seul mouvement signature, avec repli statique robuste."
+      "Surfaces ordinaires exclusivement noires ou blanches.",
+      "Bleu, violet et lavande confinés au Canvas du héros et à son fondu blanc.",
+      "Hanken Grotesk variable auto-hébergée pour toute la voix éditoriale et interactive.",
+      "Titres réguliers de 400 à 500; intertitres de contenu long à 600.",
+      "Rayons mesurés de 10 à 16px, contrôles opaques et règles de 1px.",
+      "Espaces ouverts, peu d’objets, aucune collection de cartes.",
+      "Un seul mouvement signature, robuste au SSR, à la réduction de mouvement et à la suspension."
     ],
     "rules": [
       {
-        "name": "The Cold Spectrum Rule",
-        "body": "Le blanc bleuté, le cyan brumeux, le violet spectral et le marine profond peuvent occuper des champs entiers; toute nouvelle teinte doit rester dans cette lumière froide.",
+        "name": "The Chromatic Quarantine Rule",
+        "body": "Toute couleur chromatique reste dans le Canvas du héros et son fondu; aucune couleur dans navigation, pages intérieures, listes, pied de page, états ou texte.",
         "section": "colors"
       },
       {
-        "name": "The Signal Hierarchy Rule",
-        "body": "L’encre marine porte les actions et le violet spectral porte focus, activité et réfraction; ne pas inverser leurs rôles.",
+        "name": "The Two-Surface Rule",
+        "body": "Hors héros, toute grande surface est noire ou blanche. La hiérarchie vient du contraste, de l’opacité et des règles, jamais d’un troisième fond.",
         "section": "colors"
       },
       {
-        "name": "The Marine Chamber Rule",
-        "body": "La chambre marine concentre les preuves vérifiées et utilise exclusivement son blanc nocturne et sa lavande de preuve pour la lecture.",
+        "name": "The No Theme Rule",
+        "body": "Le portfolio reste en mode clair explicite avec sections noires inversées; ne pas ajouter de thème sombre, de bascule de thème ou de palette parallèle.",
         "section": "colors"
       },
       {
-        "name": "The Human Voice, Instrument Data Rule",
-        "body": "Hanken Grotesk porte titres, navigation, corps et actions; le mono reste réservé aux graduations, états et commandes de très courte longueur.",
+        "name": "The One Voice Rule",
+        "body": "Hanken Grotesk porte titres, corps, navigation et contrôles. Une police mono peut servir au code livré par `typeset`, mais ne devient jamais voix de marque ou motif de terminal.",
         "section": "typography"
       },
       {
-        "name": "The Optical Compression Rule",
-        "body": "Les grands titres utilisent un interlettrage négatif mesuré; le corps et les données instrumentales ne le copient pas.",
+        "name": "The Weight Separation Rule",
+        "body": "Le héros et les grands titres restent réguliers à moyens (400–500); le poids 600 appartient aux intertitres de lecture et aux petits repères structurants.",
+        "section": "typography"
+      },
+      {
+        "name": "The Plain Type Rule",
+        "body": "Ne jamais appliquer de dégradé, contour, ombre ou remplissage chromatique au texte.",
         "section": "typography"
       },
       {
         "name": "The Open Field Rule",
-        "body": "Structurer par changement de champ, alignement et règle fine avant d’ajouter un conteneur.",
+        "body": "Structurer d’abord avec espace, alignement et règle de 1px. Ajouter un conteneur seulement si une fonction exige réellement une limite.",
         "section": "layout"
       },
       {
-        "name": "The Page-Specific Composition Rule",
-        "body": "Conserver la grammaire de champs et de pistes, mais ne pas transformer les fractions de grille ni l’ordre des sections de cette page en modèle universel.",
+        "name": "The Short Route Rule",
+        "body": "Chaque route porte un sujet principal et peu de sections. Ne pas reconstruire une longue page d’accueil ou dupliquer les résumés de projet.",
         "section": "layout"
       },
       {
-        "name": "The Diffuse Depth Rule",
-        "body": "La profondeur vient de lumière mélangée, transparence, flou et ombres larges à faible opacité; aucune ombre dure ou empilée.",
+        "name": "The Flat-by-Default Rule",
+        "body": "Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page.",
         "section": "elevation"
       },
       {
         "name": "The Single Motion Rule",
-        "body": "Le symbole particulaire est l’unique mouvement signature; les autres mouvements restent des réponses courtes de survol, pression ou focus.",
+        "body": "Seul le Canvas du héros peut bouger de manière autonome; tout autre mouvement répond directement à une action.",
         "section": "elevation"
       },
       {
-        "name": "The Demand Rendering Rule",
-        "body": "Le canevas rend à la demande lorsqu’il est actif, ne rend jamais lorsque la page est cachée, et s’arrête en pause ou avec réduction de mouvement.",
+        "name": "The Canvas Budget Rule",
+        "body": "Conserver le plafond de 30fps, le DPR maximal de 1.5, la pause, les suspensions visibilité/hors-écran, le mode statique reduced-motion, le rendu SSR et le repli CSS.",
         "section": "elevation"
       },
       {
-        "name": "The Soft Lens Rule",
-        "body": "Les contrôles et lentilles sont arrondis et tactiles; les pistes de preuve, séparateurs et champs restent structurels.",
+        "name": "The Measured Radius Rule",
+        "body": "Employer 10, 12, 14 ou 16px selon l’échelle; ne pas transformer boutons, labels, technologies ou navigation en pilules.",
         "section": "shapes"
       },
       {
-        "name": "The Unframed Evidence Rule",
-        "body": "Une règle et un changement tonal suffisent à délimiter une preuve; ne pas l’enfermer automatiquement dans une carte autonome.",
+        "name": "The Rule-not-Card Rule",
+        "body": "Une rangée de preuve possède des séparateurs et de l’espace, pas une boîte arrondie autour de chaque item.",
         "section": "shapes"
       }
     ],
     "dos": [
-      "Do utiliser les variables CSS existantes comme source normative de couleur et conserver leurs valeurs OKLCH.",
-      "Do laisser le blanc bleuté, la brume, le violet et le marine construire des champs continus à grande échelle.",
-      "Do garder Hanken Grotesk pour toute lecture humaine et le mono à 10px avec 0.16em d’interlettrage pour l’instrumentation courte.",
-      "Do maintenir des cibles interactives d’au moins 44px et un focus visible de 2px, décalé de 4px, en violet spectral.",
-      "Do préserver le repli statique, le mode reduced-motion, la pause, la suspension sur onglet caché et le rendu WebGL à la demande.",
-      "Do adapter chaque nouvelle surface avec la grammaire de champs ouverts et de pistes sans recopier mécaniquement la composition de PortfolioPage."
+      "Do maintenir le noir et le blanc comme seules couleurs des surfaces ordinaires.",
+      "Do confiner tout bleu, violet et lavande au Canvas du héros et à son fondu.",
+      "Do utiliser Hanken Grotesk auto-hébergée, avec des titres à 400–500 et des intertitres de lecture à 600.",
+      "Do construire les listes et preuves avec espace, grilles et règles de 1px.",
+      "Do employer les primitives Base UI/CVA et conserver des contrôles opaques, des rayons de 10–16px et des cibles d’au moins 44px.",
+      "Do préserver le budget, la pause, les suspensions, reduced-motion, SSR et le repli statique du Canvas.",
+      "Do réserver Tabler aux seules icônes Menu et X."
     ],
     "donts": [
-      "Don't ajouter une palette chaude concurrente à la lumière optique froide de l’interface.",
-      "Don't multiplier cartes flottantes, cadres vitrés ou ombres pour chaque bloc de contenu.",
-      "Don't donner aux éléments d’interface une animation ambiante concurrente du symbole particulaire.",
-      "Don't utiliser le mono pour les paragraphes, les grands titres ou la navigation principale.",
-      "Don't masquer une information ou une action derrière WebGL, un état animé ou une interaction au pointeur.",
-      "Don't promouvoir la grille exacte, la séquence de sections ou la trajectoire finale propres à cette page en règle globale."
+      "Don't réintroduire la Salle d’optique computationnelle, ses lentilles, halos d’interface, instrumentation mono ou métaphores de laboratoire.",
+      "Don't ajouter de glassmorphism, flou d’arrière-plan, ombre de carte ou panneau translucide.",
+      "Don't construire une grille de cartes, des chips de technologies ou des pilules répétées.",
+      "Don't appliquer de dégradé au texte ni laisser une couleur sortir du héros.",
+      "Don't ajouter un système de thème, une bascule sombre ou une palette secondaire.",
+      "Don't multiplier les icônes quand un libellé texte suffit.",
+      "Don't masquer du contenu sémantique derrière le Canvas ou rendre l’animation nécessaire à la compréhension."
     ]
   }
 }

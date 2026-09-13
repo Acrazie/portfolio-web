@@ -1,52 +1,53 @@
 ---
 version: 1
 slug: "src-components-portfoliopage-tsx"
-primary_target: "src/components/PortfolioPage.tsx"
-related_targets: ["src/styles/app.css","src/content/portfolio.ts","src/components/hero/GlyphParticles.tsx"]
+primary_target: "src/components/pages/HomePage.tsx"
+related_targets: ["src/routes/","src/components/site/","src/components/hero/GradientCanvas.tsx","src/styles/app.css","src/content/portfolio.ts"]
 ---
 
-# Surface Brief: Portfolio Home
+# Surface Brief: Portfolio
 
 ## Scope
 
-- Primary target: `src/components/PortfolioPage.tsx`
-- Related targets: `src/styles/app.css`, `src/content/portfolio.ts`, and the particle hero under `src/components/hero/`
+- Primary target: `src/components/pages/HomePage.tsx`
+- Related targets: `src/routes/`, `src/components/site/`, `src/components/hero/GradientCanvas.tsx`, `src/styles/app.css`, and `src/content/portfolio.ts`
 - Visitor mode: Experience
 
 ## Visitor
 
-Broad public visitors arriving from LinkedIn, GitHub, skills.sh, or a shared link need to understand who Mayeul is, what he builds, and where verified proof lives. The page should lead with the particle symbol, then turn atmosphere into legible evidence and useful exits.
+Recruiters, engineering managers, and technical peers arriving from LinkedIn, GitHub, skills.sh, or a shared link need to understand who Mayeul is, inspect verified work, and reach the right background or contact destination quickly.
 
 ## Content and constraints
 
-- Preserve the one-page journey, accessibility, SSR visibility, reduced-motion behavior, static fallback, demand rendering, and honest draft state.
-- Keep Mayeul, Software Engineer · AI Engineer, GitHub `acrazie`, LinkedIn, skills.sh, and confirmed AI-tool practice.
-- Do not invent employer, education, client, outcome, ranking, availability, project, testimonial, or booking claims.
-- Corporate/SaaS and gamer aesthetics are explicit failures.
+- Replace the one-page journey with short Home, Projects, Project detail, About, and Education routes.
+- Preserve accessibility, SSR visibility, reduced-motion behavior, a static gradient fallback, demand rendering, and honest draft state.
+- Keep Mayeul, Software Engineer · AI Engineer, GitHub `acrazie`, LinkedIn, skills.sh, confirmed AI-tool practice, and supplied education institutions.
+- Do not invent employer, dates, client, outcome, ranking, availability, project, testimonial, or booking claims.
+- Corporate/SaaS card grids and gamer or terminal aesthetics are explicit failures.
 
 ## Chosen direction
 
-Salle d’optique computationnelle. A calm optical chamber combines Codex-like blue-violet daylight with DeepSeek-like nocturnal mist. The particle mark becomes a refracting instrument; controls feel precise, retained, tactile, and soft.
+La table de revue, reduced to a black-and-white editorial system with one full-hero animated canvas gradient. The code-led critique reference approved by the user is `.impeccable/mocks/decision/b9205f49-shape-final-v3.png`.
 
 ## Memorable moment
 
-Pointer or scroll pressure bends the symbol’s spectral field through a virtual lens. Its particles then resolve into evidence tracks and finally register as MAYEUL without hiding semantic content.
+A slow blue-violet canvas fills the entire Home hero, then dissolves through a broad left-right symmetric white bloom into the monochrome content below. The animation never carries semantic content.
 
 ## Direction contract
 
-**THESIS:** The portfolio is a computational optics room: Mayeul’s software and AI practice becomes visible as one particle signal refracted into verified evidence. It refuses the standard headshot-plus-project-cards portfolio and the neon terminal dashboard.
+**THESIS:** A quiet editorial portfolio lets one living canvas introduce Mayeul, then yields to short factual pages. It refuses the long portfolio scroll, repeated project sections, card grids, and terminal spectacle.
 
-**OWN-WORLD:** Full restrained spectrum: optical white, mist blue, spectral violet, and deep navy occupy whole fields. Frosted lenses, etched rules, diffused light, rounded controls, and unframed evidence tracks replace generic glass cards. Hanken Grotesk carries soft technical clarity; mono appears only as instrument notation.
+**OWN-WORLD:** Ordinary surfaces are pure black or white. Blue, violet, and lavender exist only inside the Home canvas and its fade. Neo-grotesque type, 10–16px corners, opaque monochrome controls, thin rules, and open fields form the system. Icons appear only when text cannot do the job.
 
-**STORY:** Visitors meet Mayeul through the living symbol, understand his software-and-AI position, inspect one verified project and confirmed practices, then leave through GitHub, skills.sh, LinkedIn, or email. Missing biography, employer, education, and results remain visibly pending.
+**STORY:** Recruiters, managers, and technical peers identify Mayeul and his software/AI position, open Projects as the primary action, inspect one verified case study, then explore About, Education, profiles, or email without duplicated summaries.
 
-**FIRST VIEWPORT:** A full-height pale optical field holds a particle symbol across roughly two thirds of the frame. MAYEUL and Software Engineer · AI Engineer anchor the lower left. A compact translucent instrument rail sits at the right edge; its primary Work action lives at the lower right. Blue-violet light blooms behind the symbol, never behind body copy.
+**FIRST VIEWPORT:** Canvas fills at least one viewport and dominates the frame. Right-aligned navigation sits over its dark upper edge; no small MAYEUL mark repeats the large name. Large regular MAYEUL, role, statement, and one opaque white Projects button sit lower left. A broad fade mirrored around the vertical axis reaches both sides before resolving into white below the fold.
 
-**FORM:** Salle d’optique computationnelle, first on the seven-direction grounded list and selected from seed `d12f2d07`. Signature interaction: pointer pressure refracts the particle field; scroll separates that field into evidence tracks before re-registering MAYEUL. Motion uses damped optical drift, one decisive refraction, and no ambient UI twitch.
+**FORM:** La table de revue, first on the grounded list and chosen as the Impeccable pick from seed `b9205f49`. Signature motion is one slow native-canvas gradient with a static fallback, pause, visibility suspension, and reduced-motion state. Content motion stays subordinate.
 
 **FINISH:** unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Unresolved decisions
 
-- Portrait, current employer, education, additional projects, achievements, booking URL, and chat destination require verified content from Mayeul.
+- Current employer, work history, dates, additional projects, achievements, booking URL, and chat destination still require verified content.
 - The interface is bilingual French and English, with French as the default language.

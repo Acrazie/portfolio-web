@@ -8,11 +8,11 @@ web
 
 ## Users
 
-The portfolio serves a broad public audience rather than one narrowly defined visitor type. Visitors need one place to discover Mayeul's professional identity, background, work, skills, resources, external profiles, and contact options.
+The portfolio primarily serves recruiters, engineering managers, and technical peers. Visitors need a fast entry point into Mayeul's identity, work, background, education, external profiles, and contact options.
 
 ## Product Purpose
 
-This is Mayeul's public professional portfolio. It should make his profile understandable and navigable from one page, then direct visitors to the right proof, profile, resource, or contact destination.
+This is Mayeul's public professional portfolio. A compact home page should establish his profile quickly, then short focused pages should lead visitors to the right proof, background, education record, profile, or contact destination.
 
 Success means visitors can quickly understand who Mayeul is, what he does, what he has worked on, and where to continue the conversation without the site inventing unavailable facts or evidence.
 
@@ -22,24 +22,20 @@ Mayeul is positioned as a **Software Engineer · AI Engineer**, focused on depen
 
 ## Operating Context
 
-The product is a public web portfolio organized as a single-page journey with these intended sections:
+The product is a public multi-page web portfolio:
 
-1. Hero: concise introduction and living particle symbol.
-2. About: education, current company, and personal qualities.
-3. Work Experience: chronological professional timeline.
-4. Projects: selected flagship projects.
-5. Skills: visual summary of technologies and capabilities.
-6. Achievements: milestones and notable results.
-7. Favorite Tools: tools and resources Mayeul recommends.
-8. External Profile: skills.sh profile and ranking.
-9. Blog & Resources: future articles and resources.
-10. Contact: direct contact, chat, or booking paths.
+1. Home: concise identity, full-hero animated gradient, and one primary Projects action.
+2. Projects: a data-driven index that starts with one verified project and scales without repeating page sections.
+3. Project detail: one reusable case-study route per project.
+4. About: professional position, software/AI capabilities, daily tools, and verified external profiles.
+5. Education: the supplied education record without invented dates.
+6. Contact: a verified email destination available from persistent navigation and the footer.
 
 ## Capabilities and Constraints
 
-- The site remains a one-page web portfolio unless a later product decision changes its structure.
+- The site is a multi-page portfolio with short focused routes rather than one long page.
 - The portfolio must support links to external professional profiles and resources.
-- Current employer, education, work history, additional project details, achievements, articles, chat destination, and booking destination remain open content decisions.
+- Current employer, work history, additional project details, achievements, chat destination, and booking destination remain open content decisions.
 - The portfolio is bilingual French and English, with French as the default language.
 - Unverified employers, outcomes, testimonials, rankings, availability, or other professional claims must not be invented.
 - Existing implementation uses React, TanStack Start, Tailwind CSS, Motion, React Three Fiber, TypeScript, and Bun.
@@ -60,8 +56,9 @@ The product is a public web portfolio organized as a single-page journey with th
 - Confirmed contact email: <mayeul.desbazeille@gmail.com>
 - Confirmed daily AI tools: Codex, Claude, and Gemini across multiple agent harnesses.
 - Verified first project: this portfolio at <https://github.com/acrazie/portfolio-web>.
+- Supplied education record: collège and lycée at Marcq Institution; Bachelor at ISG; Master Software Engineer at Epitech. Dates remain unsupplied.
 - Incumbent draft content and structure: `src/components/PortfolioPage.tsx` and `src/content/portfolio.ts`.
-- No verified employer, education, work-history, additional flagship-project, achievement, ranking, article, portrait, chat, or booking content has been supplied yet. Future work must leave these open or visibly pending rather than fabricate them.
+- No verified employer, work-history, additional flagship-project, achievement, ranking, portrait, chat, or booking content has been supplied yet. Future work must leave these open rather than fabricate them.
 
 ## Product Principles
 
