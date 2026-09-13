@@ -1,12 +1,12 @@
 import { expect,test } from '@playwright/test'
-test('capability rules have visible thickness',async({page})=>{
+test('capability tracks retain visible separators',async({page})=>{
  await page.goto('/')
- const rules=page.locator('#capabilities [data-slot=separator]')
- for(const rule of await rules.all()) expect((await rule.boundingBox())!.height).toBe(1)
+ const track=page.locator('#capabilities article').first()
+ expect((await track.evaluate(element=>getComputedStyle(element.parentElement!).borderTopWidth))).toBe('1px')
 })
 test('hero is an ample unframed surface with concise copy and no fabrication labels',async({page})=>{
  await page.goto('/')
- const hero=page.getByRole('region',{name:'Software. With a new perspective.'})
+ const hero=page.getByRole('region',{name:/Mayeul/})
  await expect(hero).not.toContainText(/Content pending|Demand render|Execution graph|constellation|Intent →/i)
  const scene=page.getByTestId('logo-particles')
  await expect(scene).toHaveAttribute('aria-hidden','true')

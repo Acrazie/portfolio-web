@@ -1,0 +1,812 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T07:41:22Z",
+  "title": "Design System: Mayeul Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "background": {
+        "role": "neutral",
+        "displayName": "Brume d’air froide",
+        "canonical": "oklch(0.972 0.014 260)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 260)",
+          "oklch(0.27 0.014 260)",
+          "oklch(0.39 0.014 260)",
+          "oklch(0.51 0.014 260)",
+          "oklch(0.63 0.014 260)",
+          "oklch(0.75 0.014 260)",
+          "oklch(0.87 0.014 260)",
+          "oklch(0.95 0.014 260)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "Encre marine",
+        "canonical": "oklch(0.205 0.035 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270)",
+          "oklch(0.27 0.035 270)",
+          "oklch(0.39 0.035 270)",
+          "oklch(0.51 0.035 270)",
+          "oklch(0.63 0.035 270)",
+          "oklch(0.75 0.035 270)",
+          "oklch(0.87 0.035 270)",
+          "oklch(0.95 0.035 270)"
+        ]
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Verre blanc",
+        "canonical": "oklch(0.992 0.008 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 255)",
+          "oklch(0.27 0.008 255)",
+          "oklch(0.39 0.008 255)",
+          "oklch(0.51 0.008 255)",
+          "oklch(0.63 0.008 255)",
+          "oklch(0.75 0.008 255)",
+          "oklch(0.87 0.008 255)",
+          "oklch(0.95 0.008 255)"
+        ]
+      },
+      "card-foreground": {
+        "role": "neutral",
+        "displayName": "Encre sur verre",
+        "canonical": "oklch(0.205 0.035 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270)",
+          "oklch(0.27 0.035 270)",
+          "oklch(0.39 0.035 270)",
+          "oklch(0.51 0.035 270)",
+          "oklch(0.63 0.035 270)",
+          "oklch(0.75 0.035 270)",
+          "oklch(0.87 0.035 270)",
+          "oklch(0.95 0.035 270)"
+        ]
+      },
+      "popover": {
+        "role": "neutral",
+        "displayName": "Verre flottant",
+        "canonical": "oklch(0.992 0.008 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 255)",
+          "oklch(0.27 0.008 255)",
+          "oklch(0.39 0.008 255)",
+          "oklch(0.51 0.008 255)",
+          "oklch(0.63 0.008 255)",
+          "oklch(0.75 0.008 255)",
+          "oklch(0.87 0.008 255)",
+          "oklch(0.95 0.008 255)"
+        ]
+      },
+      "popover-foreground": {
+        "role": "neutral",
+        "displayName": "Encre flottante",
+        "canonical": "oklch(0.205 0.035 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270)",
+          "oklch(0.27 0.035 270)",
+          "oklch(0.39 0.035 270)",
+          "oklch(0.51 0.035 270)",
+          "oklch(0.63 0.035 270)",
+          "oklch(0.75 0.035 270)",
+          "oklch(0.87 0.035 270)",
+          "oklch(0.95 0.035 270)"
+        ]
+      },
+      "primary": {
+        "role": "neutral",
+        "displayName": "Marine d’action",
+        "canonical": "oklch(0.205 0.035 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270)",
+          "oklch(0.27 0.035 270)",
+          "oklch(0.39 0.035 270)",
+          "oklch(0.51 0.035 270)",
+          "oklch(0.63 0.035 270)",
+          "oklch(0.75 0.035 270)",
+          "oklch(0.87 0.035 270)",
+          "oklch(0.95 0.035 270)"
+        ]
+      },
+      "primary-foreground": {
+        "role": "neutral",
+        "displayName": "Blanc d’action",
+        "canonical": "oklch(0.982 0.01 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.01 255)",
+          "oklch(0.27 0.01 255)",
+          "oklch(0.39 0.01 255)",
+          "oklch(0.51 0.01 255)",
+          "oklch(0.63 0.01 255)",
+          "oklch(0.75 0.01 255)",
+          "oklch(0.87 0.01 255)",
+          "oklch(0.95 0.01 255)"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Brume bleue",
+        "canonical": "oklch(0.925 0.03 254)",
+        "tonalRamp": [
+          "oklch(0.15 0.03 254)",
+          "oklch(0.27 0.03 254)",
+          "oklch(0.39 0.03 254)",
+          "oklch(0.51 0.03 254)",
+          "oklch(0.63 0.03 254)",
+          "oklch(0.75 0.03 254)",
+          "oklch(0.87 0.03 254)",
+          "oklch(0.95 0.03 254)"
+        ]
+      },
+      "secondary-foreground": {
+        "role": "neutral",
+        "displayName": "Marine secondaire",
+        "canonical": "oklch(0.23 0.04 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.04 270)",
+          "oklch(0.27 0.04 270)",
+          "oklch(0.39 0.04 270)",
+          "oklch(0.51 0.04 270)",
+          "oklch(0.63 0.04 270)",
+          "oklch(0.75 0.04 270)",
+          "oklch(0.87 0.04 270)",
+          "oklch(0.95 0.04 270)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Voile brumeux",
+        "canonical": "oklch(0.925 0.024 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.024 255)",
+          "oklch(0.27 0.024 255)",
+          "oklch(0.39 0.024 255)",
+          "oklch(0.51 0.024 255)",
+          "oklch(0.63 0.024 255)",
+          "oklch(0.75 0.024 255)",
+          "oklch(0.87 0.024 255)",
+          "oklch(0.95 0.024 255)"
+        ]
+      },
+      "muted-foreground": {
+        "role": "neutral",
+        "displayName": "Encre assourdie",
+        "canonical": "oklch(0.45 0.035 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270)",
+          "oklch(0.27 0.035 270)",
+          "oklch(0.39 0.035 270)",
+          "oklch(0.51 0.035 270)",
+          "oklch(0.63 0.035 270)",
+          "oklch(0.75 0.035 270)",
+          "oklch(0.87 0.035 270)",
+          "oklch(0.95 0.035 270)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Violet spectral",
+        "canonical": "oklch(0.62 0.19 281)",
+        "tonalRamp": [
+          "oklch(0.15 0.19 281)",
+          "oklch(0.27 0.19 281)",
+          "oklch(0.39 0.19 281)",
+          "oklch(0.51 0.19 281)",
+          "oklch(0.63 0.19 281)",
+          "oklch(0.75 0.19 281)",
+          "oklch(0.87 0.19 281)",
+          "oklch(0.95 0.19 281)"
+        ]
+      },
+      "accent-foreground": {
+        "role": "neutral",
+        "displayName": "Blanc spectral",
+        "canonical": "oklch(0.99 0.006 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 255)",
+          "oklch(0.27 0.006 255)",
+          "oklch(0.39 0.006 255)",
+          "oklch(0.51 0.006 255)",
+          "oklch(0.63 0.006 255)",
+          "oklch(0.75 0.006 255)",
+          "oklch(0.87 0.006 255)",
+          "oklch(0.95 0.006 255)"
+        ]
+      },
+      "destructive": {
+        "role": "tertiary",
+        "displayName": "Rouge défaut",
+        "canonical": "oklch(0.58 0.22 28)",
+        "tonalRamp": [
+          "oklch(0.15 0.22 28)",
+          "oklch(0.27 0.22 28)",
+          "oklch(0.39 0.22 28)",
+          "oklch(0.51 0.22 28)",
+          "oklch(0.63 0.22 28)",
+          "oklch(0.75 0.22 28)",
+          "oklch(0.87 0.22 28)",
+          "oklch(0.95 0.22 28)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Trait gravé",
+        "canonical": "oklch(0.25 0.035 270 / 14%)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270 / 14%)",
+          "oklch(0.27 0.035 270 / 14%)",
+          "oklch(0.39 0.035 270 / 14%)",
+          "oklch(0.51 0.035 270 / 14%)",
+          "oklch(0.63 0.035 270 / 14%)",
+          "oklch(0.75 0.035 270 / 14%)",
+          "oklch(0.87 0.035 270 / 14%)",
+          "oklch(0.95 0.035 270 / 14%)"
+        ]
+      },
+      "input": {
+        "role": "neutral",
+        "displayName": "Champ gravé",
+        "canonical": "oklch(0.25 0.035 270 / 18%)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 270 / 18%)",
+          "oklch(0.27 0.035 270 / 18%)",
+          "oklch(0.39 0.035 270 / 18%)",
+          "oklch(0.51 0.035 270 / 18%)",
+          "oklch(0.63 0.035 270 / 18%)",
+          "oklch(0.75 0.035 270 / 18%)",
+          "oklch(0.87 0.035 270 / 18%)",
+          "oklch(0.95 0.035 270 / 18%)"
+        ]
+      },
+      "ring": {
+        "role": "primary",
+        "displayName": "Anneau spectral",
+        "canonical": "oklch(0.57 0.22 281)",
+        "tonalRamp": [
+          "oklch(0.15 0.22 281)",
+          "oklch(0.27 0.22 281)",
+          "oklch(0.39 0.22 281)",
+          "oklch(0.51 0.22 281)",
+          "oklch(0.63 0.22 281)",
+          "oklch(0.75 0.22 281)",
+          "oklch(0.87 0.22 281)",
+          "oklch(0.95 0.22 281)"
+        ]
+      },
+      "mist-field": {
+        "role": "secondary",
+        "displayName": "Champ de brume",
+        "canonical": "oklch(0.936 0.028 254)",
+        "tonalRamp": [
+          "oklch(0.15 0.028 254)",
+          "oklch(0.27 0.028 254)",
+          "oklch(0.39 0.028 254)",
+          "oklch(0.51 0.028 254)",
+          "oklch(0.63 0.028 254)",
+          "oklch(0.75 0.028 254)",
+          "oklch(0.87 0.028 254)",
+          "oklch(0.95 0.028 254)"
+        ]
+      },
+      "night-field": {
+        "role": "neutral",
+        "displayName": "Chambre marine",
+        "canonical": "oklch(0.17 0.043 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.043 270)",
+          "oklch(0.27 0.043 270)",
+          "oklch(0.39 0.043 270)",
+          "oklch(0.51 0.043 270)",
+          "oklch(0.63 0.043 270)",
+          "oklch(0.75 0.043 270)",
+          "oklch(0.87 0.043 270)",
+          "oklch(0.95 0.043 270)"
+        ]
+      },
+      "night-foreground": {
+        "role": "neutral",
+        "displayName": "Blanc nocturne",
+        "canonical": "oklch(0.965 0.017 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.017 255)",
+          "oklch(0.27 0.017 255)",
+          "oklch(0.39 0.017 255)",
+          "oklch(0.51 0.017 255)",
+          "oklch(0.63 0.017 255)",
+          "oklch(0.75 0.017 255)",
+          "oklch(0.87 0.017 255)",
+          "oklch(0.95 0.017 255)"
+        ]
+      },
+      "night-muted": {
+        "role": "neutral",
+        "displayName": "Lavande de preuve",
+        "canonical": "oklch(0.79 0.036 259)",
+        "tonalRamp": [
+          "oklch(0.15 0.036 259)",
+          "oklch(0.27 0.036 259)",
+          "oklch(0.39 0.036 259)",
+          "oklch(0.51 0.036 259)",
+          "oklch(0.63 0.036 259)",
+          "oklch(0.75 0.036 259)",
+          "oklch(0.87 0.036 259)",
+          "oklch(0.95 0.036 259)"
+        ]
+      },
+      "optical-paper": {
+        "role": "neutral",
+        "displayName": "Papier optique",
+        "canonical": "oklch(0.985 0.01 250)",
+        "tonalRamp": [
+          "oklch(0.15 0.01 250)",
+          "oklch(0.27 0.01 250)",
+          "oklch(0.39 0.01 250)",
+          "oklch(0.51 0.01 250)",
+          "oklch(0.63 0.01 250)",
+          "oklch(0.75 0.01 250)",
+          "oklch(0.87 0.01 250)",
+          "oklch(0.95 0.01 250)"
+        ]
+      },
+      "optical-field": {
+        "role": "secondary",
+        "displayName": "Champ optique",
+        "canonical": "oklch(0.94 0.035 268)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 268)",
+          "oklch(0.27 0.035 268)",
+          "oklch(0.39 0.035 268)",
+          "oklch(0.51 0.035 268)",
+          "oklch(0.63 0.035 268)",
+          "oklch(0.75 0.035 268)",
+          "oklch(0.87 0.035 268)",
+          "oklch(0.95 0.035 268)"
+        ]
+      },
+      "optical-blue": {
+        "role": "secondary",
+        "displayName": "Halo cyan froid",
+        "canonical": "oklch(0.9 0.085 244)",
+        "tonalRamp": [
+          "oklch(0.15 0.085 244)",
+          "oklch(0.27 0.085 244)",
+          "oklch(0.39 0.085 244)",
+          "oklch(0.51 0.085 244)",
+          "oklch(0.63 0.085 244)",
+          "oklch(0.75 0.085 244)",
+          "oklch(0.87 0.085 244)",
+          "oklch(0.95 0.085 244)"
+        ]
+      },
+      "optical-violet": {
+        "role": "primary",
+        "displayName": "Halo violet",
+        "canonical": "oklch(0.88 0.09 280)",
+        "tonalRamp": [
+          "oklch(0.15 0.09 280)",
+          "oklch(0.27 0.09 280)",
+          "oklch(0.39 0.09 280)",
+          "oklch(0.51 0.09 280)",
+          "oklch(0.63 0.09 280)",
+          "oklch(0.75 0.09 280)",
+          "oklch(0.87 0.09 280)",
+          "oklch(0.95 0.09 280)"
+        ]
+      },
+      "optical-violet-mobile": {
+        "role": "primary",
+        "displayName": "Halo violet mobile",
+        "canonical": "oklch(0.87 0.09 274)",
+        "tonalRamp": [
+          "oklch(0.15 0.09 274)",
+          "oklch(0.27 0.09 274)",
+          "oklch(0.39 0.09 274)",
+          "oklch(0.51 0.09 274)",
+          "oklch(0.63 0.09 274)",
+          "oklch(0.75 0.09 274)",
+          "oklch(0.87 0.09 274)",
+          "oklch(0.95 0.09 274)"
+        ]
+      },
+      "contact-blue": {
+        "role": "secondary",
+        "displayName": "Bleu de contact",
+        "canonical": "oklch(0.95 0.035 248)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 248)",
+          "oklch(0.27 0.035 248)",
+          "oklch(0.39 0.035 248)",
+          "oklch(0.51 0.035 248)",
+          "oklch(0.63 0.035 248)",
+          "oklch(0.75 0.035 248)",
+          "oklch(0.87 0.035 248)",
+          "oklch(0.95 0.035 248)"
+        ]
+      },
+      "contact-violet": {
+        "role": "primary",
+        "displayName": "Violet de contact",
+        "canonical": "oklch(0.83 0.11 286)",
+        "tonalRamp": [
+          "oklch(0.15 0.11 286)",
+          "oklch(0.27 0.11 286)",
+          "oklch(0.39 0.11 286)",
+          "oklch(0.51 0.11 286)",
+          "oklch(0.63 0.11 286)",
+          "oklch(0.75 0.11 286)",
+          "oklch(0.87 0.11 286)",
+          "oklch(0.95 0.11 286)"
+        ]
+      },
+      "contact-field": {
+        "role": "secondary",
+        "displayName": "Champ de contact",
+        "canonical": "oklch(0.92 0.055 278)",
+        "tonalRamp": [
+          "oklch(0.15 0.055 278)",
+          "oklch(0.27 0.055 278)",
+          "oklch(0.39 0.055 278)",
+          "oklch(0.51 0.055 278)",
+          "oklch(0.63 0.055 278)",
+          "oklch(0.75 0.055 278)",
+          "oklch(0.87 0.055 278)",
+          "oklch(0.95 0.055 278)"
+        ]
+      },
+      "mobile-field": {
+        "role": "secondary",
+        "displayName": "Champ mobile",
+        "canonical": "oklch(0.935 0.04 260)",
+        "tonalRamp": [
+          "oklch(0.15 0.04 260)",
+          "oklch(0.27 0.04 260)",
+          "oklch(0.39 0.04 260)",
+          "oklch(0.51 0.04 260)",
+          "oklch(0.63 0.04 260)",
+          "oklch(0.75 0.04 260)",
+          "oklch(0.87 0.04 260)",
+          "oklch(0.95 0.04 260)"
+        ]
+      },
+      "lens-surface": {
+        "role": "neutral",
+        "displayName": "Verre de lentille",
+        "canonical": "oklch(0.99 0.009 255)",
+        "tonalRamp": [
+          "oklch(0.15 0.009 255)",
+          "oklch(0.27 0.009 255)",
+          "oklch(0.39 0.009 255)",
+          "oklch(0.51 0.009 255)",
+          "oklch(0.63 0.009 255)",
+          "oklch(0.75 0.009 255)",
+          "oklch(0.87 0.009 255)",
+          "oklch(0.95 0.009 255)"
+        ]
+      },
+      "lens-line": {
+        "role": "neutral",
+        "displayName": "Ligne de lentille",
+        "canonical": "oklch(0.3 0.05 270)",
+        "tonalRamp": [
+          "oklch(0.15 0.05 270)",
+          "oklch(0.27 0.05 270)",
+          "oklch(0.39 0.05 270)",
+          "oklch(0.51 0.05 270)",
+          "oklch(0.63 0.05 270)",
+          "oklch(0.75 0.05 270)",
+          "oklch(0.87 0.05 270)",
+          "oklch(0.95 0.05 270)"
+        ]
+      },
+      "lens-shadow": {
+        "role": "neutral",
+        "displayName": "Profondeur de lentille",
+        "canonical": "oklch(0.31 0.09 275)",
+        "tonalRamp": [
+          "oklch(0.15 0.09 275)",
+          "oklch(0.27 0.09 275)",
+          "oklch(0.39 0.09 275)",
+          "oklch(0.51 0.09 275)",
+          "oklch(0.63 0.09 275)",
+          "oklch(0.75 0.09 275)",
+          "oklch(0.87 0.09 275)",
+          "oklch(0.95 0.09 275)"
+        ]
+      },
+      "optical-white": {
+        "role": "neutral",
+        "displayName": "Blanc optique",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "Nom principal dans le premier viewport."
+      },
+      "display": {
+        "displayName": "Display",
+        "purpose": "Grandes destinations de champs."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titres de champs secondaires."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Projet ou preuve principale."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "Thèse courte du héros."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lecture principale limitée à 58–65ch."
+      },
+      "body-compact": {
+        "displayName": "Body Compact",
+        "purpose": "Notes, détails et preuves avec ligne explicite de 24px."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Liens du bandeau avec cible de 44px."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Actions principales de 44–48px."
+      },
+      "status": {
+        "displayName": "Status",
+        "purpose": "États et technologies en pilule."
+      },
+      "instrument": {
+        "displayName": "Instrument",
+        "purpose": "Graduations, états et commandes très courtes."
+      },
+      "signature": {
+        "displayName": "Signature",
+        "purpose": "Enregistrement final MAYEUL."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lens-panel-ambient",
+        "value": "inset 0 1px 0 color-mix(in oklch, var(--optical-white) 75%, transparent), 0 22px 60px color-mix(in oklch, var(--lens-shadow) 10%, transparent)",
+        "purpose": "Profondeur diffuse des panneaux optiques."
+      },
+      {
+        "name": "lens-control-highlight",
+        "value": "inset 0 1px 0 color-mix(in oklch, var(--optical-white) 80%, transparent)",
+        "purpose": "Reflet intérieur tactile des contrôles."
+      },
+      {
+        "name": "signal-glow-large",
+        "value": "0 0 18px var(--accent)",
+        "purpose": "Point spectral du bandeau."
+      },
+      {
+        "name": "signal-glow-compact",
+        "value": "0 0 14px var(--accent)",
+        "purpose": "État actif dans le panneau instrument."
+      }
+    ],
+    "motion": [
+      {
+        "name": "optical-control-state",
+        "value": "border-color 180ms ease, background-color 180ms ease, transform 180ms ease",
+        "purpose": "Retour tactile des contrôles translucides."
+      },
+      {
+        "name": "action-lift",
+        "value": "translateY(-2px), 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Survol bref des actions principales."
+      },
+      {
+        "name": "track-shift",
+        "value": "translateX(8px), 300ms",
+        "purpose": "Lecture active des lignes d’outils."
+      },
+      {
+        "name": "particle-demand",
+        "value": "frameloop=demand when visible; frameloop=never when hidden; invalidate on input, scroll, resize, intro, settling, or registration",
+        "purpose": "Animer le symbole uniquement lorsqu’une image utile doit être produite."
+      },
+      {
+        "name": "particle-pause",
+        "value": "active && !reduced && !paused; reset push, dynamics, and parallax while stopped",
+        "purpose": "Fournir un arrêt explicite et une reprise propre."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "scroll-behavior=auto; transition-duration=0.01ms; animation-duration=0.01ms; animation-iteration-count=1; WebGL replaced by static fallback",
+        "purpose": "Respecter la préférence système sans perdre contenu ni identité."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "particle-compact",
+        "value": "600px"
+      },
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Pill",
+      "kind": "button",
+      "refersTo": "primary-action",
+      "description": "Action principale marine sur champ clair, douce et immédiatement lisible.",
+      "html": "<a class=\"ds-primary-action\" href=\"#work\">Voir le projet <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a>",
+      "css": ".ds-primary-action { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 0 20px; border-radius: 999px; background: var(--foreground); color: var(--background); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-primary-action svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; } .ds-primary-action:hover { transform: translateY(-2px); } .ds-primary-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+    },
+    {
+      "name": "Inverse Action Pill",
+      "kind": "button",
+      "refersTo": "inverse-action",
+      "description": "Action claire réservée à la chambre marine.",
+      "html": "<span class=\"ds-night-context\"><a class=\"ds-inverse-action\" href=\"#contact\">Écrire <svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a></span>",
+      "css": ".ds-night-context { display: inline-flex; padding: 24px; background: var(--night-field); } .ds-inverse-action { min-height: 44px; display: inline-flex; align-items: center; gap: 12px; padding: 0 20px; border-radius: 999px; background: var(--night-foreground); color: var(--night-field); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-inverse-action svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; } .ds-inverse-action:hover { transform: translateY(-2px); } .ds-inverse-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+    },
+    {
+      "name": "Optical Control",
+      "kind": "button",
+      "refersTo": "optical-control",
+      "description": "Commande instrumentale translucide pour langue ou pause.",
+      "html": "<button class=\"ds-optical-control\" type=\"button\">FR <span>/</span> EN</button>",
+      "css": ".ds-optical-control { min-width: 44px; min-height: 44px; padding: 0 12px; border: 1px solid color-mix(in oklch, var(--lens-line) 16%, transparent); border-radius: 999px; background: color-mix(in oklch, var(--lens-surface) 64%, transparent); color: color-mix(in oklch, var(--foreground) 70%, transparent); box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 80%, transparent); backdrop-filter: blur(14px); font: 400 10px/15px 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; letter-spacing: .16em; text-transform: uppercase; transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease; } .ds-optical-control span { color: color-mix(in oklch, var(--foreground) 25%, transparent); } .ds-optical-control:hover { border-color: color-mix(in oklch, var(--ring) 42%, transparent); background: color-mix(in oklch, var(--optical-white) 82%, transparent); } .ds-optical-control:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; } .ds-optical-control:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Liens en pilules invisibles au repos sur une règle gravée.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Principale\"><a href=\"#about\">À propos</a><a href=\"#work\">Travail</a><a href=\"#contact\">Contact</a></nav>",
+      "css": ".ds-nav { min-height: 80px; display: flex; align-items: center; gap: 4px; border-bottom: 1px solid color-mix(in oklch, var(--foreground) 10%, transparent); font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; color: color-mix(in oklch, var(--foreground) 70%, transparent); text-decoration: none; transition: color 150ms cubic-bezier(.4,0,.2,1), background-color 150ms cubic-bezier(.4,0,.2,1); } .ds-nav a:hover { background: rgb(255 255 255 / 45%); color: var(--foreground); } .ds-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "status-chip",
+      "description": "État informatif discret, bordé et non interactif.",
+      "html": "<span class=\"ds-status-chip\">Données en préparation</span>",
+      "css": ".ds-status-chip { display: inline-flex; align-items: center; padding: 8px 12px; border: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); border-radius: 999px; background: transparent; color: color-mix(in oklch, var(--foreground) 60%, transparent); font: 500 12px/16px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; white-space: nowrap; }"
+    },
+    {
+      "name": "Optical Lens Panel",
+      "kind": "card",
+      "refersTo": "optical-panel",
+      "description": "Lentille translucide pour un regroupement utile, jamais carte décorative répétée.",
+      "html": "<aside class=\"ds-optical-panel\"><p class=\"ds-optical-label\">CHAMP ACTIF</p><strong>Signal stable</strong><p>Une lentille concentre contrôle, statut et prochaine action.</p></aside>",
+      "css": ".ds-optical-panel { width: min(100%, 320px); padding: 24px; border: 1px solid color-mix(in oklch, var(--optical-white) 64%, transparent); border-radius: 16px; background: color-mix(in oklch, var(--lens-surface) 62%, transparent); color: var(--foreground); box-shadow: inset 0 1px 0 color-mix(in oklch, var(--optical-white) 75%, transparent), 0 22px 60px color-mix(in oklch, var(--lens-shadow) 10%, transparent); backdrop-filter: blur(20px) saturate(118%); font: 400 14px/24px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-optical-panel strong { display: block; margin-top: 24px; font-size: 18px; font-weight: 500; } .ds-optical-panel p { margin: 12px 0 0; color: color-mix(in oklch, var(--foreground) 55%, transparent); } .ds-optical-panel .ds-optical-label { margin: 0; font: 400 10px/15px 'SFMono-Regular', Consolas, monospace; letter-spacing: .16em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Evidence Track",
+      "kind": "card",
+      "refersTo": "evidence-track",
+      "description": "Preuve ouverte dans la chambre marine, structurée par une règle plutôt qu’un cadre.",
+      "html": "<article class=\"ds-evidence-track\"><p class=\"ds-evidence-kicker\">PROJET VÉRIFIÉ</p><h3>Portfolio particulaire vivant</h3><p>Un système WebGL à contenu sémantique visible et repli statique robuste.</p><span>React</span><span>WebGL</span></article>",
+      "css": ".ds-evidence-track { width: 100%; padding: 32px 0; border-top: 1px solid rgb(255 255 255 / 18%); border-radius: 0; background: var(--night-field); color: var(--night-foreground); font: 400 16px/28px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; } .ds-evidence-track h3 { max-width: 18ch; margin: 20px 0 0; font-size: clamp(35px, 4vw, 74px); line-height: .98; font-weight: 500; letter-spacing: -.035em; } .ds-evidence-track p:not(.ds-evidence-kicker) { max-width: 65ch; margin: 24px 0; color: var(--night-muted); } .ds-evidence-kicker { margin: 0; color: var(--night-muted); font: 400 10px/15px 'SFMono-Regular', Consolas, monospace; letter-spacing: .16em; } .ds-evidence-track span { display: inline-flex; margin-right: 8px; padding: 8px 12px; border-radius: 999px; background: rgb(255 255 255 / 8%); color: var(--night-foreground); font-size: 12px; line-height: 16px; }"
+    },
+    {
+      "name": "Outbound Link Row",
+      "kind": "nav",
+      "refersTo": "outbound-row",
+      "description": "Sortie externe pleine largeur, alignée sur les pistes de contact.",
+      "html": "<a class=\"ds-outbound-row\" href=\"#\"><span><strong>GitHub</strong><small>@acrazie</small></span><svg aria-hidden=\"true\" viewBox=\"0 0 20 20\"><path d=\"M5 15 15 5M7 5h8v8\"/></svg></a>",
+      "css": ".ds-outbound-row { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 16px; border-top: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); border-bottom: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent); color: var(--foreground); font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, sans-serif; text-decoration: none; transition: background-color 150ms cubic-bezier(.4,0,.2,1); } .ds-outbound-row strong, .ds-outbound-row small { display: block; } .ds-outbound-row strong { font-weight: 500; } .ds-outbound-row small { margin-top: 4px; color: color-mix(in oklch, var(--foreground) 45%, transparent); font-size: 12px; } .ds-outbound-row svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; transition: transform 150ms cubic-bezier(.4,0,.2,1); } .ds-outbound-row:hover { background: rgb(255 255 255 / 35%); } .ds-outbound-row:hover svg { transform: translate(2px, -2px); } .ds-outbound-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Salle d’optique computationnelle",
+    "overview": "La Salle d’optique computationnelle transforme le portfolio en instrument calme: une lumière bleu-violet traverse des champs ouverts, une chambre marine concentre les preuves, et Hanken Grotesk donne à l’ensemble une clarté technique souple. Le système reste tactile sans devenir décoratif: lentilles translucides, règles gravées, aplats froids et profondeur diffuse remplacent les conventions de carte SaaS ou de terminal gamer.\n\nLe contenu progresse par surfaces continues et pistes de preuve plutôt que par empilement de cartes. Les détails monospace jouent le rôle de graduations; les grands titres restent humains, directs et respirants. Les halos servent la lisibilité des champs et la séparation des plans, jamais un spectacle autonome.\n\nLe symbole particulaire est l’unique mouvement signature. Il réfracte le pointeur dans le héros, se déploie en pistes latérales au défilement, puis se réenregistre dans le mot MAYEUL. Tout contenu sémantique reste disponible sans WebGL; pause, réduction de mouvement, perte de contexte et inactivité suspendent ou remplacent proprement le rendu.",
+    "keyCharacteristics": [
+      "Palette optique froide: blanc bleuté, brume cyan, violet spectral et marine profond.",
+      "Hanken Grotesk variable pour la voix; mono système uniquement pour l’instrumentation.",
+      "Champs ouverts, règles fines et pistes de preuve plutôt que collections de cartes.",
+      "Lentilles translucides douces avec relief intérieur et ombre ambiante diffuse.",
+      "Grands écarts d’échelle, colonnes courtes et respiration verticale généreuse.",
+      "Symbole particulaire comme seul mouvement signature, avec repli statique robuste."
+    ],
+    "rules": [
+      {
+        "name": "The Cold Spectrum Rule",
+        "body": "Le blanc bleuté, le cyan brumeux, le violet spectral et le marine profond peuvent occuper des champs entiers; toute nouvelle teinte doit rester dans cette lumière froide.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Hierarchy Rule",
+        "body": "L’encre marine porte les actions et le violet spectral porte focus, activité et réfraction; ne pas inverser leurs rôles.",
+        "section": "colors"
+      },
+      {
+        "name": "The Marine Chamber Rule",
+        "body": "La chambre marine concentre les preuves vérifiées et utilise exclusivement son blanc nocturne et sa lavande de preuve pour la lecture.",
+        "section": "colors"
+      },
+      {
+        "name": "The Human Voice, Instrument Data Rule",
+        "body": "Hanken Grotesk porte titres, navigation, corps et actions; le mono reste réservé aux graduations, états et commandes de très courte longueur.",
+        "section": "typography"
+      },
+      {
+        "name": "The Optical Compression Rule",
+        "body": "Les grands titres utilisent un interlettrage négatif mesuré; le corps et les données instrumentales ne le copient pas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Open Field Rule",
+        "body": "Structurer par changement de champ, alignement et règle fine avant d’ajouter un conteneur.",
+        "section": "layout"
+      },
+      {
+        "name": "The Page-Specific Composition Rule",
+        "body": "Conserver la grammaire de champs et de pistes, mais ne pas transformer les fractions de grille ni l’ordre des sections de cette page en modèle universel.",
+        "section": "layout"
+      },
+      {
+        "name": "The Diffuse Depth Rule",
+        "body": "La profondeur vient de lumière mélangée, transparence, flou et ombres larges à faible opacité; aucune ombre dure ou empilée.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Single Motion Rule",
+        "body": "Le symbole particulaire est l’unique mouvement signature; les autres mouvements restent des réponses courtes de survol, pression ou focus.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Demand Rendering Rule",
+        "body": "Le canevas rend à la demande lorsqu’il est actif, ne rend jamais lorsque la page est cachée, et s’arrête en pause ou avec réduction de mouvement.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Soft Lens Rule",
+        "body": "Les contrôles et lentilles sont arrondis et tactiles; les pistes de preuve, séparateurs et champs restent structurels.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Unframed Evidence Rule",
+        "body": "Une règle et un changement tonal suffisent à délimiter une preuve; ne pas l’enfermer automatiquement dans une carte autonome.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do utiliser les variables CSS existantes comme source normative de couleur et conserver leurs valeurs OKLCH.",
+      "Do laisser le blanc bleuté, la brume, le violet et le marine construire des champs continus à grande échelle.",
+      "Do garder Hanken Grotesk pour toute lecture humaine et le mono à 10px avec 0.16em d’interlettrage pour l’instrumentation courte.",
+      "Do maintenir des cibles interactives d’au moins 44px et un focus visible de 2px, décalé de 4px, en violet spectral.",
+      "Do préserver le repli statique, le mode reduced-motion, la pause, la suspension sur onglet caché et le rendu WebGL à la demande.",
+      "Do adapter chaque nouvelle surface avec la grammaire de champs ouverts et de pistes sans recopier mécaniquement la composition de PortfolioPage."
+    ],
+    "donts": [
+      "Don't ajouter une palette chaude concurrente à la lumière optique froide de l’interface.",
+      "Don't multiplier cartes flottantes, cadres vitrés ou ombres pour chaque bloc de contenu.",
+      "Don't donner aux éléments d’interface une animation ambiante concurrente du symbole particulaire.",
+      "Don't utiliser le mono pour les paragraphes, les grands titres ou la navigation principale.",
+      "Don't masquer une information ou une action derrière WebGL, un état animé ou une interaction au pointeur.",
+      "Don't promouvoir la grille exacte, la séquence de sections ou la trajectoire finale propres à cette page en règle globale."
+    ]
+  }
+}

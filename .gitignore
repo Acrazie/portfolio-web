@@ -9,3 +9,7 @@ test-results/
 .env.*
 !.env.example
 .hermes/
+.impeccable/hook.cache.json
+.impeccable/mocks/
+.impeccable/questions/
+.impeccable/review/
