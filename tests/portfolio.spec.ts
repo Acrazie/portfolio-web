@@ -60,6 +60,32 @@ test('canvas can pause and respects reduced motion', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Pause animation' })).toHaveCount(0)
 })
 
+test('desktop pointer releases ASCII particles that form the localized welcome', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'mouse interaction')
+  await page.goto('/')
+  const canvas = page.locator('.gradient-canvas')
+  await expect(canvas).toHaveAttribute('data-particle-effect', 'idle')
+  await expect(canvas).toHaveAttribute('data-welcome-formation', 'idle')
+
+  const bounds = await canvas.boundingBox()
+  expect(bounds).not.toBeNull()
+  await page.mouse.move((bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.58, (bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.56)
+  await expect(canvas).toHaveAttribute('data-particle-effect', 'idle')
+  await page.mouse.move((bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.4, (bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.48, { steps: 12 })
+  await expect(canvas).toHaveAttribute('data-particle-effect', 'active')
+  await expect(canvas).toHaveAttribute('data-welcome-formation', 'idle')
+  await page.mouse.move((bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.72, (bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.68, { steps: 24 })
+
+  await expect(canvas).toHaveAttribute('data-renderer', 'canvas2d')
+  await expect(canvas).toHaveAttribute('data-particle-effect', 'active')
+  await expect(canvas).toHaveAttribute('data-welcome-formation', /forming|formed/)
+
+  await page.getByRole('button', { name: 'Mettre l’animation en pause' }).click()
+  await expect(canvas).toHaveAttribute('data-animation', 'paused')
+  await expect(canvas).toHaveAttribute('data-particle-effect', 'idle')
+  await expect(canvas).toHaveAttribute('data-welcome-formation', 'idle')
+})
+
 test('mobile navigation remains textual and keyboard-dismissible', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'mobile navigation')
   await page.goto('/')

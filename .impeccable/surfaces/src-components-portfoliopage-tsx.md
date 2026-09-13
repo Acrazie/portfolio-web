@@ -31,7 +31,7 @@ La table de revue, reduced to a black-and-white editorial system with one full-h
 
 ## Memorable moment
 
-A slow blue-violet canvas fills the entire Home hero, then dissolves through a broad left-right symmetric white bloom into the monochrome content below. The animation never carries semantic content.
+A slow blue-violet canvas fills the entire Home hero. On fine pointers, actual cursor travel releases an inertial wake built from `>`, `_`, `o`, `/`, and `+`. Particles remain free everywhere except inside a tight field around a hidden localized welcome at 70.5% width and 68% height; only particles crossing that field settle onto its 4-by-5 ASCII matrix. The particles themselves form the bilingual word, then fade slowly. The canvas dissolves through a broad left-right symmetric white bloom into the monochrome content below. The animation never carries semantic content.
 
 ## Direction contract
 
@@ -43,7 +43,7 @@ A slow blue-violet canvas fills the entire Home hero, then dissolves through a b
 
 **FIRST VIEWPORT:** Canvas fills at least one viewport and dominates the frame. Right-aligned navigation sits over its dark upper edge; no small MAYEUL mark repeats the large name. Large regular MAYEUL, role, statement, and one opaque white Projects button sit lower left. A broad fade mirrored around the vertical axis reaches both sides before resolving into white below the fold.
 
-**FORM:** La table de revue, first on the grounded list and chosen as the Impeccable pick from seed `b9205f49`. Signature motion is one slow native-canvas gradient with a static fallback, pause, visibility suspension, and reduced-motion state. Content motion stays subordinate.
+**FORM:** La table de revue, first on the grounded list and chosen as the Impeccable pick from seed `b9205f49`. Signature motion is one slow Canvas 2D gradient with pointer-released ASCII particles assembling a localized bilingual word, a static CSS fallback, pause, visibility suspension, and reduced-motion state. Content motion stays subordinate.
 
 **FINISH:** unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
