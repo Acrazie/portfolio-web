@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "lint": "biome lint .",
     "typecheck": "bun run paraglide:compile && tsc --noEmit",
+    "bundle:summary": "bun scripts/bundle-summary.mjs",
     "check": "bun run lint && bun run typecheck && bun run test && bun run build"
   },
   "dependencies": {
