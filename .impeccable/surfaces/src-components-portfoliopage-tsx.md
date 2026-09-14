@@ -31,7 +31,7 @@ La table de revue, reduced to a black-and-white editorial system with one full-h
 
 ## Memorable moment
 
-A slow blue-violet canvas fills the entire Home hero. On fine pointers, actual cursor travel releases an inertial wake built from `>`, `_`, `o`, `/`, and `+`. Particles remain free everywhere except inside a tight field around a hidden localized welcome at 70.5% width and 68% height; only particles crossing that field settle onto its 4-by-5 ASCII matrix. The particles themselves form the bilingual word, then fade slowly. The canvas dissolves through a broad left-right symmetric white bloom into the monochrome content below. The animation never carries semantic content.
+A slow blue-violet canvas fills the entire Home hero. On fine pointers, actual cursor travel releases a compact, slow-drifting cloud built from `>`, `_`, `o`, `/`, and `+`. Particles remain free everywhere except inside a tight field around a hidden localized welcome at 70.5% width and 68% height; only particles crossing that field settle onto its 4-by-5 ASCII matrix. Free particles fade within 0.65–1.1 seconds. Captured particles keep their original symbols and form a larger bilingual word that persists for the mounted page, survives resizing and is restored after pause. The canvas dissolves through a broad left-right symmetric white bloom into the monochrome content below. The animation never carries semantic content.
 
 ## Direction contract
 
