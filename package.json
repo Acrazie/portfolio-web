@@ -45,7 +45,7 @@
     "@vitejs/plugin-react": "^6.1.1",
     "gifenc": "^1.0.3",
     "jsdom": "^30.0.1",
-    "lefthook": "^1.11.0",
+    "lefthook": "^2.1.12",
     "nitro": "^3.0.260903-beta",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
