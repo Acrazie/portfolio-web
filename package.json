@@ -26,7 +26,7 @@
     "@tanstack/react-start": "^1.168.50",
     "class-variance-authority": "^0.7.1",
     "cn": "^0.2.6",
-    "react": "^19.2.8",
+    "react": "^19.3.0",
     "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3"
   },
@@ -40,7 +40,7 @@
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^14.6.7",
     "@types/bun": "^1.4.2",
-    "@types/react": "^19.2.18",
+    "@types/react": "^19.3.0",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "gifenc": "^1.0.3",
