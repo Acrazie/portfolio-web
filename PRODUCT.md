@@ -29,7 +29,7 @@ The product is a public multi-page web portfolio:
 3. Project detail: one reusable case-study route per project.
 4. About: professional position, software/AI capabilities, daily tools, and verified external profiles.
 5. Education: the supplied education record without invented dates.
-6. Contact: a verified email destination available from persistent navigation and the footer.
+6. Contact: a shared bilingual modal available from persistent navigation and the footer, with required name, email and message fields. Server-side Resend delivery targets the verified mailbox; direct email and LinkedIn remain fallback destinations.
 
 ## Capabilities and Constraints
 

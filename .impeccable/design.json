@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-13T13:12:41Z",
+  "generatedAt": "2026-09-15T08:14:39Z",
   "title": "Design System: Mayeul Portfolio",
   "extensions": {
     "colorMeta": {
@@ -267,6 +267,26 @@
         "purpose": "Plafond de densité de pixels du Canvas."
       },
       {
+        "name": "canvas-free-glyph-budget",
+        "value": "120",
+        "purpose": "Plafond des glyphes libres; la formation conserve un budget distinct de 240 cibles, dont 217 pour « Bienvenue » et 160 pour « Welcome »."
+      },
+      {
+        "name": "canvas-emissions-per-move",
+        "value": "12 max",
+        "purpose": "Plafond d’émission par événement de déplacement du pointeur."
+      },
+      {
+        "name": "canvas-cursor-low-pass",
+        "value": "36ms",
+        "purpose": "Lisse la vélocité du curseur avant son héritage directionnel proportionnel par les glyphes."
+      },
+      {
+        "name": "canvas-capture-ramp",
+        "value": "280ms",
+        "purpose": "Augmente progressivement ressort et amortissement vers la cible libre la plus proche."
+      },
+      {
         "name": "control-transition",
         "value": "200ms ease-out",
         "purpose": "Réponse de fond, couleur et translation des boutons."
@@ -365,7 +385,7 @@
   ],
   "narrative": {
     "northStar": "La table de revue",
-    "overview": "La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.\n\nUn seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.\n\nLe système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.",
+    "overview": "La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.\n\nUn seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.\n\nLe système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.",
     "keyCharacteristics": [
       "Surfaces ordinaires exclusivement noires ou blanches.",
       "Bleu, violet et lavande confinés au Canvas du héros et à son fondu blanc.",
@@ -428,7 +448,7 @@
       },
       {
         "name": "The Canvas Budget Rule",
-        "body": "Conserver le plafond de 30fps, le DPR maximal de 1.5, la pause, les suspensions visibilité/hors-écran, le mode statique reduced-motion, le rendu SSR et le repli CSS.",
+        "body": "Conserver le plafond de 30fps, le DPR maximal de 1.5, au plus 12 émissions par déplacement, 120 glyphes libres simultanés et un budget distinct de 240 cibles persistantes — 217 utilisées par « Bienvenue », 160 par « Welcome » — ainsi que l’espacement d’émission lié à la distance réellement parcourue, la pause, les suspensions visibilité/hors-écran, le mode statique reduced-motion, le rendu SSR et le repli CSS.",
         "section": "elevation"
       },
       {

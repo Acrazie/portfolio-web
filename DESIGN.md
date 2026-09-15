@@ -148,7 +148,7 @@ components:
 
 La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.
 
-Un seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome », et restent en place tant que la page reste montée. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.
+Un seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.
 
 Le système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.
 
@@ -183,7 +183,7 @@ Le système possède deux régimes étanches: noir et blanc pour l’interface; 
 
 - **Encre secondaire** (`ink-muted`): corps et métadonnées secondaires sur papier.
 - **Règle éditoriale** (`rule`): séparateurs, contours et états actifs à faible contraste.
-- **Règle de champ** (`input-rule`): compatibilité des primitives de champ; elle ne légitime pas un formulaire absent.
+- **Règle de champ** (`input-rule`): règle de référence pour les primitives de champ. Les champs Contact renforcent le contraste de leur contour pour rester identifiables.
 
 **The Chromatic Quarantine Rule.** Toute couleur chromatique reste dans le Canvas du héros et son fondu; aucune couleur dans navigation, pages intérieures, listes, pied de page, états ou texte.
 
@@ -235,13 +235,13 @@ Le système est plat. Aucun `box-shadow`, flou d’arrière-plan, verre transluc
 
 Les micro-interactions durent 160–200ms avec une sortie simple: le bouton se lève de 2px au survol puis descend de 1px à l’activation; les liens changent contraste ou soulignement. Elles restent des retours d’état, jamais une animation ambiante.
 
-Le Canvas est l’unique mouvement signature. Canvas 2D porte le champ et les particules ASCII liées au pointeur qui composent le mot bilingue localisé. Le rendu plafonne à environ 30fps et son DPR à 1.5. Il s’arrête hors écran, quand le document est caché, sur pause ou avec `prefers-reduced-motion`; ce dernier état reçoit une peinture statique sans particules ni mot caché. Le repli CSS est présent dès le HTML serveur et reste visible si le contexte 2D manque.
+Le Canvas est l’unique mouvement signature. Canvas 2D porte le champ et les particules ASCII liées au pointeur qui composent le mot bilingue localisé. La vitesse du curseur est filtrée avant d’être héritée proportionnellement par les glyphes; une masse individuelle, une traînée d’air exponentielle, une légère turbulence sinusoïdale et une poussée ascendante donnent au nuage son inertie organique. Le rendu plafonne à environ 30fps et son DPR à 1.5. Il s’arrête hors écran, quand le document est caché, sur pause ou avec `prefers-reduced-motion`; ce dernier état reçoit une peinture statique sans particules ni mot caché. Le repli CSS est présent dès le HTML serveur et reste visible si le contexte 2D manque.
 
 **The Flat-by-Default Rule.** Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page.
 
 **The Single Motion Rule.** Seul le Canvas du héros peut bouger de manière autonome; tout autre mouvement répond directement à une action.
 
-**The Canvas Budget Rule.** Conserver le plafond de 30fps, le DPR maximal de 1.5, 120 glyphes maximum, l’espacement d’émission lié à la distance réellement parcourue, la pause, les suspensions visibilité/hors-écran, le mode statique reduced-motion, le rendu SSR et le repli CSS.
+**The Canvas Budget Rule.** Conserver le plafond de 30fps, le DPR maximal de 1.5, au plus 12 émissions par déplacement, 120 glyphes libres simultanés et un budget distinct de 240 cibles persistantes — 217 utilisées par « Bienvenue », 160 par « Welcome » — ainsi que l’espacement d’émission lié à la distance réellement parcourue, la pause, les suspensions visibilité/hors-écran, le mode statique reduced-motion, le rendu SSR et le repli CSS.
 
 ## Shapes
 
@@ -289,7 +289,15 @@ Le `typeset` shadcn fourni gère paragraphes, listes, définitions, liens, citat
 
 ### Gradient Hero
 
-Le héros combine un repli CSS, un Canvas 2D purement décoratif et un fondu blanc au-dessus. Les masses bleues, violettes et lavande sont peintes par paires miroir. Le déplacement d’un pointeur fin émet un nuage compact de 26 px de rayon parmi `>`, `_`, `o`, `/` et `+`, avec une pondération en faveur de `>` et `_`. Jusqu’à 120 particules libres dérivent dans la direction du curseur, à 25–65 px/s initialement, et s’effacent en 0,65 à 1,1 seconde. Seules celles qui traversent le champ du mot, prolongé de 24 px autour de sa matrice, sont capturées. Le mot reste centré à 70,5 % de la largeur et 68 % de la hauteur, avec des cellules allant jusqu’à 17 px et une largeur limitée à 55 % du Canvas. Chaque particule conserve son symbole et occupe une cellule libre de la matrice 4 × 5 qui dessine « Bienvenue » ou « Welcome »; aucun texte séparé n’est peint. Les particules capturées restent visibles sans expiration ni éviction par les nouvelles émissions, y compris après redimensionnement; Pause les masque sans perdre la formation à la reprise. Un changement de langue reconstruit la formation. Une police monospace est réservée à cet art ASCII, tandis que toute la typographie d’interface reste en Hanken Grotesk. Le toucher, Pause et `prefers-reduced-motion` n’affichent ni particules ni mot. Le fondu utilise deux ellipses latérales symétriques et une résolution verticale vers le papier. Le texte, le lien Projects et la commande Pause restent des éléments DOM indépendants et sémantiques.
+Le héros combine un repli CSS, un Canvas 2D purement décoratif et un fondu blanc au-dessus. Les masses bleues, violettes et lavande sont peintes par paires miroir. Le déplacement d’un pointeur fin émet, avec au plus 12 émissions par événement, un nuage compact de 26 px de rayon parmi `>`, `_`, `o`, `/` et `+`, avec une pondération en faveur de `>` et `_`. La vélocité du curseur passe par un filtre passe-bas puis infléchit proportionnellement la direction et la vitesse initiales; la masse de chaque particule module ensuite sa traînée d’air exponentielle, complétée par une turbulence sinusoïdale légère et une faible poussée ascendante. Jusqu’à 120 particules libres coexistent et s’effacent après 0,85 à 1,75 seconde selon la vitesse du geste.
+
+Seules les particules qui traversent le champ du mot, prolongé de 24 px autour de sa matrice, sont capturées. Elles réclament la cible libre la plus proche; attraction de ressort et amortissement augmentent progressivement pendant la capture. « Bienvenue » ou « Welcome » reste sur une seule ligne, chaque lettre occupant une matrice de 7 × 9. La largeur cible occupe 66 % du Canvas au-dessus de 960 px, puis progresse continûment jusqu’à 84 % à 768 px; son centre vertical descend de 68 % à 76 % sur le même intervalle. Les cellules mesurent au plus 18 px et les glyphes dessinés 95 % de cette taille. Le budget persistant, séparé du plafond libre, atteint 240 cibles: « Bienvenue » en utilise 217 et « Welcome » 160. Aucun texte séparé n’est peint.
+
+Les particules capturées restent visibles sans expiration ni éviction par les nouvelles émissions. Un redimensionnement met leurs positions courantes à l’échelle avant de recalculer le champ; elles rejoignent alors progressivement leurs nouvelles cibles, sans téléportation. Pause les masque sans perdre la formation à la reprise. Un changement de langue reconstruit la formation. Une police monospace est réservée à cet art ASCII, tandis que toute la typographie d’interface reste en Hanken Grotesk. Le toucher, Pause et `prefers-reduced-motion` n’affichent ni particules ni mot. Le fondu utilise deux ellipses latérales symétriques et une résolution verticale vers le papier. Le texte, le lien Projects et la commande Pause restent des éléments DOM indépendants et sémantiques.
+
+### Contact dialog
+
+La modale Contact réutilise Base UI Dialog : surface blanche opaque, fond occultant noir, typographie Hanken et contrôles monochromes. Le titre précède les champs nom, email et message ; les coordonnées directes restent accessibles sous le formulaire. La surface défile dans les petits viewports, sans débordement horizontal. Échap et le bouton de fermeture restituent le focus au déclencheur ; un clic extérieur ne ferme pas le brouillon. Les états d’envoi, de confirmation et d’échec sont textuels, sans couleur supplémentaire.
 
 ## Do's and Don'ts
 
