@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="100%" fill="none" shape-rendering="geometricPrecision">
+  <!-- Echo Layer (Southeast offset: +2.5, +2.5) -->
+  <g class="echo-layer" opacity="0.35" fill="currentColor">
+    <!-- Echo apex and right slope -->
+    <path d="M18.5 7.5L26.5 15.5V29.5H23V16.5L16 9.5H18.5Z" />
+    <!-- Echo right outer bevel -->
+    <path d="M26.5 15.5L30.5 19.5V29.5H26.5V15.5Z" />
+    <!-- Echo base feet -->
+    <path d="M7.5 29.5H11.5V27H7.5V29.5Z" />
+  </g>
+
+  <!-- Main A-Prism Solid Structure -->
+  <g class="prism-structure" fill="currentColor">
+    <!-- Left Pillar & Apex Main Face -->
+    <path d="M5 27V15L13.5 5H16.5L9 14V27H5Z" />
+
+    <!-- Apex Cap -->
+    <path d="M13.5 5H19L16.5 8H11L13.5 5Z" />
+
+    <!-- Right Pillar Main Face -->
+    <path d="M16.5 8L23 15.5V27H19V16.5L14 10.5L16.5 8Z" />
+
+    <!-- 3D Bevel Facet (Right Flank) -->
+    <path class="bevel-facet" opacity="0.75" d="M19 5L27 14.5V27H23V15.5L16.5 8L19 5Z" />
+
+    <!-- Floating Satellite Crossbar (Suspended beam with calibrated air gap) -->
+    <rect x="8.5" y="17.5" width="13" height="3" rx="0.5" />
+  </g>
+</svg>
