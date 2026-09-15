@@ -124,27 +124,32 @@ test("desktop pointer releases ASCII particles that form the localized welcome",
 	});
 	await page.goto("/");
 	const canvas = page.locator(".gradient-canvas");
+	await expect(canvas).toHaveAttribute("data-letter-grid", "7x9");
+	await expect(canvas).toHaveAttribute("data-word-columns", "71");
+	await expect(canvas).toHaveAttribute("data-word-targets", "217");
 	await expect(canvas).toHaveAttribute("data-particle-effect", "idle");
 	await expect(canvas).toHaveAttribute("data-welcome-formation", "idle");
 
 	const bounds = await canvas.boundingBox();
 	expect(bounds).not.toBeNull();
 	await page.mouse.move(
-		(bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.58,
-		(bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.56,
+		(bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.25,
+		(bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.3,
 	);
 	await expect(canvas).toHaveAttribute("data-particle-effect", "idle");
 	await page.mouse.move(
-		(bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.4,
-		(bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.48,
+		(bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.08,
+		(bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.22,
 		{ steps: 12 },
 	);
 	await expect(canvas).toHaveAttribute("data-particle-effect", "active");
 	await expect(canvas).toHaveAttribute("data-welcome-formation", "idle");
+	await expect(canvas).toHaveAttribute("data-cloud-inertia", "active");
 	await page.screenshot({ path: "/tmp/ascii-cloud-moving.png" });
 	await expect(canvas).toHaveAttribute("data-particle-effect", "idle", {
-		timeout: 2000,
+		timeout: 2200,
 	});
+	await expect(canvas).toHaveAttribute("data-cloud-inertia", "idle");
 	await page.mouse.move(
 		(bounds?.x ?? 0) + (bounds?.width ?? 1) * 0.72,
 		(bounds?.y ?? 0) + (bounds?.height ?? 1) * 0.68,
@@ -179,7 +184,20 @@ test("desktop pointer releases ASCII particles that form the localized welcome",
 	await expect(canvas).toHaveAttribute("data-welcome-formation", "formed");
 	await page.screenshot({ path: "/tmp/ascii-cloud-desktop.png" });
 	await page.setViewportSize({ width: 1100, height: 800 });
-	await expect(canvas).toHaveAttribute("data-welcome-formation", "formed");
+	await expect(canvas).toHaveAttribute("data-welcome-formation", "forming");
+	await expect(canvas).toHaveAttribute("data-welcome-formation", "formed", {
+		timeout: 3000,
+	});
+	await page.setViewportSize({ width: 768, height: 760 });
+	await expect(canvas).toHaveAttribute("data-welcome-formation", "forming");
+	await expect(canvas).toHaveAttribute("data-welcome-formation", "formed", {
+		timeout: 3000,
+	});
+	const compactGlyphSize = Number(await canvas.getAttribute("data-glyph-size"));
+	expect(compactGlyphSize).toBeGreaterThanOrEqual(8.5);
+	await page.screenshot({
+		path: ".impeccable/review/hero-particles-tablet.png",
+	});
 
 	await page
 		.getByRole("button", { name: "Mettre l’animation en pause" })
