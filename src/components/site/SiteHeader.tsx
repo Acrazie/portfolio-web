@@ -1,7 +1,6 @@
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { LogoMark } from "@/components/ui/LogoMark";
 import { portfolio } from "@/content/portfolio";
 import { useContact } from "./ContactProvider";
 import { useLocale } from "./LocaleProvider";
@@ -42,23 +41,13 @@ export function SiteHeader({
 		>
 			<div className="site-container flex min-h-20 items-center justify-between gap-6">
 				{home ? (
-					<Link
-						to="/"
-						className="focus-ring inline-flex items-center text-white/80 hover:text-white transition-opacity"
-						aria-label={copy.nav.home}
-					>
-						<LogoMark className="size-6 text-white" aria-hidden="true" />
-					</Link>
+					<span aria-hidden="true" />
 				) : (
 					<Link
 						to="/"
-						className="focus-ring inline-flex items-center gap-2.5 text-sm font-semibold tracking-[-.02em] text-white"
+						className="focus-ring text-sm font-semibold tracking-[-.02em] text-white"
 					>
-						<LogoMark
-							className="size-5 shrink-0 text-white"
-							aria-hidden="true"
-						/>
-						<span>{portfolio.displayName.toUpperCase()}</span>
+						{portfolio.displayName.toUpperCase()}
 					</Link>
 				)}
 
