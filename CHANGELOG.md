@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/Acrazie/portfolio-web/compare/v0.1.5...v0.1.6) (2026-09-16)
+
+
+### Features
+
+* add contact modal and natural canvas motion ([#33](https://github.com/Acrazie/portfolio-web/issues/33)) ([a9c7bc5](https://github.com/Acrazie/portfolio-web/commit/a9c7bc5756788f10caefc20fc8221bb0b745ca85))
+
 ## [0.1.5](https://github.com/Acrazie/portfolio-web/compare/v0.1.4...v0.1.5) (2026-09-14)
 
 
