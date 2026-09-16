@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { portfolio } from "@/content/portfolio";
 import { useContact } from "./ContactProvider";
 import { useLocale } from "./LocaleProvider";
@@ -19,13 +20,14 @@ export function SiteFooter() {
 						</p>
 					</div>
 					<div className="lg:text-right">
-						<button
+						<Button
 							type="button"
-							className="focus-ring inline-flex min-h-11 items-center border-b border-white pb-1 text-base font-medium"
+							variant="link"
+							className="px-0 text-base text-white hover:text-white"
 							onClick={(event) => openContact(event.currentTarget)}
 						>
 							{copy.contact.action}
-						</button>
+						</Button>
 						<p className="mt-3 break-all text-sm text-white/58">
 							{portfolio.email}
 						</p>
