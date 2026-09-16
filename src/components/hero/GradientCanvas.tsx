@@ -9,24 +9,134 @@ type GradientCanvasProps = {
 const FRAME_INTERVAL = 1000 / 30;
 const MAX_DPR = 1.5;
 const MAX_PARTICLES = 120;
-const MAX_WORD_PARTICLES = 120;
+const MAX_WORD_PARTICLES = 240;
 const PARTICLE_SPACING = 4;
 const MAX_EMISSIONS_PER_MOVE = 12;
-const WELCOME_X = 0.705;
+const WELCOME_X = 0.64;
 const WELCOME_Y = 0.68;
 const ASCII_SYMBOLS = [">", ">", ">", "_", "_", "o", "/", "+"] as const;
 const ASCII_WORD_FONT: Record<string, readonly string[]> = {
-	B: ["1110", "1001", "1110", "1001", "1110"],
-	C: ["0111", "1000", "1000", "1000", "0111"],
-	E: ["1111", "1000", "1110", "1000", "1111"],
-	I: ["1111", "0110", "0110", "0110", "1111"],
-	L: ["1000", "1000", "1000", "1000", "1111"],
-	M: ["1001", "1111", "1111", "1001", "1001"],
-	N: ["1001", "1101", "1011", "1001", "1001"],
-	O: ["0110", "1001", "1001", "1001", "0110"],
-	U: ["1001", "1001", "1001", "1001", "0110"],
-	V: ["1001", "1001", "1001", "1001", "0110"],
-	W: ["1001", "1001", "1001", "1111", "0110"],
+	B: [
+		"1111110",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1111110",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1111110",
+	],
+	C: [
+		"0111110",
+		"1000001",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000001",
+		"0111110",
+	],
+	E: [
+		"1111111",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1111110",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1111111",
+	],
+	I: [
+		"1111111",
+		"0001000",
+		"0001000",
+		"0001000",
+		"0001000",
+		"0001000",
+		"0001000",
+		"0001000",
+		"1111111",
+	],
+	L: [
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1000000",
+		"1111111",
+	],
+	M: [
+		"1000001",
+		"1100011",
+		"1100011",
+		"1010101",
+		"1010101",
+		"1001001",
+		"1000001",
+		"1000001",
+		"1000001",
+	],
+	N: [
+		"1000001",
+		"1100001",
+		"1100001",
+		"1010001",
+		"1001001",
+		"1000101",
+		"1000011",
+		"1000011",
+		"1000001",
+	],
+	O: [
+		"0111110",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"0111110",
+	],
+	U: [
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"0111110",
+	],
+	V: [
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"0100010",
+		"0100010",
+		"0010100",
+		"0001000",
+	],
+	W: [
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1000001",
+		"1001001",
+		"1010101",
+		"1100011",
+		"1000001",
+	],
 };
 
 type WelcomeTarget = {
@@ -36,15 +146,13 @@ type WelcomeTarget = {
 
 type WelcomeField = {
 	cellSize: number;
+	columnCount: number;
+	rowCount: number;
 	targets: WelcomeTarget[];
 	left: number;
 	right: number;
 	top: number;
 	bottom: number;
-};
-
-type FormationProgress = {
-	nextTarget: number;
 };
 
 type AsciiParticle = {
@@ -57,8 +165,13 @@ type AsciiParticle = {
 	size: number;
 	symbol: (typeof ASCII_SYMBOLS)[number];
 	targetIndex: number | null;
+	capture: number;
 	rotation: number;
 	spin: number;
+	flowPhase: number;
+	flowRate: number;
+	flowStrength: number;
+	mass: number;
 };
 
 function randomBetween(min: number, max: number) {
@@ -75,8 +188,11 @@ function emitAsciiParticle(
 	const cursorSpeed = Math.hypot(cursorVelocityX, cursorVelocityY);
 	const directionX = cursorSpeed > 0 ? cursorVelocityX / cursorSpeed : 0;
 	const directionY = cursorSpeed > 0 ? cursorVelocityY / cursorSpeed : 0;
-	const speed = Math.min(0.065, Math.max(0.025, cursorSpeed * 0.07));
-	const lateral = randomBetween(-0.008, 0.008);
+	const inheritedSpeed = Math.min(
+		1.05,
+		Math.max(0.025, cursorSpeed * randomBetween(0.3, 0.42)),
+	);
+	const lateral = randomBetween(-0.045, 0.045);
 
 	const cloudAngle = Math.random() * Math.PI * 2;
 	const cloudRadius = Math.sqrt(Math.random()) * 26;
@@ -94,16 +210,21 @@ function emitAsciiParticle(
 	particles.push({
 		x: x + Math.cos(cloudAngle) * cloudRadius,
 		y: y + Math.sin(cloudAngle) * cloudRadius,
-		velocityX: directionX * speed - directionY * lateral,
-		velocityY: directionY * speed + directionX * lateral,
+		velocityX: directionX * inheritedSpeed - directionY * lateral,
+		velocityY: directionY * inheritedSpeed + directionX * lateral,
 		age: 0,
-		lifetime: randomBetween(650, 1100),
+		lifetime: randomBetween(850, 1400) + Math.min(350, cursorSpeed * 120),
 		size: randomBetween(8, 11),
 		symbol:
 			ASCII_SYMBOLS[Math.floor(Math.random() * ASCII_SYMBOLS.length)] ?? ">",
 		targetIndex: null,
+		capture: 0,
 		rotation: randomBetween(-0.18, 0.18),
 		spin: randomBetween(-0.0003, 0.0003),
+		flowPhase: randomBetween(0, Math.PI * 2),
+		flowRate: randomBetween(0.0016, 0.0034),
+		flowStrength: randomBetween(0.000018, 0.000052),
+		mass: randomBetween(0.82, 1.2),
 	});
 }
 
@@ -113,12 +234,22 @@ function createWelcomeField(
 	height: number,
 ): WelcomeField {
 	const characters = Array.from(word.toUpperCase());
-	const columnCount = Math.max(1, characters.length * 5 - 1);
-	const cellSize = Math.min(17, (width * 0.55) / columnCount);
+	const columnCount = Math.max(1, characters.length * 8 - 1);
+	const rowCount = 9;
+	const compactProgress = Math.min(1, Math.max(0, (960 - width) / 192));
+	const widthShare = 0.66 + compactProgress * 0.18;
+	const cellSize = Math.min(
+		18,
+		(width * widthShare) / columnCount,
+		(height * 0.19) / (rowCount - 1),
+	);
 	const wordWidth = (columnCount - 1) * cellSize;
-	const wordHeight = 4 * cellSize;
-	const centerX = width * WELCOME_X;
-	const centerY = height * WELCOME_Y;
+	const wordHeight = (rowCount - 1) * cellSize;
+	const centerX = Math.min(
+		width - wordWidth / 2 - 32,
+		Math.max(wordWidth / 2 + 32, width * WELCOME_X),
+	);
+	const centerY = height * (WELCOME_Y + compactProgress * 0.08);
 	const startX = centerX - wordWidth / 2;
 	const startY = centerY - wordHeight / 2;
 	const targets: WelcomeTarget[] = [];
@@ -130,7 +261,7 @@ function createWelcomeField(
 			Array.from(row).forEach((cell, columnIndex) => {
 				if (cell === "1" && targets.length < MAX_WORD_PARTICLES) {
 					targets.push({
-						x: startX + (characterIndex * 5 + columnIndex) * cellSize,
+						x: startX + (characterIndex * 8 + columnIndex) * cellSize,
 						y: startY + rowIndex * cellSize,
 					});
 				}
@@ -153,6 +284,8 @@ function createWelcomeField(
 	const margin = 24;
 	return {
 		cellSize,
+		columnCount,
+		rowCount,
 		targets,
 		left: centerX - wordWidth / 2 - margin,
 		right: centerX + wordWidth / 2 + margin,
@@ -161,19 +294,24 @@ function createWelcomeField(
 	};
 }
 
-function claimWelcomeTarget(
-	particles: AsciiParticle[],
-	targetCount: number,
-	progress: FormationProgress,
+function claimNearestWelcomeTarget(
+	particle: AsciiParticle,
+	claimed: Set<number>,
+	targets: WelcomeTarget[],
 ) {
-	for (let offset = 0; offset < targetCount; offset += 1) {
-		const targetIndex = (progress.nextTarget + offset) % targetCount;
-		if (!particles.some((particle) => particle.targetIndex === targetIndex)) {
-			progress.nextTarget = (targetIndex + 1) % targetCount;
-			return targetIndex;
+	let nearest: number | null = null;
+	let nearestDistance = Number.POSITIVE_INFINITY;
+	for (let index = 0; index < targets.length; index += 1) {
+		if (claimed.has(index)) continue;
+		const target = targets[index];
+		if (!target) continue;
+		const distance = Math.hypot(target.x - particle.x, target.y - particle.y);
+		if (distance < nearestDistance) {
+			nearest = index;
+			nearestDistance = distance;
 		}
 	}
-	return null;
+	return nearest;
 }
 
 function paintAsciiFormation(
@@ -181,10 +319,14 @@ function paintAsciiFormation(
 	delta: number,
 	particles: AsciiParticle[],
 	field: WelcomeField,
-	progress: FormationProgress,
 ) {
 	let capturedParticles = 0;
 	let settledParticles = 0;
+	const claimedTargets = new Set(
+		particles.flatMap((particle) =>
+			particle.targetIndex === null ? [] : [particle.targetIndex],
+		),
+	);
 
 	for (const particle of particles) {
 		particle.age += delta;
@@ -195,12 +337,13 @@ function paintAsciiFormation(
 			particle.y >= field.top &&
 			particle.y <= field.bottom
 		) {
-			const targetIndex = claimWelcomeTarget(
-				particles,
-				field.targets.length,
-				progress,
+			const targetIndex = claimNearestWelcomeTarget(
+				particle,
+				claimedTargets,
+				field.targets,
 			);
 			particle.targetIndex = targetIndex;
+			if (targetIndex !== null) claimedTargets.add(targetIndex);
 		}
 
 		const target =
@@ -209,15 +352,18 @@ function paintAsciiFormation(
 				: field.targets[particle.targetIndex];
 		if (target) {
 			capturedParticles += 1;
-			const capturedDrag = Math.exp(-delta / 170);
+			const captureRise = 1 - Math.exp(-delta / 280);
+			particle.capture += (1 - particle.capture) * captureRise;
+			const spring = (0.000026 * particle.capture) / particle.mass;
+			const damping = 0.0102 * particle.capture;
+			particle.velocityX += (target.x - particle.x) * spring * delta;
+			particle.velocityY += (target.y - particle.y) * spring * delta;
+			const capturedDrag = Math.exp(-damping * delta);
 			particle.velocityX *= capturedDrag;
 			particle.velocityY *= capturedDrag;
 			particle.x += particle.velocityX * delta;
 			particle.y += particle.velocityY * delta;
-			const attraction = 1 - Math.exp(-delta / 180);
-			particle.x += (target.x - particle.x) * attraction;
-			particle.y += (target.y - particle.y) * attraction;
-			particle.rotation *= Math.exp(-delta / 180);
+			particle.rotation *= Math.exp(-delta / 260);
 			if (
 				Math.hypot(target.x - particle.x, target.y - particle.y) <
 				particle.size * 0.75
@@ -225,7 +371,14 @@ function paintAsciiFormation(
 				settledParticles += 1;
 			}
 		} else {
-			const inertialDrag = Math.exp(-delta / 650);
+			const flow = particle.flowPhase + particle.age * particle.flowRate;
+			const speed = Math.hypot(particle.velocityX, particle.velocityY);
+			const turbulence =
+				particle.flowStrength * (0.35 + Math.min(1, speed / 0.5));
+			particle.velocityX += Math.cos(flow) * turbulence * delta;
+			particle.velocityY +=
+				(Math.sin(flow * 0.83) * turbulence - 0.000006) * delta;
+			const inertialDrag = Math.exp(-delta / (760 + particle.mass * 220));
 			particle.velocityX *= inertialDrag;
 			particle.velocityY *= inertialDrag;
 			particle.x += particle.velocityX * delta;
@@ -238,7 +391,7 @@ function paintAsciiFormation(
 			? 1
 			: Math.min(1, (particle.lifetime - particle.age) / 500);
 		const opacity = Math.max(0, fadeIn * fadeOut) * (target ? 0.92 : 0.64);
-		const drawSize = target ? field.cellSize * 0.85 : particle.size;
+		const drawSize = target ? field.cellSize * 0.95 : particle.size;
 		const drawY =
 			particle.symbol === "_" ? particle.y - drawSize * 0.28 : particle.y;
 		context.save();
@@ -408,6 +561,7 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 		const context = canvas.getContext("2d");
 		host.dataset.renderer = context ? "canvas2d" : "fallback";
 		host.dataset.particleEffect = "idle";
+		host.dataset.cloudInertia = "idle";
 		host.dataset.welcomeFormation = "idle";
 		if (!context) return;
 
@@ -419,12 +573,16 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 		let pageVisible = document.visibilityState !== "hidden";
 		let welcomeField: WelcomeField = {
 			cellSize: 0,
+			columnCount: 0,
+			rowCount: 0,
 			targets: [],
 			left: 0,
 			right: 0,
 			top: 0,
 			bottom: 0,
 		};
+		let fieldWidth = 0;
+		let fieldHeight = 0;
 		if (formationRef.current.word !== welcome)
 			formationRef.current = { word: welcome, particles: [] };
 		const particles = formationRef.current.particles;
@@ -433,8 +591,15 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 				(particle) => particle.targetIndex !== null,
 			);
 		}
-		const formationProgress: FormationProgress = { nextTarget: 0 };
-		const pointer = { x: 0, y: 0, time: 0, carry: 0, initialized: false };
+		const pointer = {
+			x: 0,
+			y: 0,
+			time: 0,
+			velocityX: 0,
+			velocityY: 0,
+			carry: 0,
+			initialized: false,
+		};
 
 		const render = (time: number) => {
 			const bounds = host.getBoundingClientRect();
@@ -450,11 +615,20 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 					delta,
 					particles,
 					welcomeField,
-					formationProgress,
 				);
 				const particleState = particles.length === 0 ? "idle" : "active";
+				const cloudInertia = particles.some(
+					(particle) =>
+						particle.targetIndex === null &&
+						particle.age >= 100 &&
+						Math.hypot(particle.velocityX, particle.velocityY) > 0.02,
+				)
+					? "active"
+					: "idle";
 				if (host.dataset.particleEffect !== particleState)
 					host.dataset.particleEffect = particleState;
+				if (host.dataset.cloudInertia !== cloudInertia)
+					host.dataset.cloudInertia = cloudInertia;
 				if (host.dataset.welcomeFormation !== formation)
 					host.dataset.welcomeFormation = formation;
 			}
@@ -468,18 +642,27 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 			canvas.style.width = `${bounds.width}px`;
 			canvas.style.height = `${bounds.height}px`;
 			context.setTransform(dpr, 0, 0, dpr, 0, 0);
-			welcomeField = createWelcomeField(welcome, bounds.width, bounds.height);
-			formationProgress.nextTarget = 0;
-			for (const particle of particles) {
-				const target =
-					particle.targetIndex === null
-						? undefined
-						: welcomeField.targets[particle.targetIndex];
-				if (target) {
-					particle.x = target.x;
-					particle.y = target.y;
+			if (fieldWidth > 0 && fieldHeight > 0) {
+				const scaleX = bounds.width / fieldWidth;
+				const scaleY = bounds.height / fieldHeight;
+				for (const particle of particles) {
+					particle.x *= scaleX;
+					particle.y *= scaleY;
 				}
 			}
+			welcomeField = createWelcomeField(welcome, bounds.width, bounds.height);
+			fieldWidth = bounds.width;
+			fieldHeight = bounds.height;
+			if (
+				!paused &&
+				!reducedMotion &&
+				particles.some((particle) => particle.targetIndex !== null)
+			)
+				host.dataset.welcomeFormation = "forming";
+			host.dataset.letterGrid = `7x${welcomeField.rowCount}`;
+			host.dataset.wordColumns = String(welcomeField.columnCount);
+			host.dataset.wordTargets = String(welcomeField.targets.length);
+			host.dataset.glyphSize = (welcomeField.cellSize * 0.95).toFixed(2);
 			render(performance.now());
 		};
 
@@ -505,6 +688,8 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 
 		const resetPointer = () => {
 			pointer.initialized = false;
+			pointer.velocityX = 0;
+			pointer.velocityY = 0;
 			pointer.carry = 0;
 		};
 
@@ -543,8 +728,11 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 			pointer.time = event.timeStamp;
 			if (movement < 1) return;
 
-			const cursorVelocityX = movementX / elapsed;
-			const cursorVelocityY = movementY / elapsed;
+			const velocityBlend = 1 - Math.exp(-elapsed / 36);
+			pointer.velocityX +=
+				(movementX / elapsed - pointer.velocityX) * velocityBlend;
+			pointer.velocityY +=
+				(movementY / elapsed - pointer.velocityY) * velocityBlend;
 			let distanceToEmission = PARTICLE_SPACING - pointer.carry;
 			let emitted = 0;
 
@@ -557,8 +745,8 @@ export function GradientCanvas({ className = "" }: GradientCanvasProps) {
 					particles,
 					startX + movementX * progress,
 					startY + movementY * progress,
-					cursorVelocityX,
-					cursorVelocityY,
+					pointer.velocityX,
+					pointer.velocityY,
 				);
 				distanceToEmission += PARTICLE_SPACING;
 				emitted += 1;
