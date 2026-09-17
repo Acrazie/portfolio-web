@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.5](https://github.com/Acrazie/portfolio-web/compare/v0.1.4...v0.1.5) (2026-09-14)
+
+
+### Features
+
+* add animated ASCII cursor trail to portfolio hero ([#24](https://github.com/Acrazie/portfolio-web/issues/24)) ([69ecabd](https://github.com/Acrazie/portfolio-web/commit/69ecabd7d87e65e42b5b5ead1f1ace70b8b0ed06))
+
+
+### Bug Fixes
+
+* soften ASCII particle cloud and preserve welcome formation ([#27](https://github.com/Acrazie/portfolio-web/issues/27)) ([1a5b81b](https://github.com/Acrazie/portfolio-web/commit/1a5b81b2321917a0c907b5071c0f28ed4d37b9e6))
+
 ## [0.1.4](https://github.com/Acrazie/portfolio-web/compare/v0.1.3...v0.1.4) (2026-09-13)
 
 
