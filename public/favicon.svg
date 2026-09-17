@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="100%" fill="none" shape-rendering="geometricPrecision">
+  <style>
+    :root {
+      --mark-color: #000000;
+      --echo-alpha: 0.38;
+      --facet-alpha: 0.72;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --mark-color: #ffffff;
+        --echo-alpha: 0.42;
+        --facet-alpha: 0.78;
+      }
+    }
+    .mark-fill { fill: var(--mark-color); }
+    .mark-echo { fill: var(--mark-color); opacity: var(--echo-alpha); }
+    .mark-facet { fill: var(--mark-color); opacity: var(--facet-alpha); }
+  </style>
+  <!-- Echo Layer (SE offset) -->
+  <g class="mark-echo">
+    <path d="M18.5 7.5L26.5 15.5V29.5H23V16.5L16 9.5H18.5Z" />
+    <path d="M26.5 15.5L30.5 19.5V29.5H26.5V15.5Z" />
+    <path d="M7.5 29.5H11.5V27H7.5V29.5Z" />
+  </g>
+  <!-- Main A-Prism Body -->
+  <g>
+    <path class="mark-fill" d="M5 27V15L13.5 5H16.5L9 14V27H5Z" />
+    <path class="mark-fill" d="M13.5 5H19L16.5 8H11L13.5 5Z" />
+    <path class="mark-fill" d="M16.5 8L23 15.5V27H19V16.5L14 10.5L16.5 8Z" />
+    <path class="mark-facet" d="M19 5L27 14.5V27H23V15.5L16.5 8L19 5Z" />
+    <!-- Floating Crossbar -->
+    <rect class="mark-fill" x="9" y="17.5" width="12" height="3" rx="0.5" />
+  </g>
+</svg>

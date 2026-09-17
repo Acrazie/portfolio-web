@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-15T08:14:39Z",
+  "generatedAt": "2026-09-16T14:50:51.219Z",
   "title": "Design System: Mayeul Portfolio",
   "extensions": {
     "colorMeta": {
@@ -213,6 +213,81 @@
           "oklch(0.87 0.0539 261.54 / 68%)",
           "oklch(0.95 0.0539 261.54 / 68%)"
         ]
+      },
+      "control-secondary": {
+        "role": "neutral",
+        "displayName": "Neutral secondaire",
+        "canonical": "oklch(0.97 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "control-muted": {
+        "role": "neutral",
+        "displayName": "Neutral atténué",
+        "canonical": "oklch(0.556 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "control-accent": {
+        "role": "neutral",
+        "displayName": "Neutral interactif",
+        "canonical": "oklch(0.97 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "control-destructive": {
+        "role": "primary",
+        "displayName": "Erreur destructive",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": [
+          "oklch(0.25 0.12 27.325)",
+          "oklch(0.35 0.16 27.325)",
+          "oklch(0.45 0.2 27.325)",
+          "oklch(0.577 0.245 27.325)",
+          "oklch(0.65 0.2 27.325)",
+          "oklch(0.73 0.15 27.325)",
+          "oklch(0.82 0.1 27.325)",
+          "oklch(0.92 0.05 27.325)"
+        ]
+      },
+      "control-ring": {
+        "role": "neutral",
+        "displayName": "Anneau de focus",
+        "canonical": "oklch(0.708 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.27 0 0)",
+          "oklch(0.39 0 0)",
+          "oklch(0.51 0 0)",
+          "oklch(0.63 0 0)",
+          "oklch(0.75 0 0)",
+          "oklch(0.87 0 0)",
+          "oklch(0.95 0 0)"
+        ]
       }
     },
     "typographyMeta": {
@@ -249,7 +324,13 @@
         "purpose": "Boutons, navigation et actions textuelles compactes."
       }
     },
-    "shadows": [],
+    "shadows": [
+      {
+        "name": "sheet-elevation",
+        "value": "0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%)",
+        "purpose": "Sépare uniquement le Sheet mobile de la page sous-jacente."
+      }
+    ],
     "motion": [
       {
         "name": "canvas-cycle",
@@ -288,8 +369,8 @@
       },
       {
         "name": "control-transition",
-        "value": "200ms ease-out",
-        "purpose": "Réponse de fond, couleur et translation des boutons."
+        "value": "150ms ease",
+        "purpose": "Réponse base-nova de fond, couleur, ring et translation active."
       },
       {
         "name": "skip-link-transition",
@@ -300,6 +381,16 @@
         "name": "reduced-motion",
         "value": "0.01ms, 1 iteration",
         "purpose": "Neutralise transitions et animations; le Canvas reste sur une peinture statique."
+      },
+      {
+        "name": "dialog-transition",
+        "value": "100ms",
+        "purpose": "Fondu et zoom court du Dialog Contact."
+      },
+      {
+        "name": "sheet-transition",
+        "value": "200ms ease-in-out",
+        "purpose": "Entrée et sortie du Sheet mobile depuis la droite."
       }
     ],
     "breakpoints": [
@@ -322,88 +413,96 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Action principale noire sur surface blanche, avec réponse verticale courte.",
-      "html": "<button class=\"ds-btn-primary\" type=\"button\">Voir les projets</button>",
-      "css": ".ds-btn-primary { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid transparent; border-radius: 16px; background: var(--foreground, #000); color: var(--background, #fff); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-primary:hover { background: rgb(0 0 0 / 82%); transform: translateY(-2px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--foreground, #000); outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:disabled { pointer-events: none; opacity: .5; }"
+      "description": "Action base-nova principale, compacte et fortement contrastée.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\">Envoyer</button>",
+      "css": ".ds-btn-primary { height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px solid transparent; border-radius: 10px; background: var(--primary, oklch(0.205 0 0)); color: var(--primary-foreground, oklch(0.985 0 0)); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: all 150ms ease; } .ds-btn-primary:hover { background: color-mix(in oklch, var(--primary, oklch(0.205 0 0)) 80%, transparent); } .ds-btn-primary:focus-visible { outline: 3px solid color-mix(in oklch, oklch(0.708 0 0) 50%, transparent); outline-offset: 0; } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:disabled { pointer-events: none; opacity: .5; }"
     },
     {
-      "name": "Inverse Large Button",
+      "name": "Secondary Button",
       "kind": "button",
-      "refersTo": "button-inverse-large",
-      "description": "Action blanche de 48px réservée aux fonds noirs et au héros.",
-      "html": "<span class=\"ds-inverse-context\"><button class=\"ds-btn-inverse\" type=\"button\">Projets</button></span>",
-      "css": ".ds-inverse-context { display: inline-flex; padding: 24px; background: #000; } .ds-btn-inverse { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid transparent; border-radius: 16px; background: var(--background, #fff); color: var(--foreground, #000); font: 500 16px/24px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, transform 200ms ease-out; } .ds-btn-inverse:hover { background: rgb(255 255 255 / 86%); transform: translateY(-2px); } .ds-btn-inverse:focus-visible { outline: 2px solid #fff; outline-offset: 2px; } .ds-btn-inverse:active { transform: translateY(1px); }"
+      "refersTo": "button-secondary",
+      "description": "Action neutral claire utilisée sur le héros et les surfaces noires.",
+      "html": "<span class=\"ds-inverse-context\"><button class=\"ds-btn-secondary\" type=\"button\">Projets</button></span>",
+      "css": ".ds-inverse-context { display: inline-flex; padding: 24px; background: #000; } .ds-btn-secondary { height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px solid transparent; border-radius: 10px; background: var(--secondary, oklch(0.97 0 0)); color: var(--secondary-foreground, oklch(0.205 0 0)); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: all 150ms ease; } .ds-btn-secondary:hover { background: color-mix(in oklch, var(--secondary, oklch(0.97 0 0)), var(--foreground, #000) 5%); } .ds-btn-secondary:focus-visible { outline: 3px solid color-mix(in oklch, oklch(0.708 0 0) 50%, transparent); outline-offset: 0; } .ds-btn-secondary:active { transform: translateY(1px); }"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Alternative blanche opaque à contour noir; jamais panneau translucide.",
+      "description": "Alternative base-nova à fond de page et bord neutral.",
       "html": "<button class=\"ds-btn-outline\" type=\"button\">En savoir plus</button>",
-      "css": ".ds-btn-outline { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid #000; border-radius: 16px; background: #fff; color: #000; font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: background-color 200ms ease-out, color 200ms ease-out, transform 200ms ease-out; } .ds-btn-outline:hover { background: #000; color: #fff; transform: translateY(-2px); } .ds-btn-outline:focus-visible { outline: 2px solid #000; outline-offset: 2px; } .ds-btn-outline:active { transform: translateY(1px); }"
+      "css": ".ds-btn-outline { height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 6px 10px; border: 1px solid var(--border, oklch(0.922 0 0)); border-radius: 10px; background: var(--background, #fff); color: var(--foreground, #000); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; transition: all 150ms ease; } .ds-btn-outline:hover { background: var(--muted, oklch(0.97 0 0)); } .ds-btn-outline:focus-visible { outline: 3px solid color-mix(in oklch, oklch(0.708 0 0) 50%, transparent); outline-offset: 0; } .ds-btn-outline:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Contact Input",
+      "kind": "input",
+      "refersTo": "input-contact",
+      "description": "Champ compact base-nova avec border et ring neutral.",
+      "html": "<label class=\"ds-field\">Email<input class=\"ds-input\" type=\"email\" value=\"visiteur@example.com\"></label>",
+      "css": ".ds-field { display: grid; gap: 8px; color: var(--foreground, #000); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-input { width: 100%; height: 32px; box-sizing: border-box; padding: 4px 10px; border: 1px solid var(--input, oklch(0.922 0 0)); border-radius: 10px; background: transparent; color: var(--foreground, #000); font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; outline: none; transition: border-color 150ms ease, box-shadow 150ms ease; } .ds-input:focus-visible { border-color: var(--ring, oklch(0.708 0 0)); box-shadow: 0 0 0 3px color-mix(in oklch, var(--ring, oklch(0.708 0 0)) 50%, transparent); }"
     },
     {
       "name": "Header Navigation",
       "kind": "nav",
       "refersTo": "header-navigation",
-      "description": "Navigation noire, alignée à droite, active par une règle blanche.",
-      "html": "<nav class=\"ds-header-nav\" aria-label=\"Principale\"><a href=\"#\">Accueil</a><a class=\"ds-active\" href=\"#\">Projets</a><a href=\"#\">À propos</a><a href=\"#\">Formation</a></nav>",
-      "css": ".ds-header-nav { min-height: 80px; display: flex; align-items: center; justify-content: flex-end; gap: 24px; padding: 0 32px; background: #000; color: #fff; font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-header-nav a { min-height: 44px; display: inline-flex; align-items: center; border-bottom: 1px solid transparent; color: rgb(255 255 255 / 78%); text-decoration: none; transition: color 200ms ease-out, border-color 200ms ease-out; } .ds-header-nav a:hover, .ds-header-nav .ds-active { border-color: #fff; color: #fff; } .ds-header-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }"
+      "description": "Navigation noire, active par une règle blanche, avec contrôles base-nova.",
+      "html": "<nav class=\"ds-header-nav\" aria-label=\"Principale\"><a href=\"#\">Accueil</a><a class=\"ds-active\" href=\"#\">Projets</a><button type=\"button\">Contact</button></nav>",
+      "css": ".ds-header-nav { min-height: 80px; display: flex; align-items: center; justify-content: flex-end; gap: 16px; padding: 0 32px; background: #000; color: #fff; font: 400 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-header-nav a, .ds-header-nav button { height: 32px; display: inline-flex; align-items: center; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: rgb(255 255 255 / 78%); text-decoration: none; } .ds-header-nav a:hover, .ds-header-nav button:hover, .ds-header-nav .ds-active { border-color: #fff; color: #fff; } .ds-header-nav a:focus-visible, .ds-header-nav button:focus-visible { outline: 3px solid rgb(255 255 255 / 50%); outline-offset: 0; border-radius: 10px; }"
     },
     {
-      "name": "Mobile Menu Controls",
-      "kind": "button",
+      "name": "Mobile Navigation Sheet",
+      "kind": "custom",
       "refersTo": "menu-control",
-      "description": "Contrôles opaques de 44px; seuls Menu et X utilisent des pictogrammes Tabler.",
-      "html": "<span class=\"ds-menu-sample\"><button class=\"ds-menu-open\" type=\"button\" aria-label=\"Ouvrir le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg></button><button class=\"ds-menu-close\" type=\"button\" aria-label=\"Fermer le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg></button></span>",
-      "css": ".ds-menu-sample { display: inline-flex; gap: 12px; padding: 16px; background: #000; } .ds-menu-open, .ds-menu-close { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 16px; } .ds-menu-open { background: #000; color: #fff; border: 1px solid rgb(255 255 255 / 18%); } .ds-menu-close { background: #fff; color: #000; } .ds-menu-open svg, .ds-menu-close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; } .ds-menu-open:hover { background: rgb(255 255 255 / 12%); } .ds-menu-close:hover { background: rgb(255 255 255 / 86%); } .ds-menu-open:focus-visible, .ds-menu-close:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+      "description": "Sheet neutral venant de droite, avec overlay flouté et icônes Tabler Menu/X.",
+      "html": "<div class=\"ds-sheet-demo\"><button class=\"ds-menu\" type=\"button\" aria-label=\"Ouvrir le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M4 6h16M4 12h16M4 18h16\"/></svg></button><div class=\"ds-overlay\"></div><aside class=\"ds-sheet\"><button class=\"ds-close\" type=\"button\" aria-label=\"Fermer le menu\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg></button><strong>Navigation principale</strong><a href=\"#\">Accueil</a><a href=\"#\">Projets</a></aside></div>",
+      "css": ".ds-sheet-demo { position: relative; min-height: 220px; overflow: hidden; background: #000; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-menu, .ds-close { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: var(--secondary, oklch(0.97 0 0)); color: #000; } .ds-menu { margin: 16px; } .ds-menu svg, .ds-close svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; } .ds-overlay { position: absolute; inset: 0; background: rgb(0 0 0 / 10%); backdrop-filter: blur(4px); } .ds-sheet { position: absolute; inset-block: 0; right: 0; width: 75%; max-width: 384px; display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--popover, #fff); color: var(--popover-foreground, #000); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%); } .ds-close { position: absolute; top: 16px; right: 16px; } .ds-sheet a { padding: 12px; border-radius: 10px; color: inherit; text-decoration: none; } .ds-sheet a:hover { background: var(--muted, oklch(0.97 0 0)); }"
     },
     {
       "name": "Editorial Action",
       "kind": "nav",
       "refersTo": "editorial-action",
-      "description": "Action secondaire textuelle, structurée par un soulignement plutôt qu’une capsule.",
+      "description": "Button link base-nova rendu comme lien TanStack Router.",
       "html": "<a class=\"ds-editorial-action\" href=\"#\">Ouvrir le projet</a>",
-      "css": ".ds-editorial-action { min-height: 44px; display: inline-flex; align-items: center; padding: 0 0 4px; border-bottom: 1px solid #000; color: #000; font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-decoration: none; } .ds-editorial-action:hover { border-bottom-width: 2px; } .ds-editorial-action:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; border-radius: 4px; }"
+      "css": ".ds-editorial-action { height: 32px; display: inline-flex; align-items: center; padding: 6px 0; border-radius: 10px; color: var(--primary, #000); font: 500 14px/20px 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-underline-offset: 4px; text-decoration: none; } .ds-editorial-action:hover { text-decoration: underline; } .ds-editorial-action:focus-visible { outline: 3px solid color-mix(in oklch, oklch(0.708 0 0) 50%, transparent); outline-offset: 0; }"
     },
     {
       "name": "Editorial Project Row",
       "kind": "custom",
       "refersTo": "editorial-row",
-      "description": "Preuve ouverte entre deux règles, sans rayon, ombre, chip ou carte.",
+      "description": "Preuve ouverte entre deux règles; aucune Card ou Badge shadcn.",
       "html": "<article class=\"ds-project-row\"><div><h3>Portfolio web</h3><p>Logiciel fiable et systèmes d’IA pratiques.</p></div><div><p class=\"ds-stack\">React · TypeScript · Canvas 2D</p><a href=\"#\">Ouvrir le projet</a></div></article>",
-      "css": ".ds-project-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .65fr); gap: 80px; padding: 40px 0; border-top: 1px solid rgb(0 0 0 / 20%); border-bottom: 1px solid rgb(0 0 0 / 20%); background: #fff; color: #000; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-project-row h3 { max-width: 18ch; margin: 0; font-size: clamp(36px, 5vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -.035em; } .ds-project-row p { max-width: 62ch; margin: 20px 0 0; color: rgb(0 0 0 / 62%); font-size: 16px; line-height: 28px; } .ds-project-row .ds-stack { margin-top: 0; font-size: 14px; } .ds-project-row a { min-height: 44px; display: inline-flex; align-items: center; margin-top: 32px; padding-bottom: 4px; border-bottom: 1px solid #000; color: #000; font-size: 14px; font-weight: 500; text-decoration: none; } .ds-project-row a:hover { border-bottom-width: 2px; } .ds-project-row a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; } @media (max-width: 64rem) { .ds-project-row { grid-template-columns: 1fr; gap: 32px; } }"
+      "css": ".ds-project-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .65fr); gap: 80px; padding: 40px 0; border-top: 1px solid rgb(0 0 0 / 20%); border-bottom: 1px solid rgb(0 0 0 / 20%); background: #fff; color: #000; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-project-row h3 { max-width: 18ch; margin: 0; font-size: clamp(36px, 5vw, 72px); font-weight: 500; line-height: .98; letter-spacing: -.035em; } .ds-project-row p { max-width: 62ch; margin: 20px 0 0; color: rgb(0 0 0 / 62%); font-size: 16px; line-height: 28px; } .ds-project-row .ds-stack { margin-top: 0; font-size: 14px; } .ds-project-row a { height: 32px; display: inline-flex; align-items: center; margin-top: 32px; border-radius: 10px; color: #000; font-size: 14px; font-weight: 500; text-underline-offset: 4px; text-decoration: none; } .ds-project-row a:hover { text-decoration: underline; } @media (max-width: 64rem) { .ds-project-row { grid-template-columns: 1fr; gap: 32px; } }"
     },
     {
       "name": "Gradient Hero Fallback",
       "kind": "custom",
       "refersTo": "gradient-hero",
-      "description": "Repli statique du seul champ chromatique; le Canvas 2D vivant se superpose au même monde.",
+      "description": "Repli statique du seul champ chromatique; le CTA utilise Button secondary.",
       "html": "<section class=\"ds-gradient-hero\"><div class=\"ds-gradient-fade\"></div><div class=\"ds-hero-copy\"><h1>MAYEUL<span>Software Engineer · AI Engineer</span></h1><p>Des logiciels fiables et des systèmes d’IA pratiques.</p><a href=\"#\">Projets</a></div></section>",
-      "css": ".ds-gradient-hero { position: relative; min-height: 760px; overflow: hidden; background: radial-gradient(circle at 22% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 78% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 33% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 67% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 50% 66%, rgb(88 72 255 / 66%), transparent 39%), linear-gradient(#020617 0%, #071a62 52%, #4338ca 100%); color: #fff; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-gradient-fade { position: absolute; inset: 0; background: radial-gradient(ellipse 68% 54% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), radial-gradient(ellipse 68% 54% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), linear-gradient(to bottom, transparent 50%, rgb(255 255 255 / 8%) 58%, rgb(255 255 255 / 58%) 80%, #fff 100%); pointer-events: none; } .ds-hero-copy { position: absolute; left: 5%; bottom: 25%; z-index: 1; max-width: 58rem; } .ds-hero-copy h1 { margin: 0; font-size: clamp(64px, 10vw, 96px); font-weight: 500; line-height: .9; letter-spacing: -.04em; } .ds-hero-copy h1 span { display: block; max-width: 24ch; margin-top: 20px; font-size: clamp(26px, 4vw, 48px); line-height: 1.02; letter-spacing: -.035em; } .ds-hero-copy p { max-width: 34ch; margin: 24px 0 0; color: rgb(255 255 255 / 76%); font-size: clamp(18px, 2.4vw, 26px); line-height: 1.28; } .ds-hero-copy a { min-height: 48px; display: inline-flex; align-items: center; margin-top: 36px; padding: 12px 24px; border-radius: 16px; background: #fff; color: #000; font-size: 16px; font-weight: 500; text-decoration: none; } .ds-hero-copy a:hover { background: rgb(255 255 255 / 86%); transform: translateY(-2px); } .ds-hero-copy a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }"
+      "css": ".ds-gradient-hero { position: relative; min-height: 760px; overflow: hidden; background: radial-gradient(circle at 22% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 78% 30%, rgb(41 93 255 / 92%), transparent 31%), radial-gradient(circle at 33% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 67% 50%, rgb(98 43 255 / 78%), transparent 32%), radial-gradient(circle at 50% 66%, rgb(88 72 255 / 66%), transparent 39%), linear-gradient(#020617 0%, #071a62 52%, #4338ca 100%); color: #fff; font-family: 'Hanken Grotesk Variable', 'Hanken Grotesk', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; } .ds-gradient-fade { position: absolute; inset: 0; background: radial-gradient(ellipse 68% 54% at 0% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), radial-gradient(ellipse 68% 54% at 100% 100%, #fff 0%, rgb(255 255 255 / 72%) 32%, transparent 78%), linear-gradient(to bottom, transparent 50%, rgb(255 255 255 / 8%) 58%, rgb(255 255 255 / 58%) 80%, #fff 100%); pointer-events: none; } .ds-hero-copy { position: absolute; left: 5%; bottom: 25%; z-index: 1; max-width: 58rem; } .ds-hero-copy h1 { margin: 0; font-size: clamp(64px, 10vw, 96px); font-weight: 500; line-height: .9; letter-spacing: -.04em; } .ds-hero-copy h1 span { display: block; max-width: 24ch; margin-top: 20px; font-size: clamp(26px, 4vw, 48px); line-height: 1.02; letter-spacing: -.035em; } .ds-hero-copy p { max-width: 34ch; margin: 24px 0 0; color: rgb(255 255 255 / 76%); font-size: clamp(18px, 2.4vw, 26px); line-height: 1.28; } .ds-hero-copy a { height: 36px; display: inline-flex; align-items: center; margin-top: 36px; padding: 6px 10px; border-radius: 10px; background: var(--secondary, oklch(0.97 0 0)); color: var(--secondary-foreground, #000); font-size: 14px; font-weight: 500; text-decoration: none; } .ds-hero-copy a:hover { background: color-mix(in oklch, var(--secondary, oklch(0.97 0 0)), #000 5%); }"
     }
   ],
   "narrative": {
     "northStar": "La table de revue",
-    "overview": "La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.\n\nUn seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.\n\nLe système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.",
+    "overview": "La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, les pages conservent leurs grandes surfaces noires et blanches, leurs règles fines et leurs champs ouverts.\n\nLe héros d’accueil reste l’unique événement visuel bleu-violet, avec son Canvas 2D et sa formation ASCII bilingue.\n\nLes interactions utilisent désormais les composants shadcn base-nova possédés localement. Base UI fournit les primitives, CVA les variantes et Hanken Grotesk conserve une voix unique. Les tons neutral, rings, Dialog et Sheet améliorent les contrôles sans transformer les contenus éditoriaux en cartes.",
     "keyCharacteristics": [
-      "Surfaces ordinaires exclusivement noires ou blanches.",
+      "Grandes surfaces ordinaires noires ou blanches; contrôles neutral base-nova.",
       "Bleu, violet et lavande confinés au Canvas du héros et à son fondu blanc.",
       "Hanken Grotesk variable auto-hébergée pour toute la voix éditoriale et interactive.",
       "Titres réguliers de 400 à 500; intertitres de contenu long à 600.",
-      "Rayons mesurés de 10 à 16px, contrôles opaques et règles de 1px.",
+      "Rayons de 6 à 14px, contrôles compacts, rings neutral et règles de 1px.",
       "Espaces ouverts, peu d’objets, aucune collection de cartes.",
-      "Un seul mouvement signature, robuste au SSR, à la réduction de mouvement et à la suspension."
+      "Dialog et Sheet fournissent la seule élévation fonctionnelle hors Canvas."
     ],
     "rules": [
       {
         "name": "The Chromatic Quarantine Rule",
-        "body": "Toute couleur chromatique reste dans le Canvas du héros et son fondu; aucune couleur dans navigation, pages intérieures, listes, pied de page, états ou texte.",
+        "body": "Toute couleur expressive reste dans le Canvas du héros et son fondu. Seul le rouge destructive peut sortir de cette zone pour signaler une erreur réelle.",
         "section": "colors"
       },
       {
         "name": "The Two-Surface Rule",
-        "body": "Hors héros, toute grande surface est noire ou blanche. La hiérarchie vient du contraste, de l’opacité et des règles, jamais d’un troisième fond.",
+        "body": "Hors héros, toute grande surface reste noire ou blanche. Les tons neutral sont réservés aux composants interactifs, champs et overlays.",
         "section": "colors"
       },
       {
@@ -438,7 +537,7 @@
       },
       {
         "name": "The Flat-by-Default Rule",
-        "body": "Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page.",
+        "body": "Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page. Seuls les overlays modaux peuvent porter ombre et backdrop blur.",
         "section": "elevation"
       },
       {
@@ -453,7 +552,7 @@
       },
       {
         "name": "The Measured Radius Rule",
-        "body": "Employer 10, 12, 14 ou 16px selon l’échelle; ne pas transformer boutons, labels, technologies ou navigation en pilules.",
+        "body": "Employer 6, 8, 10 ou 14px selon l’échelle; ne pas transformer boutons, labels, technologies ou navigation en pilules.",
         "section": "shapes"
       },
       {
@@ -463,19 +562,19 @@
       }
     ],
     "dos": [
-      "Do maintenir le noir et le blanc comme seules couleurs des surfaces ordinaires.",
+      "Do maintenir noir et blanc pour les grandes surfaces, neutral base-nova pour les contrôles et overlays.",
       "Do confiner tout bleu, violet et lavande au Canvas du héros et à son fondu.",
       "Do utiliser Hanken Grotesk auto-hébergée, avec des titres à 400–500 et des intertitres de lecture à 600.",
       "Do construire les listes et preuves avec espace, grilles et règles de 1px.",
-      "Do employer les primitives Base UI/CVA et conserver des contrôles opaques, des rayons de 10–16px et des cibles d’au moins 44px.",
+      "Do employer les composants shadcn base-nova possédés localement, avec Base UI, CVA et les tokens neutral officiels.",
       "Do préserver le budget, la pause, les suspensions, reduced-motion, SSR et le repli statique du Canvas.",
       "Do réserver Tabler aux seules icônes Menu et X."
     ],
     "donts": [
       "Don't réintroduire la Salle d’optique computationnelle, ses lentilles, halos d’interface, instrumentation mono ou métaphores de laboratoire.",
-      "Don't ajouter de glassmorphism, flou d’arrière-plan, ombre de carte ou panneau translucide.",
+      "Don't ajouter de glassmorphism, ombre de carte ou panneau translucide hors overlays shadcn.",
       "Don't construire une grille de cartes, des chips de technologies ou des pilules répétées.",
-      "Don't appliquer de dégradé au texte ni laisser une couleur sortir du héros.",
+      "Don't appliquer de dégradé au texte ni laisser une couleur expressive sortir du héros.",
       "Don't ajouter un système de thème, une bascule sombre ou une palette secondaire.",
       "Don't multiplier les icônes quand un libellé texte suffit.",
       "Don't masquer du contenu sémantique derrière le Canvas ou rendre l’animation nécessaire à la compréhension."
