@@ -7,6 +7,11 @@ colors:
   ink-muted: "rgb(0 0 0 / 62%)"
   rule: "rgb(0 0 0 / 18%)"
   input-rule: "rgb(0 0 0 / 24%)"
+  control-secondary: "oklch(0.97 0 0)"
+  control-muted: "oklch(0.556 0 0)"
+  control-accent: "oklch(0.97 0 0)"
+  control-destructive: "oklch(0.577 0.245 27.325)"
+  control-ring: "oklch(0.708 0 0)"
   hero-midnight: "#020617"
   hero-navy: "#071a62"
   hero-indigo: "#4338ca"
@@ -66,10 +71,10 @@ typography:
     lineHeight: 1.4286
     letterSpacing: "normal"
 rounded:
-  sm: "10px"
-  md: "12px"
-  lg: "14px"
-  xl: "16px"
+  sm: "6px"
+  md: "8px"
+  lg: "10px"
+  xl: "14px"
 spacing:
   "2": "8px"
   "3": "12px"
@@ -91,28 +96,35 @@ components:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
     typography: "{typography.control}"
-    rounded: "{rounded.xl}"
-    padding: "10px 16px"
-    height: "44px"
-  button-inverse-large:
-    backgroundColor: "{colors.paper}"
+    rounded: "{rounded.lg}"
+    padding: "6px 10px"
+    height: "32px"
+  button-secondary:
+    backgroundColor: "{colors.control-secondary}"
     textColor: "{colors.ink}"
     typography: "{typography.control}"
-    rounded: "{rounded.xl}"
-    padding: "12px 24px"
-    height: "48px"
+    rounded: "{rounded.lg}"
+    padding: "6px 10px"
+    height: "32px"
   button-outline:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     typography: "{typography.control}"
-    rounded: "{rounded.xl}"
-    padding: "10px 16px"
-    height: "44px"
+    rounded: "{rounded.lg}"
+    padding: "6px 10px"
+    height: "32px"
+  input-contact:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    typography: "{typography.control}"
+    rounded: "{rounded.lg}"
+    padding: "4px 10px"
+    height: "32px"
   menu-control:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.xl}"
-    size: "44px"
+    backgroundColor: "{colors.control-secondary}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.lg}"
+    size: "32px"
   header-navigation:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
@@ -123,9 +135,9 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
     typography: "{typography.control}"
-    rounded: "0px"
-    padding: "0 0 4px"
-    height: "44px"
+    rounded: "{rounded.lg}"
+    padding: "6px 0"
+    height: "32px"
   editorial-row:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -150,21 +162,21 @@ La table de revue présente le travail de Mayeul comme un dossier précis, calme
 
 Un seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.
 
-Le système privilégie une hiérarchie franche, une densité basse et des contrôles opaques. Hanken Grotesk maintient une voix unique, humaine et technique. Base UI fournit les primitives interactives, CVA leurs variantes, et les compositions s’appuient sur des lignes et des alignements plutôt que sur des cartes répétées.
+Le système privilégie une hiérarchie franche, une densité basse et des contrôles compacts. Hanken Grotesk maintient une voix unique, humaine et technique. shadcn `base-nova` fournit les composants possédés par le projet, Base UI leurs primitives interactives et CVA leurs variantes. Les compositions restent fondées sur des lignes et des alignements plutôt que sur des cartes répétées.
 
 **Key Characteristics:**
 
-- Surfaces ordinaires exclusivement noires ou blanches.
+- Grandes surfaces ordinaires noires ou blanches; contrôles neutral `base-nova` autorisés.
 - Bleu, violet et lavande confinés au Canvas du héros et à son fondu blanc.
 - Hanken Grotesk variable auto-hébergée pour toute la voix éditoriale et interactive.
 - Titres réguliers de 400 à 500; intertitres de contenu long à 600.
-- Rayons mesurés de 10 à 16px, contrôles opaques et règles de 1px.
+- Rayons de 6 à 14px, contrôles compacts, anneaux neutral et règles de 1px.
 - Espaces ouverts, peu d’objets, aucune collection de cartes.
 - Un seul mouvement signature, robuste au SSR, à la réduction de mouvement et à la suspension.
 
 ## Colors
 
-Le système possède deux régimes étanches: noir et blanc pour l’interface; spectre froid uniquement à l’intérieur du héros d’accueil.
+Le système possède deux régimes principaux: noir et blanc pour les grandes surfaces éditoriales; neutral `base-nova` pour les contrôles et overlays. Le spectre froid reste réservé au héros d’accueil.
 
 ### Primary
 
@@ -183,11 +195,13 @@ Le système possède deux régimes étanches: noir et blanc pour l’interface; 
 
 - **Encre secondaire** (`ink-muted`): corps et métadonnées secondaires sur papier.
 - **Règle éditoriale** (`rule`): séparateurs, contours et états actifs à faible contraste.
-- **Règle de champ** (`input-rule`): règle de référence pour les primitives de champ. Les champs Contact renforcent le contraste de leur contour pour rester identifiables.
+- **Règle de champ** (`input-rule`): ancienne référence éditoriale conservée pour les rangées existantes.
+- **Neutral shadcn** (`control-secondary`, `control-muted`, `control-accent`, `control-ring`): boutons secondaires, champs, survols, textes atténués et focus.
+- **Destructive** (`control-destructive`): erreurs de formulaire uniquement.
 
-**The Chromatic Quarantine Rule.** Toute couleur chromatique reste dans le Canvas du héros et son fondu; aucune couleur dans navigation, pages intérieures, listes, pied de page, états ou texte.
+**The Chromatic Quarantine Rule.** Toute couleur expressive reste dans le Canvas du héros et son fondu. Seul le rouge `destructive` peut sortir de cette zone pour signaler une erreur réelle.
 
-**The Two-Surface Rule.** Hors héros, toute grande surface est noire ou blanche. La hiérarchie vient du contraste, de l’opacité et des règles, jamais d’un troisième fond.
+**The Two-Surface Rule.** Hors héros, toute grande surface reste noire ou blanche. Les tons neutral sont réservés aux composants interactifs, aux champs et aux overlays.
 
 **The No Theme Rule.** Le portfolio reste en mode clair explicite avec sections noires inversées; ne pas ajouter de thème sombre, de bascule de thème ou de palette parallèle.
 
@@ -231,13 +245,13 @@ Les compositions passent de la pile à des grilles à 48rem ou 64rem. Projets et
 
 ## Elevation & Depth
 
-Le système est plat. Aucun `box-shadow`, flou d’arrière-plan, verre translucide ou empilement de surfaces ne crée la profondeur des pages ordinaires. Les ruptures noir/blanc, l’opacité typographique, les règles et l’espace suffisent. Dans le héros seulement, la superposition de gradients radiaux du Canvas et le fondu blanc construisent une profondeur lumineuse sans produire une carte ni une vitre.
+Le système reste plat dans les pages ordinaires. Les ruptures noir/blanc, l’opacité typographique, les règles et l’espace portent la profondeur. Les overlays shadcn constituent l’unique exception fonctionnelle: le Sheet utilise une ombre douce et Dialog/Sheet un léger voile flouté pour séparer le focus modal. Dans le héros, les gradients du Canvas et le fondu blanc construisent la profondeur lumineuse.
 
-Les micro-interactions durent 160–200ms avec une sortie simple: le bouton se lève de 2px au survol puis descend de 1px à l’activation; les liens changent contraste ou soulignement. Elles restent des retours d’état, jamais une animation ambiante.
+Les micro-interactions `base-nova` durent 100–200ms: variation neutral au survol, anneau de focus et descente de 1px à l’activation. Dialog zoome légèrement; Sheet glisse depuis la droite. Elles restent des réponses directes, jamais une animation ambiante.
 
 Le Canvas est l’unique mouvement signature. Canvas 2D porte le champ et les particules ASCII liées au pointeur qui composent le mot bilingue localisé. La vitesse du curseur est filtrée avant d’être héritée proportionnellement par les glyphes; une masse individuelle, une traînée d’air exponentielle, une légère turbulence sinusoïdale et une poussée ascendante donnent au nuage son inertie organique. Le rendu plafonne à environ 30fps et son DPR à 1.5. Il s’arrête hors écran, quand le document est caché, sur pause ou avec `prefers-reduced-motion`; ce dernier état reçoit une peinture statique sans particules ni mot caché. Le repli CSS est présent dès le HTML serveur et reste visible si le contexte 2D manque.
 
-**The Flat-by-Default Rule.** Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page.
+**The Flat-by-Default Rule.** Aucune ombre sur boutons, navigation, rangées, typeset ou pied de page. Seuls les overlays modaux peuvent porter ombre et backdrop blur.
 
 **The Single Motion Rule.** Seul le Canvas du héros peut bouger de manière autonome; tout autre mouvement répond directement à une action.
 
@@ -245,11 +259,11 @@ Le Canvas est l’unique mouvement signature. Canvas 2D porte le champ et les pa
 
 ## Shapes
 
-La géométrie combine coins doux et structure rectiligne. L’échelle de rayon va de 10 à 16px; contrôles courants et boutons utilisent 16px. Les rayons restent visiblement inférieurs à une pilule complète. Les actions éditoriales soulignées, rangées de contenu, en-têtes de section et fonds pleine largeur restent rectilignes.
+La géométrie combine coins doux et structure rectiligne. L’échelle `base-nova` va de 6 à 14px; contrôles courants et boutons utilisent 10px. Les rayons restent visiblement inférieurs à une pilule complète. Rangées de contenu, en-têtes de section et fonds pleine largeur restent rectilignes.
 
-Les séparateurs font 1px et emploient une encre noire ou blanche à faible opacité. Le focus global utilise un contour de 2px décalé de 4px; les primitives Button utilisent un anneau de 2px décalé de 2px. Les cibles interactives mesurent au moins 44px.
+Les séparateurs font 1px et emploient une encre noire ou blanche à faible opacité. Les composants shadcn utilisent un anneau de focus de 3px à 50% et des contrôles de 24 à 36px; le format courant mesure 32px. Les liens éditoriaux conservent le focus global décalé.
 
-**The Measured Radius Rule.** Employer 10, 12, 14 ou 16px selon l’échelle; ne pas transformer boutons, labels, technologies ou navigation en pilules.
+**The Measured Radius Rule.** Employer 6, 8, 10 ou 14px selon l’échelle; ne pas transformer boutons, labels, technologies ou navigation en pilules.
 
 **The Rule-not-Card Rule.** Une rangée de preuve possède des séparateurs et de l’espace, pas une boîte arrondie autour de chaque item.
 
@@ -257,13 +271,13 @@ Les séparateurs font 1px et emploient une encre noire ou blanche à faible opac
 
 ### Buttons
 
-Contrôles opaques, tactiles et strictement monochromes, construits sur Base UI et organisés par CVA.
+Contrôles shadcn `base-nova`, construits sur Base UI et organisés par CVA.
 
-- **Shape:** coins doux (16px), cible de 40px en petit format, 44px par défaut, 48px en grand format et 44px pour une icône seule.
-- **Primary:** fond noir, texte blanc, padding de 10px × 16px.
-- **Inverse:** fond blanc, texte noir; le héros emploie la grande taille avec 12px × 24px.
-- **Outline:** fond blanc opaque, contour noir de 1px et texte noir; le survol inverse noir et blanc.
-- **Hover / Focus / Active:** levée de 2px, anneau visible de 2px, puis descente de 1px; transition de 200ms `ease-out`.
+- **Shape:** coins de 10px; hauteurs 24, 28, 32 ou 36px; boutons icône sur la même échelle.
+- **Primary:** fond `primary`, texte `primary-foreground`, 32px par défaut.
+- **Secondary:** fond neutral clair, texte sombre; CTA du héros et contrôles sur surfaces noires.
+- **Outline / Ghost / Link:** variantes officielles `base-nova`, adaptées seulement pour garantir le contraste sur les sections inversées.
+- **Hover / Focus / Active:** variation neutral, anneau de 3px à 50%, puis descente de 1px; transition courte.
 - **Disabled:** aucune interaction et 50% d’opacité.
 
 ### Cards / Containers
@@ -274,14 +288,14 @@ Il n’existe pas de carte canonique. Projet, éducation, capacités et technolo
 
 - L’en-tête mesure au moins 80px et reste noir sur les routes intérieures; sur Home, il se superpose au sommet sombre du Canvas.
 - Home omet le petit mot-symbole MAYEUL pour ne pas répéter le grand nom; les routes intérieures le rétablissent à gauche.
-- La navigation desktop s’aligne à droite, avec lien actif souligné et cibles de 44px.
-- Sous 48rem, un contrôle Menu noir ouvre une surface plein écran noire; le contrôle de fermeture est blanc.
+- La navigation desktop s’aligne à droite, avec lien actif souligné et contrôles `base-nova` compacts.
+- Sous 48rem, le contrôle Menu secondaire ouvre un Sheet clair depuis la droite, avec overlay, ombre douce et fermeture explicite.
 - Tabler fournit uniquement les pictogrammes Menu et X. Toute autre destination conserve un libellé texte.
-- Le sélecteur de langue est un contrôle noir opaque à coins de 16px, non une pilule translucide.
+- Le sélecteur de langue utilise la variante secondaire shadcn.
 
 ### Editorial Actions
 
-Les actions secondaires sont des liens textuels à soulignement fin. Elles gardent une cible verticale de 44px, renforcent le trait au survol et reçoivent le focus global. Elles ne deviennent ni bouton fantôme, ni chip, ni icône sans libellé.
+Les actions secondaires utilisent `Button` avec la variante `link`, y compris lorsque TanStack Router fournit l’élément rendu. Elles gardent un libellé explicite et ne deviennent ni chip ni icône seule.
 
 ### Typeset
 
@@ -297,24 +311,24 @@ Les particules capturées restent visibles sans expiration ni éviction par les 
 
 ### Contact dialog
 
-La modale Contact réutilise Base UI Dialog : surface blanche opaque, fond occultant noir, typographie Hanken et contrôles monochromes. Le titre précède les champs nom, email et message ; les coordonnées directes restent accessibles sous le formulaire. La surface défile dans les petits viewports, sans débordement horizontal. Échap et le bouton de fermeture restituent le focus au déclencheur ; un clic extérieur ne ferme pas le brouillon. Les états d’envoi, de confirmation et d’échec sont textuels, sans couleur supplémentaire.
+La modale Contact compose `Dialog`, `Field`, `Input`, `Textarea`, `Separator` et `Button` de shadcn `base-nova`. Sa surface neutral claire, son ring discret et son backdrop flouté marquent le focus modal. Le titre précède les champs nom, email et message; les coordonnées directes restent accessibles sous le formulaire. La surface défile dans les petits viewports. Échap et la fermeture restituent le focus au déclencheur; un clic extérieur ne ferme pas le brouillon. Une erreur utilise le token `destructive`; confirmation et copie restent textuelles.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** maintenir le noir et le blanc comme seules couleurs des surfaces ordinaires.
+- **Do** maintenir noir et blanc pour les grandes surfaces, neutral `base-nova` pour les contrôles et overlays.
 - **Do** confiner tout bleu, violet et lavande au Canvas du héros et à son fondu.
 - **Do** utiliser Hanken Grotesk auto-hébergée, avec des titres à 400–500 et des intertitres de lecture à 600.
 - **Do** construire les listes et preuves avec espace, grilles et règles de 1px.
-- **Do** employer les primitives Base UI/CVA et conserver des contrôles opaques, des rayons de 10–16px et des cibles d’au moins 44px.
+- **Do** employer les composants shadcn `base-nova` possédés localement, avec Base UI, CVA et les tokens neutral officiels.
 - **Do** préserver le budget, la pause, les suspensions, reduced-motion, SSR et le repli statique du Canvas.
 - **Do** réserver Tabler aux seules icônes Menu et X.
 
 ### Don't:
 
 - **Don't** réintroduire la Salle d’optique computationnelle, ses lentilles, halos d’interface, instrumentation mono ou métaphores de laboratoire.
-- **Don't** ajouter de glassmorphism, flou d’arrière-plan, ombre de carte ou panneau translucide.
+- **Don't** ajouter de glassmorphism, ombre de carte ou panneau translucide hors overlays shadcn.
 - **Don't** construire une grille de cartes, des chips de technologies ou des pilules répétées.
 - **Don't** appliquer de dégradé au texte ni laisser une couleur sortir du héros.
 - **Don't** ajouter un système de thème, une bascule sombre ou une palette secondaire.

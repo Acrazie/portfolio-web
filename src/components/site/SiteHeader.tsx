@@ -1,6 +1,16 @@
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { LogoMark } from "@/components/ui/LogoMark";
+import {
+	Sheet,
+	SheetClose,
+	SheetContent,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from "@/components/ui/sheet";
 import { portfolio } from "@/content/portfolio";
 import { useContact } from "./ContactProvider";
 import { useLocale } from "./LocaleProvider";
@@ -24,16 +34,8 @@ export function SiteHeader({
 	const { openContact } = useContact();
 	const { copy, toggleLocale } = useLocale();
 	const menuTrigger = useRef<HTMLButtonElement>(null);
+	const contactAfterSheet = useRef(false);
 	const [open, setOpen] = useState(false);
-
-	useEffect(() => {
-		if (!open) return;
-		const close = (event: KeyboardEvent) => {
-			if (event.key === "Escape") setOpen(false);
-		};
-		document.addEventListener("keydown", close);
-		return () => document.removeEventListener("keydown", close);
-	}, [open]);
 
 	return (
 		<header
@@ -41,104 +43,137 @@ export function SiteHeader({
 		>
 			<div className="site-container flex min-h-20 items-center justify-between gap-6">
 				{home ? (
-					<span aria-hidden="true" />
+					<Link
+						to="/"
+						className="focus-ring inline-flex items-center text-white/80 transition-opacity hover:text-white"
+						aria-label={copy.nav.home}
+					>
+						<LogoMark className="size-6 text-white" aria-hidden="true" />
+					</Link>
 				) : (
 					<Link
 						to="/"
-						className="focus-ring text-sm font-semibold tracking-[-.02em] text-white"
+						className="focus-ring inline-flex items-center gap-2.5 text-sm font-semibold tracking-[-.02em] text-white"
 					>
-						{portfolio.displayName.toUpperCase()}
+						<LogoMark
+							className="size-5 shrink-0 text-white"
+							aria-hidden="true"
+						/>
+						<span>{portfolio.displayName.toUpperCase()}</span>
 					</Link>
 				)}
 
 				<div className="flex items-center gap-2">
 					<nav
 						aria-label={copy.navigationLabel}
-						className="hidden items-center gap-6 md:flex"
+						className="hidden items-center gap-4 md:flex"
 					>
 						{navItems.map((item) => (
 							<Link
 								key={item.key}
 								to={item.to}
-								className={`focus-ring inline-flex min-h-11 items-center border-b text-sm transition-colors ${active === item.key ? "border-white text-white" : "border-transparent text-white/78 hover:text-white"}`}
+								className={`focus-ring inline-flex h-8 items-center border-b px-1 text-sm transition-colors ${active === item.key ? "border-white text-white" : "border-transparent text-white/78 hover:text-white"}`}
 							>
 								{copy.nav[item.key]}
 							</Link>
 						))}
-						<button
-							type="button"
-							className="focus-ring inline-flex min-h-11 items-center text-sm text-white/78 hover:text-white"
+						<Button
+							variant="ghost"
+							className="text-white/78 hover:bg-white/10 hover:text-white"
 							onClick={(event) => openContact(event.currentTarget)}
 						>
 							{copy.nav.contact}
-						</button>
+						</Button>
 					</nav>
-					<button
+
+					<Button
 						type="button"
+						variant="secondary"
+						size="sm"
 						onClick={toggleLocale}
-						className="focus-ring inline-flex min-h-11 items-center rounded-xl bg-black px-3 text-xs font-medium text-white"
 						aria-label={copy.language.label}
 					>
 						{copy.language.short}
-						<span aria-hidden="true" className="px-1 text-white/35">
+						<span aria-hidden="true" className="text-black/30">
 							/
 						</span>
-						<span aria-hidden="true" className="text-white/55">
+						<span aria-hidden="true" className="text-black/55">
 							{copy.language.other}
 						</span>
-					</button>
-					<button
-						type="button"
-						ref={menuTrigger}
-						onClick={() => setOpen(true)}
-						className="focus-ring inline-flex size-11 items-center justify-center rounded-xl bg-black text-white md:hidden"
-						aria-label={copy.menu.open}
-						aria-expanded={open}
+					</Button>
+
+					<Sheet
+						open={open}
+						onOpenChange={setOpen}
+						onOpenChangeComplete={(nextOpen) => {
+							if (!nextOpen && contactAfterSheet.current) {
+								contactAfterSheet.current = false;
+								openContact(menuTrigger.current);
+							}
+						}}
 					>
-						<IconMenu2 aria-hidden="true" size={20} stroke={1.7} />
-					</button>
+						<SheetTrigger
+							render={
+								<Button
+									ref={menuTrigger}
+									variant="secondary"
+									size="icon"
+									className="md:hidden"
+									aria-label={copy.menu.open}
+								/>
+							}
+						>
+							<IconMenu2 aria-hidden="true" />
+						</SheetTrigger>
+						<SheetContent side="right" showCloseButton={false}>
+							<SheetHeader className="border-b p-6 pr-16">
+								<SheetTitle>{copy.navigationLabel}</SheetTitle>
+							</SheetHeader>
+							<SheetClose
+								render={
+									<Button
+										variant="ghost"
+										size="icon"
+										className="absolute top-4 right-4"
+										aria-label={copy.menu.close}
+									/>
+								}
+							>
+								<IconX aria-hidden="true" />
+							</SheetClose>
+							<nav
+								aria-label={copy.navigationLabel}
+								className="flex flex-col gap-2 p-4"
+							>
+								{navItems.map((item) => (
+									<Button
+										key={item.key}
+										render={
+											<Link to={item.to} onClick={() => setOpen(false)} />
+										}
+										nativeButton={false}
+										role="link"
+										variant={active === item.key ? "secondary" : "ghost"}
+										className="h-auto justify-start px-3 py-3 text-base"
+									>
+										{copy.nav[item.key]}
+									</Button>
+								))}
+								<Button
+									variant="ghost"
+									className="h-auto justify-start px-3 py-3 text-base"
+									onClick={() => {
+										contactAfterSheet.current = true;
+										setOpen(false);
+									}}
+								>
+									{copy.nav.contact}
+								</Button>
+							</nav>
+						</SheetContent>
+					</Sheet>
 				</div>
 			</div>
-
-			{open && (
-				<div className="fixed inset-0 z-50 bg-black text-white md:hidden">
-					<div className="site-container flex min-h-20 items-center justify-end">
-						<button
-							type="button"
-							onClick={() => setOpen(false)}
-							className="focus-ring inline-flex size-11 items-center justify-center rounded-xl bg-white text-black"
-							aria-label={copy.menu.close}
-						>
-							<IconX aria-hidden="true" size={20} stroke={1.7} />
-						</button>
-					</div>
-					<nav
-						aria-label={copy.navigationLabel}
-						className="site-container flex flex-col py-10"
-					>
-						{navItems.map((item) => (
-							<Link
-								key={item.key}
-								to={item.to}
-								onClick={() => setOpen(false)}
-								className="focus-ring border-t border-white/18 py-5 text-3xl font-medium tracking-[-.03em] last:border-b"
-							>
-								{copy.nav[item.key]}
-							</Link>
-						))}
-						<button
-							type="button"
-							className="focus-ring border-b border-white/18 py-5 text-left text-3xl font-medium tracking-[-.03em]"
-							onClick={() => {
-								setOpen(false);
-								openContact(menuTrigger.current);
-							}}
-						>
-							{copy.nav.contact}
-						</button>
-					</nav>
-				</div>
-			)}
 		</header>
 	);
 }
