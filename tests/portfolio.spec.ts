@@ -1,7 +1,7 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
 
-test("home presents one focused hero and the selected project", async ({
+test("single page presents the hero, project, profile and education", async ({
 	page,
 }) => {
 	await page.goto("/");
@@ -11,8 +11,8 @@ test("home presents one focused hero and the selected project", async ({
 		page.getByText("Je conçois des expériences web fiables"),
 	).toBeVisible();
 	await expect(
-		page.getByRole("link", { name: "Voir Projects" }),
-	).toHaveAttribute("href", "/projects");
+		page.getByRole("link", { name: "Voir les projets" }),
+	).toHaveAttribute("href", "#project");
 	await expect(page.locator(".gradient-canvas-fallback")).toBeVisible();
 	await expect(page.locator("canvas")).toBeVisible();
 	const viewport = page.viewportSize();
@@ -21,49 +21,94 @@ test("home presents one focused hero and the selected project", async ({
 		.evaluate((element) => element.getBoundingClientRect().height);
 	expect(heroHeight).toBeGreaterThanOrEqual(viewport?.height ?? 0);
 	await expect(
-		page.getByRole("heading", { level: 2, name: "Qui je suis, en bref" }),
+		page.getByRole("heading", { level: 2, name: "Projets", exact: true }),
 	).toBeVisible();
 	await expect(
-		page.getByRole("link", { name: "En savoir plus sur moi" }),
-	).toHaveAttribute("href", "/about");
+		page.getByRole("heading", { level: 2, name: "Profil" }),
+	).toBeVisible();
 	await expect(
-		page.getByRole("heading", { name: "Portfolio vivant" }),
+		page.getByRole("heading", { level: 2, name: "Formation" }),
+	).toBeVisible();
+	await expect(
+		page.getByRole("heading", { name: "Skills pour agents IA" }),
+	).toBeVisible();
+	await expect(
+		page.getByRole("heading", { name: "Codex Dev Flow" }),
 	).toBeVisible();
 });
 
-test("project index and detail avoid duplicated sections", async ({ page }) => {
-	await page.goto("/projects");
+test("project proof stays on-site and only verified profiles exit", async ({
+	page,
+}) => {
+	await page.goto("/");
+	await page.getByRole("link", { name: "Voir les projets" }).click();
+	await expect(page).toHaveURL(/\/#project$/);
 	await expect(
-		page.getByRole("heading", { level: 1, name: "Projects" }),
+		page.getByRole("heading", { name: "Skills pour agents IA" }),
 	).toBeVisible();
-	await page.getByRole("link", { name: "Voir le projet" }).click();
-	await expect(page).toHaveURL(/\/projects\/portfolio-web$/);
 	await expect(
-		page.getByRole("heading", { level: 1, name: "Portfolio vivant" }),
+		page.getByRole("heading", { name: "Multi-Agent Planner" }),
+	).toBeVisible();
+	await expect(page.locator(".skill-atlas-menu button")).toHaveCount(8);
+	await expect(page.locator(".skills-complete-index li")).toHaveCount(16);
+	await page.getByRole("button", { name: /Skill Refiner/ }).click();
+	await expect(
+		page.getByRole("heading", { name: "Skill Refiner" }),
+	).toBeVisible();
+	await expect(page.locator("#selected-skill")).toContainText(
+		"Journal de retours et ADR",
+	);
+	await expect(
+		page.getByRole("heading", { name: "Index complet" }),
 	).toBeVisible();
 	await expect(
-		page.getByRole("link", { name: "Voir le dépôt GitHub" }),
-	).toHaveAttribute("href", "https://github.com/acrazie/portfolio-web");
-});
-
-test("about and education expose supplied facts", async ({ page }) => {
-	await page.goto("/about");
-	await expect(
-		page.getByRole("heading", { level: 1, name: "About" }),
+		page.getByRole("heading", { name: "Codex Dev Flow" }),
 	).toBeVisible();
-	await expect(page.getByText("Codex", { exact: true })).toBeVisible();
-	await page.goto("/education");
+	await expect(page.getByRole("link", { name: "Voir sur GitHub" })).toHaveCount(
+		2,
+	);
 	await expect(
-		page.getByRole("heading", { level: 1, name: "Education" }),
-	).toBeVisible();
+		page.getByRole("link", { name: "Voir sur GitHub" }).first(),
+	).toHaveAttribute("href", "https://github.com/Acrazie/skills");
+	await expect(
+		page.getByRole("link", { name: "Voir sur GitHub" }).last(),
+	).toHaveAttribute("href", "https://github.com/Acrazie/codex-dev-flow");
+	await expect(
+		page.getByRole("listitem").filter({ hasText: "INTAKE" }),
+	).toContainText("Clarifier l’objectif");
 	for (const institution of ["Marcq Institution", "ISG", "Epitech"]) {
 		await expect(
 			page.getByRole("heading", { name: institution }),
 		).toBeVisible();
 	}
+	const exits = await page
+		.locator('a[href^="http"], a[href^="mailto:"]')
+		.evaluateAll((anchors) =>
+			anchors.map((anchor) => anchor.getAttribute("href")),
+		);
+	expect(
+		exits.every(
+			(href) =>
+				href?.startsWith("https://github.com/") ||
+				href?.startsWith("https://www.linkedin.com/") ||
+				href?.startsWith("mailto:"),
+		),
+	).toBe(true);
 });
 
-test("language switch persists across client navigation", async ({
+test("old page URLs lead to their sections", async ({ page }) => {
+	for (const [path, hash] of [
+		["/projects", "project"],
+		["/projects/portfolio-web", "project"],
+		["/about", "about"],
+		["/education", "education"],
+	]) {
+		await page.goto(path);
+		await expect(page).toHaveURL(new RegExp(`/#${hash}$`));
+	}
+});
+
+test("language switch persists across section navigation", async ({
 	page,
 	isMobile,
 }) => {
@@ -74,9 +119,17 @@ test("language switch persists across client navigation", async ({
 		.click();
 	await expect(page.locator("html")).toHaveAttribute("lang", "en");
 	if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
-	await page.getByRole("link", { name: "About", exact: true }).click();
+	await page.getByRole("link", { name: "Profile", exact: true }).click();
 	await expect(
 		page.getByText("Software engineering, augmented with judgment."),
+	).toBeVisible();
+	await expect(
+		page.getByRole("heading", { name: "Skills for AI agents" }),
+	).toBeVisible();
+	await expect(
+		page.getByText(
+			"A Codex plugin connecting scoping, approval, implementation, and verification of a software change.",
+		),
 	).toBeVisible();
 });
 
@@ -221,7 +274,7 @@ test("mobile navigation remains textual and keyboard-dismissible", async ({
 		name: "Navigation principale",
 	});
 	await expect(
-		navigation.getByRole("link", { name: "Education" }),
+		navigation.getByRole("link", { name: "Formation" }),
 	).toBeVisible();
 	await page.keyboard.press("Escape");
 	await expect(
@@ -237,12 +290,17 @@ test("SSR fallback keeps essential content without JavaScript", async ({
 	await page.goto("/");
 	await expect(page.getByRole("heading", { level: 1 })).toContainText("MAYEUL");
 	await expect(page.locator(".gradient-canvas-fallback")).toBeVisible();
-	await expect(page.getByRole("link", { name: "Voir Projects" })).toBeVisible();
+	await expect(
+		page.getByRole("link", { name: "Voir les projets" }),
+	).toBeVisible();
 	await context.close();
 });
 
-test("core routes pass accessibility and overflow checks", async ({ page }) => {
-	for (const path of ["/", "/projects", "/about", "/education"]) {
+test("single page passes accessibility and overflow checks", async ({
+	page,
+	isMobile,
+}) => {
+	for (const path of ["/"]) {
 		await page.goto(path);
 		const results = await new AxeBuilder({ page }).analyze();
 		expect(
@@ -255,5 +313,14 @@ test("core routes pass accessibility and overflow checks", async ({ page }) => {
 				document.documentElement.clientWidth,
 		);
 		expect(overflow).toBeLessThanOrEqual(1);
+		if (isMobile) {
+			await page.screenshot({
+				path: ".impeccable/review/mobile-hero-proof.png",
+			});
+		}
+		await page.screenshot({
+			path: `.impeccable/review/${isMobile ? "mobile" : "desktop"}.png`,
+			fullPage: true,
+		});
 	}
 });
