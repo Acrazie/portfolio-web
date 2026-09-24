@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.6](https://github.com/Acrazie/portfolio-web/compare/v0.1.5...v0.1.6) (2026-09-24)
+
+
+### Features
+
+* add contact modal and natural canvas motion ([#33](https://github.com/Acrazie/portfolio-web/issues/33)) ([a9c7bc5](https://github.com/Acrazie/portfolio-web/commit/a9c7bc5756788f10caefc20fc8221bb0b745ca85))
+* **portfolio:** showcase AI agent skills ([#36](https://github.com/Acrazie/portfolio-web/issues/36)) ([5cf26af](https://github.com/Acrazie/portfolio-web/commit/5cf26af4a5c2011bee2c050dd02a4d84c56783a8))
+* **ui:** migrate portfolio to shadcn base-nova ([#35](https://github.com/Acrazie/portfolio-web/issues/35)) ([86731ac](https://github.com/Acrazie/portfolio-web/commit/86731ace44eafedbb6a2043bf8beb722fdc54287))
+
 ## [0.1.5](https://github.com/Acrazie/portfolio-web/compare/v0.1.4...v0.1.5) (2026-09-14)
 
 
