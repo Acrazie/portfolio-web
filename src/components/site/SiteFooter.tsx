@@ -8,7 +8,7 @@ export function SiteFooter() {
 	const { copy } = useLocale();
 
 	return (
-		<footer className="bg-black text-white">
+		<footer id="contact" className="scroll-mt-24 bg-black text-white">
 			<div className="site-container py-20 sm:py-28">
 				<div className="grid gap-12 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
 					<div>
@@ -28,9 +28,12 @@ export function SiteFooter() {
 						>
 							{copy.contact.action}
 						</Button>
-						<p className="mt-3 break-all text-sm text-white/58">
+						<a
+							className="focus-ring mt-3 block break-all text-sm text-white/72 hover:text-white hover:underline"
+							href={`mailto:${portfolio.email}`}
+						>
 							{portfolio.email}
-						</p>
+						</a>
 					</div>
 				</div>
 				<div className="mt-20 flex flex-wrap items-end justify-between gap-8 border-t border-white/18 pt-7">

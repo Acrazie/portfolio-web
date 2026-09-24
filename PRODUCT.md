@@ -12,7 +12,7 @@ The portfolio primarily serves recruiters, engineering managers, and technical p
 
 ## Product Purpose
 
-This is Mayeul's public professional portfolio. A compact home page should establish his profile quickly, then short focused pages should lead visitors to the right proof, background, education record, profile, or contact destination.
+This is Mayeul's public professional portfolio. One page establishes his profile quickly, leads with verified AI-agent work, then makes background, education, and contact directly accessible in sections.
 
 Success means visitors can quickly understand who Mayeul is, what he does, what he has worked on, and where to continue the conversation without the site inventing unavailable facts or evidence.
 
@@ -22,23 +22,22 @@ Mayeul is positioned as a **Software Engineer · AI Engineer**, focused on depen
 
 ## Operating Context
 
-The product is a public multi-page web portfolio:
+The product is a public single-page web portfolio:
 
-1. Home: concise identity, full-hero animated gradient, and one primary Projects action.
-2. Projects: a data-driven index that starts with one verified project and scales without repeating page sections.
-3. Project detail: one reusable case-study route per project.
-4. About: professional position, software/AI capabilities, daily tools, and verified external profiles.
-5. Education: the supplied education record without invented dates.
-6. Contact: a shared bilingual modal available from persistent navigation and the footer, with required name, email and message fields. Server-side Resend delivery targets the verified mailbox; direct email and LinkedIn remain fallback destinations.
+1. Hero: concise identity, full-height animated gradient Canvas, and one primary action to the projects section.
+2. Projects: the Acrazie skills collection is the main showcase. An interactive document-style atlas features eight real skills; a complete on-site index describes all sixteen skills currently present in the collection. Codex Dev Flow is a secondary feature with its documented five-stage process. GitHub links lead to the source repositories; the portfolio itself is not a featured project.
+3. Profile: professional position, software/AI capabilities, and confirmed daily tools.
+4. Education: the supplied education record without invented dates.
+5. Contact: a shared bilingual modal available from navigation and the footer, with required name, email and message fields. Server-side Resend delivery targets the verified mailbox; direct email and LinkedIn remain available. Older section routes redirect to their page anchors.
 
 ## Capabilities and Constraints
 
-- The site is a multi-page portfolio with short focused routes rather than one long page.
-- The portfolio must support links to external professional profiles and resources.
-- Current employer, work history, additional project details, achievements, chat destination, and booking destination remain open content decisions.
+- The site is one page with navigable sections; its content must remain directly accessible without requiring external profile visits.
+- External links include verified GitHub resources and LinkedIn; a direct `mailto:` action remains available. The skills.sh profile is not a navigation destination.
+- Current employer, work history, additional project details, achievements, chat destination, and booking destination remain open content decisions. Stockli is not featured in this version.
 - The portfolio is bilingual French and English, with French as the default language.
 - Unverified employers, outcomes, testimonials, rankings, availability, or other professional claims must not be invented.
-- Existing implementation uses React, TanStack Start, Tailwind CSS, Motion, React Three Fiber, TypeScript, and Bun.
+- Existing implementation uses React, TanStack Start, Tailwind CSS, Canvas 2D, TypeScript, and Bun.
 
 ## Brand Commitments
 
@@ -55,10 +54,10 @@ The product is a public multi-page web portfolio:
 - Confirmed GitHub profile: <https://github.com/acrazie>
 - Confirmed contact email: <mayeul.desbazeille@gmail.com>
 - Confirmed daily AI tools: Codex, Claude, and Gemini across multiple agent harnesses.
-- Verified first project: this portfolio at <https://github.com/acrazie/portfolio-web>.
+- Verified AI-agent work: the skills collection at <https://github.com/Acrazie/skills> and Codex Dev Flow at <https://github.com/Acrazie/codex-dev-flow>. The sixteen skill names and summaries come from the local collection's SKILL.md files; eight are featured. The plugin's INTAKE, SHAPE, GATE, BUILD, and ASSURE stages come from its README. The on-site skill catalog is a curated snapshot, not a live GitHub feed.
 - Supplied education record: collège and lycée at Marcq Institution; Bachelor at ISG; Master Software Engineer at Epitech. Dates remain unsupplied.
-- Incumbent draft content and structure: `src/components/PortfolioPage.tsx` and `src/content/portfolio.ts`.
-- No verified employer, work-history, additional flagship-project, achievement, ranking, portrait, chat, or booking content has been supplied yet. Future work must leave these open rather than fabricate them.
+- Current content and structure: `src/components/pages/HomePage.tsx` and `src/content/portfolio.ts`.
+- No verified employer, work-history, achievement, ranking, portrait, chat, or booking content has been supplied yet. Future work must leave these open rather than fabricate them.
 
 ## Product Principles
 

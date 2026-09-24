@@ -1,5 +1,4 @@
 import { IconMenu2, IconX } from "@tabler/icons-react";
-import { Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogoMark } from "@/components/ui/LogoMark";
@@ -11,26 +10,16 @@ import {
 	SheetTitle,
 	SheetTrigger,
 } from "@/components/ui/sheet";
-import { portfolio } from "@/content/portfolio";
 import { useContact } from "./ContactProvider";
 import { useLocale } from "./LocaleProvider";
 
-type NavKey = "home" | "projects" | "about" | "education";
-
 const navItems = [
-	{ key: "home", to: "/" },
-	{ key: "projects", to: "/projects" },
-	{ key: "about", to: "/about" },
-	{ key: "education", to: "/education" },
+	{ key: "projects", to: "/#project" },
+	{ key: "about", to: "/#about" },
+	{ key: "education", to: "/#education" },
 ] as const;
 
-export function SiteHeader({
-	active,
-	home = false,
-}: {
-	active: NavKey;
-	home?: boolean;
-}) {
+export function SiteHeader() {
 	const { openContact } = useContact();
 	const { copy, toggleLocale } = useLocale();
 	const menuTrigger = useRef<HTMLButtonElement>(null);
@@ -38,30 +27,15 @@ export function SiteHeader({
 	const [open, setOpen] = useState(false);
 
 	return (
-		<header
-			className={`z-40 text-white ${home ? "absolute inset-x-0 top-0" : "relative bg-black"}`}
-		>
-			<div className="site-container flex min-h-20 items-center justify-between gap-6">
-				{home ? (
-					<Link
-						to="/"
-						className="focus-ring inline-flex items-center text-white/80 transition-opacity hover:text-white"
-						aria-label={copy.nav.home}
-					>
-						<LogoMark className="size-6 text-white" aria-hidden="true" />
-					</Link>
-				) : (
-					<Link
-						to="/"
-						className="focus-ring inline-flex items-center gap-2.5 text-sm font-semibold tracking-[-.02em] text-white"
-					>
-						<LogoMark
-							className="size-5 shrink-0 text-white"
-							aria-hidden="true"
-						/>
-						<span>{portfolio.displayName.toUpperCase()}</span>
-					</Link>
-				)}
+		<header className="fixed inset-x-0 top-0 z-40 text-white">
+			<div className="site-container mt-3 flex min-h-16 items-center justify-between gap-6 rounded-[14px] border border-white/14 bg-black px-4 sm:px-6">
+				<a
+					href="/"
+					className="focus-ring inline-flex items-center text-white/80 transition-opacity hover:text-white"
+					aria-label={copy.nav.home}
+				>
+					<LogoMark className="size-6 text-white" aria-hidden="true" />
+				</a>
 
 				<div className="flex items-center gap-2">
 					<nav
@@ -69,13 +43,13 @@ export function SiteHeader({
 						className="hidden items-center gap-4 md:flex"
 					>
 						{navItems.map((item) => (
-							<Link
+							<a
 								key={item.key}
-								to={item.to}
-								className={`focus-ring inline-flex h-8 items-center border-b px-1 text-sm transition-colors ${active === item.key ? "border-white text-white" : "border-transparent text-white/78 hover:text-white"}`}
+								href={item.to}
+								className="focus-ring inline-flex h-8 items-center border-b border-transparent px-1 text-sm text-white/78 transition-colors hover:border-white hover:text-white"
 							>
 								{copy.nav[item.key]}
-							</Link>
+							</a>
 						))}
 						<Button
 							variant="ghost"
@@ -148,12 +122,10 @@ export function SiteHeader({
 								{navItems.map((item) => (
 									<Button
 										key={item.key}
-										render={
-											<Link to={item.to} onClick={() => setOpen(false)} />
-										}
+										render={<a href={item.to} onClick={() => setOpen(false)} />}
 										nativeButton={false}
 										role="link"
-										variant={active === item.key ? "secondary" : "ghost"}
+										variant="ghost"
 										className="h-auto justify-start px-3 py-3 text-base"
 									>
 										{copy.nav[item.key]}

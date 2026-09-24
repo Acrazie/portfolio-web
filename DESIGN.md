@@ -158,9 +158,9 @@ components:
 
 **Creative North Star: "La table de revue"**
 
-La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, l’interface se réduit volontairement à du noir, du blanc, des règles fines et des champs ouverts. Aucun décor ne concurrence les faits, les parcours courts ou les destinations utiles.
+La table de revue présente le travail de Mayeul comme un dossier précis, calme et immédiatement lisible. Après un premier viewport atmosphérique, la page unique place les skills pour agents IA et Codex Dev Flow au centre, puis déroule profil, formation et contact. L’interface se réduit au noir, au blanc, aux règles fines et aux champs ouverts. Aucun décor ne concurrence les faits.
 
-Un seul événement visuel rompt ce régime éditorial: le héros d’accueil est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio; toutes les autres surfaces restent strictement monochromes et sans effet de matière.
+Un seul événement visuel rompt ce régime éditorial: le héros est entièrement occupé par un Canvas 2D bleu, violet et lavande. Son large fondu blanc, symétrique autour de l’axe vertical, absorbe la couleur avant le contenu. Sur pointeur fin, le déplacement réel du curseur libère un nuage compact et lent de `>`, `_`, `o`, `/` et `+`. Ces particules restent libres sur presque tout le Canvas; seules celles qui traversent le champ étroit du mot caché se rangent dans sa matrice ASCII. Elles-mêmes dessinent progressivement « Bienvenue » ou « Welcome » sur une seule ligne, avec chaque lettre définie sur une grille de 7 × 9. La version française mobilise 217 glyphes persistants, distincts du nuage libre plafonné à 120. Ce geste constitue la signature du portfolio. La section Skills devient une table de consultation interactive, composée d’une grande fiche `SKILL.md` sélectionnée, de huit entrées vedettes et d’un index complet de seize skills. Le plugin conserve sa séquence documentée. Le portfolio lui-même n’est pas une étude de cas.
 
 Le système privilégie une hiérarchie franche, une densité basse et des contrôles compacts. Hanken Grotesk maintient une voix unique, humaine et technique. shadcn `base-nova` fournit les composants possédés par le projet, Base UI leurs primitives interactives et CVA leurs variantes. Les compositions restent fondées sur des lignes et des alignements plutôt que sur des cartes répétées.
 
@@ -176,7 +176,7 @@ Le système privilégie une hiérarchie franche, une densité basse et des contr
 
 ## Colors
 
-Le système possède deux régimes principaux: noir et blanc pour les grandes surfaces éditoriales; neutral `base-nova` pour les contrôles et overlays. Le spectre froid reste réservé au héros d’accueil.
+Le système possède deux régimes principaux: noir et blanc pour les grandes surfaces éditoriales; neutral `base-nova` pour les contrôles et overlays. Le spectre froid reste réservé au héros.
 
 ### Primary
 
@@ -199,7 +199,7 @@ Le système possède deux régimes principaux: noir et blanc pour les grandes su
 - **Neutral shadcn** (`control-secondary`, `control-muted`, `control-accent`, `control-ring`): boutons secondaires, champs, survols, textes atténués et focus.
 - **Destructive** (`control-destructive`): erreurs de formulaire uniquement.
 
-**The Chromatic Quarantine Rule.** Toute couleur expressive reste dans le Canvas du héros et son fondu. Seul le rouge `destructive` peut sortir de cette zone pour signaler une erreur réelle.
+**The Chromatic Quarantine Rule.** Toute couleur expressive reste dans le Canvas du héros et son fondu. Seul le rouge `destructive` peut sortir de ces zones pour signaler une erreur réelle.
 
 **The Two-Surface Rule.** Hors héros, toute grande surface reste noire ou blanche. Les tons neutral sont réservés aux composants interactifs, aux champs et aux overlays.
 
@@ -217,11 +217,9 @@ Le système possède deux régimes principaux: noir et blanc pour les grandes su
 
 - **Hero Name** (500, fluide jusqu’à 6rem, 0.9): MAYEUL en capitales dans le premier viewport.
 - **Hero Role and Statement** (400–500, fluide jusqu’à 3rem, 1.02–1.28): position professionnelle puis phrase courte; contraste blanc légèrement abaissé pour la phrase.
-- **Page Title** (500, fluide jusqu’à 6rem, 0.92): titres de route, blancs sur noir ou noirs sur blanc.
-- **Section Title** (500, fluide jusqu’à 5rem, 0.96): ouvertures de section et titres de projet majeurs.
-- **Editorial Lead** (400, fluide jusqu’à 2.5rem, 1.18): introduction About uniquement, sans devenir un second titre.
-- **Editorial Heading** (600, échelle relative, 1.3–1.5): intertitres du `typeset` shadcn dans About et Project detail; Education applique également 600 à ses intitulés d’établissement.
-- **Editorial Body** (400, 1.125rem, 1.7): lecture longue dans une colonne de 68–70ch.
+- **Section Title** (500, fluide jusqu’à 6rem, 0.95): ouvertures de Projets, Profil et Formation.
+- **Editorial Lead** (400, fluide jusqu’à 3.25rem, 1.08): phrase de positionnement dans Profil.
+- **Editorial Heading** (500–600, échelle relative): titre du projet, établissements et capacités.
 - **Body** (400, 1rem, 1.75): résumés, légendes et descriptions courtes, généralement limités à 54–62ch.
 - **Control** (500, 0.875rem, 1.4286): boutons, navigation et actions textuelles; la marque intérieure et certains labels structurants montent à 600.
 
@@ -235,13 +233,13 @@ Le système possède deux régimes principaux: noir et blanc pour les grandes su
 
 Le contenu s’aligne sur un conteneur centré de 96rem maximum. Ses marges latérales passent de 20px à 40px au premier palier, puis à 64px sur grand écran. Les pages respirent avec 80–96px de rythme vertical sur petit écran et 112–144px sur grand écran; les groupes internes utilisent surtout 20–40px.
 
-Le héros remplit au moins `100svh`, avec un plancher de 760px sur la page d’accueil. Navigation et contenu sont superposés au Canvas; le bloc identitaire descend dans la moitié basse tandis que le fondu blanc occupe largement la sortie du viewport. La couleur résout complètement vers le blanc avant la section suivante.
+Le héros remplit au moins `100svh`, avec un plancher de 760px. Navigation et contenu sont superposés au Canvas; le bloc identitaire descend dans la moitié basse tandis que le fondu blanc occupe largement la sortie du viewport. La couleur résout complètement vers le blanc avant la section Projets.
 
-Les compositions passent de la pile à des grilles à 48rem ou 64rem. Projets et Education deviennent des rangées à deux colonnes; le détail projet réserve une colonne latérale de 18rem aux technologies. La navigation desktop apparaît à 48rem. Les longueurs de lecture restent contraintes même lorsque les surfaces s’étendent bord à bord.
+Les compositions passent de la pile à des grilles à 48rem ou 64rem. Les skills occupent un atlas éditorial : une fiche blanche grandeur document, deux feuillets décalés en profondeur et une sélection attenante de huit skills. Sur mobile, la sélection devient une bande horizontale au-dessus de la fiche. Un index complet, groupé par usage, donne accès à tous les skills sans lien externe obligatoire. Codex Dev Flow déploie ensuite sa séquence réelle en cinq étapes; Profil alterne grandes lignes typographiques et capacités; Formation reste une liste en deux colonnes sans dates inventées. La navigation desktop apparaît à 48rem. Les longueurs de lecture restent contraintes même lorsque les surfaces s’étendent bord à bord.
 
 **The Open Field Rule.** Structurer d’abord avec espace, alignement et règle de 1px. Ajouter un conteneur seulement si une fonction exige réellement une limite.
 
-**The Short Route Rule.** Chaque route porte un sujet principal et peu de sections. Ne pas reconstruire une longue page d’accueil ou dupliquer les résumés de projet.
+**The One-Page Rule.** Projets, Profil, Formation et Contact sont accessibles par ancres sur une seule page. Les projets sont présentés sur place; les anciennes routes redirigent vers la section correspondante.
 
 ## Elevation & Depth
 
@@ -282,13 +280,13 @@ Contrôles shadcn `base-nova`, construits sur Base UI et organisés par CVA.
 
 ### Cards / Containers
 
-Il n’existe pas de carte canonique. Projet, éducation, capacités et technologies sont des rangées ouvertes séparées par des règles. Les grandes surfaces blanches ou noires restent bord à bord; leur contenu seul est contraint par le conteneur.
+Il n’existe pas de carte canonique. Skills, séquence Codex Dev Flow, éducation et capacités sont organisés par rangées ouvertes et règles. Les grandes surfaces blanches ou noires restent bord à bord; leur contenu seul est contraint par le conteneur.
 
 ### Navigation
 
-- L’en-tête mesure au moins 80px et reste noir sur les routes intérieures; sur Home, il se superpose au sommet sombre du Canvas.
-- Home omet le petit mot-symbole MAYEUL pour ne pas répéter le grand nom; les routes intérieures le rétablissent à gauche.
-- La navigation desktop s’aligne à droite, avec lien actif souligné et contrôles `base-nova` compacts.
+- L’en-tête noir reste fixé en haut dans une barre de 64px aux coins de 14px; il traverse Canvas et sections sans changement de thème.
+- La marque reste un pictogramme: le grand nom MAYEUL apparaît une seule fois dans le héros.
+- La navigation desktop s’aligne à droite et pointe vers les ancres Projets, Profil et Formation; Contact ouvre la modale.
 - Sous 48rem, le contrôle Menu secondaire ouvre un Sheet clair depuis la droite, avec overlay, ombre douce et fermeture explicite.
 - Tabler fournit uniquement les pictogrammes Menu et X. Toute autre destination conserve un libellé texte.
 - Le sélecteur de langue utilise la variante secondaire shadcn.
@@ -299,7 +297,7 @@ Les actions secondaires utilisent `Button` avec la variante `link`, y compris lo
 
 ### Typeset
 
-Le `typeset` shadcn fourni gère paragraphes, listes, définitions, liens, citations, code, tableaux et médias. About et Project detail l’emploient dans une colonne de 68–70ch. Ses titres `h1` à `h4` sont à 600; les niveaux `h5` et `h6` redescendent à 500. Education reprend cette logique de poids dans ses rangées, sans encapsulation.
+Le `typeset` shadcn fourni reste disponible pour un éventuel contenu long. La page actuelle préfère des compositions de preuve courtes plutôt qu’une colonne de lecture continue.
 
 ### Gradient Hero
 
@@ -307,7 +305,7 @@ Le héros combine un repli CSS, un Canvas 2D purement décoratif et un fondu bla
 
 Seules les particules qui traversent le champ du mot, prolongé de 24 px autour de sa matrice, sont capturées. Elles réclament la cible libre la plus proche; attraction de ressort et amortissement augmentent progressivement pendant la capture. « Bienvenue » ou « Welcome » reste sur une seule ligne, chaque lettre occupant une matrice de 7 × 9. La largeur cible occupe 66 % du Canvas au-dessus de 960 px, puis progresse continûment jusqu’à 84 % à 768 px; son centre vertical descend de 68 % à 76 % sur le même intervalle. Les cellules mesurent au plus 18 px et les glyphes dessinés 95 % de cette taille. Le budget persistant, séparé du plafond libre, atteint 240 cibles: « Bienvenue » en utilise 217 et « Welcome » 160. Aucun texte séparé n’est peint.
 
-Les particules capturées restent visibles sans expiration ni éviction par les nouvelles émissions. Un redimensionnement met leurs positions courantes à l’échelle avant de recalculer le champ; elles rejoignent alors progressivement leurs nouvelles cibles, sans téléportation. Pause les masque sans perdre la formation à la reprise. Un changement de langue reconstruit la formation. Une police monospace est réservée à cet art ASCII, tandis que toute la typographie d’interface reste en Hanken Grotesk. Le toucher, Pause et `prefers-reduced-motion` n’affichent ni particules ni mot. Le fondu utilise deux ellipses latérales symétriques et une résolution verticale vers le papier. Le texte, le lien Projects et la commande Pause restent des éléments DOM indépendants et sémantiques.
+Les particules capturées restent visibles sans expiration ni éviction par les nouvelles émissions. Un redimensionnement met leurs positions courantes à l’échelle avant de recalculer le champ; elles rejoignent alors progressivement leurs nouvelles cibles, sans téléportation. Pause les masque sans perdre la formation à la reprise. Un changement de langue reconstruit la formation. Une police monospace est réservée à cet art ASCII, tandis que toute la typographie d’interface reste en Hanken Grotesk. Le toucher, Pause et `prefers-reduced-motion` n’affichent ni particules ni mot. Le fondu utilise deux ellipses latérales symétriques et une résolution verticale vers le papier. Le texte, le lien vers la section Projets et la commande Pause restent des éléments DOM indépendants et sémantiques.
 
 ### Contact dialog
 
@@ -330,7 +328,7 @@ La modale Contact compose `Dialog`, `Field`, `Input`, `Textarea`, `Separator` et
 - **Don't** réintroduire la Salle d’optique computationnelle, ses lentilles, halos d’interface, instrumentation mono ou métaphores de laboratoire.
 - **Don't** ajouter de glassmorphism, ombre de carte ou panneau translucide hors overlays shadcn.
 - **Don't** construire une grille de cartes, des chips de technologies ou des pilules répétées.
-- **Don't** appliquer de dégradé au texte ni laisser une couleur sortir du héros.
+- **Don't** appliquer de dégradé au texte ni utiliser la couleur hors du héros.
 - **Don't** ajouter un système de thème, une bascule sombre ou une palette secondaire.
 - **Don't** multiplier les icônes quand un libellé texte suffit.
 - **Don't** masquer du contenu sémantique derrière le Canvas ou rendre l’animation nécessaire à la compréhension.

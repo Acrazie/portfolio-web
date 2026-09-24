@@ -1,11 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { ProjectDetailPage } from '@/components/pages/ProjectDetailPage'
+import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/projects/$slug')({
-  component: ProjectRoute,
-})
-
-function ProjectRoute() {
-  const { slug } = Route.useParams()
-  return <ProjectDetailPage slug={slug} />
-}
+export const Route = createFileRoute("/projects/$slug")({
+	beforeLoad: ({ params }) => {
+		if (params.slug !== "portfolio-web") throw notFound();
+		throw redirect({ to: "/", hash: "project" });
+	},
+});

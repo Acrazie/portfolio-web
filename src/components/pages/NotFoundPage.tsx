@@ -12,8 +12,8 @@ export function NotFoundPage() {
 			<a href="#main" className="skip-link">
 				{copy.skip}
 			</a>
-			<SiteHeader active="home" />
-			<main id="main" tabIndex={-1} className="bg-white">
+			<SiteHeader />
+			<main id="main" tabIndex={-1} className="bg-white pt-24">
 				<div className="site-container py-24 sm:py-36">
 					<h1 className="page-title max-w-[16ch] text-balance text-[clamp(3.5rem,8vw,6rem)] font-medium leading-[.92] tracking-[-.04em]">
 						{copy.notFound.title}
